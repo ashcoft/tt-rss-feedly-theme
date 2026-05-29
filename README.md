@@ -6,7 +6,7 @@ For the best experience, please use a current browser.
 
 ## Quick Start
 
-1. [Download the theme](levito/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist)
+1. [Download the theme](https://github.com/ashcoft/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist)
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
