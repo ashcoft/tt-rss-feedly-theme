@@ -1,7 +1,7 @@
 # Feedly theme for Tiny Tiny RSS
 
-[![Release v4.1.0](https://img.shields.io/badge/Release-v4.1.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
-[![Download](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.1.0/tt-rss-feedly-theme-dist-4.1.0.zip)
+[![Release v1.0.0](https://img.shields.io/badge/Release-v1.0.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
+[![Download](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v1.0.0/tt-rss-feedly-theme-dist-v1.0.0.zip)
 
 This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://tt-rss.org) that provides a Feedly-inspired interface. Enjoy a clean, minimalist design that makes it easy to quickly scan and read your feeds.
 
@@ -9,7 +9,7 @@ For the best experience, please use a current browser.
 
 ## Quick Start
 
-1. [Download v4.1.0](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.1.0/tt-rss-feedly-theme-dist-4.1.0.zip) or clone the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist)
+1. [Download v1.0.0](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v1.0.0/tt-rss-feedly-theme-dist-v1.0.0.zip) or clone the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist)
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
