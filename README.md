@@ -1,5 +1,8 @@
 # Feedly theme for Tiny Tiny RSS
 
+[![Release v1.0.0](https://img.shields.io/badge/Release-v1.0.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
+[![Download](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/archive/refs/heads/dist.zip)
+
 This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://tt-rss.org) that provides a Feedly-inspired interface. Enjoy a clean, minimalist design that makes it easy to quickly scan and read your feeds.
 
 For the best experience, please use a current browser.
@@ -74,7 +77,7 @@ In order to generate the CSS files, you will need to have Node.js and NPM instal
 ## FAQ
 
 ### Where are the CSS files? They used to be at the root level
-CSS is now pushed to the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
+CSS is now pushed to the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
 
 ### I don't want to copy the files every time – how do I stay up-to-date easily?
 You can clone this repo and `git checkout dist` in it. Then change to your TT-RSS installation's `themes.local` directory and `ln -s [path/to]/tt-rss-feedly-theme/* .`. To update, just `git pull` in the theme's directory.
@@ -83,7 +86,7 @@ You can clone this repo and `git checkout dist` in it. Then change to your TT-RS
 Please make sure that you don't have an old copy of this theme in the `themes` directory of your TT-RSS installation. Third-party themes should go into the `themes.local` directory, but files in the `themes` directory will override any file with the same name in the `themes.local` directory.
 
 ### The theme looks broken
-Please make sure to have the most recent version of TT-RSS installed (I test on [TT-RSS git master](https://dev.tt-rss.org/tt-rss/tt-rss)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
+Please make sure to have the most recent version of TT-RSS installed (I test on [TT-RSS git master](https://github.com/tt-rss/tt-rss)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
 
 ### Which browsers are supported?
 This theme works best with Chromium-based browsers like Chrome, Brave, Edge, Vivaldi or Opera. Firefox and Safari are also supported but they're missing some minor features. On mobile devices, again, Chromium-based browsers on Android work best but Safari and other browsers on iOS should also work fine.
