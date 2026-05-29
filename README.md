@@ -6,7 +6,7 @@ For the best experience, please use a current browser.
 
 ## Quick Start
 
-1. [Download the theme](levito/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist)
+1. [Download the theme](https://github.com/ashcoft/tt-rss-feedly-theme/archive/refs/heads/dist.zip) or clone the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist)
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
@@ -74,7 +74,7 @@ In order to generate the CSS files, you will need to have Node.js and NPM instal
 ## FAQ
 
 ### Where are the CSS files? They used to be at the root level
-CSS is now pushed to the [_dist_ branch](https://github.com/levito/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
+CSS is now pushed to the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
 
 ### I don't want to copy the files every time – how do I stay up-to-date easily?
 You can clone this repo and `git checkout dist` in it. Then change to your TT-RSS installation's `themes.local` directory and `ln -s [path/to]/tt-rss-feedly-theme/* .`. To update, just `git pull` in the theme's directory.
