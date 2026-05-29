@@ -1,7 +1,6 @@
 # sources
 .github
 .husky
-dist
 screenshots
 src
 tt-rss
