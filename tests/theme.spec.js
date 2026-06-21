@@ -22,7 +22,9 @@ test.describe('Theme files validation', () => {
 
   test('CSS files have valid syntax', () => {
     const distDir = path.join(__dirname, '..', 'dist');
-    const cssFiles = fs.readdirSync(distDir).filter(f => f.startsWith('feedly') && f.endsWith('.css'));
+    // Exclude _auto.css files as they only contain @import statements
+    const cssFiles = fs.readdirSync(distDir)
+      .filter(f => f.startsWith('feedly') && f.endsWith('.css') && !f.includes('_auto'));
     
     cssFiles.forEach(file => {
       const content = fs.readFileSync(path.join(distDir, file), 'utf8');

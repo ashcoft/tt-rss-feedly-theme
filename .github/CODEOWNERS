@@ -1,0 +1,6 @@
+# CODEOWNERS
+# This file controls which users are required to approve pull requests
+# Format: https://help.github.com/articles/about-codeowners/
+
+# All files in the repository require approval from the repository owner
+* @ashcoft

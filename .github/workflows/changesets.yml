@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - closed
   workflow_dispatch:
     inputs:
       version:
@@ -18,7 +21,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: |
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,7 +41,14 @@ jobs:
         id: changes
         run: |
           # Skip if only submodule changed
-          if git diff --name-only HEAD~1 | grep -v "^tt-rss$" | grep -q .; then
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # For PR merges, compare against the merge base
+            if git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.sha }} | grep -v "^tt-rss$" | grep -q .; then
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          elif git diff --name-only HEAD~1 | grep -v "^tt-rss$" | grep -q .; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
