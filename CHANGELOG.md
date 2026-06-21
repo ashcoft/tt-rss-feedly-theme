@@ -1,5 +1,11 @@
 # tt-rss-feedly-theme
 
+## 4.4.0
+
+### Minor Changes
+
+- [`cd36a90`](https://github.com/ashcoft/tt-rss-feedly-theme/commit/cd36a9060e08c83cebf5f7b87bf0990eb02e9319) Thanks [@openhands-agent](https://github.com/openhands-agent)! -
+
 ## 4.3.0
 
 ### Minor Changes
