@@ -1,0 +1,52 @@
+name: Update tt-rss Submodule
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Update submodule
+        id: update
+        run: |
+          git submodule update --remote --init tt-rss
+          
+          if ! git diff --quiet tt-rss/; then
+            echo "updated=true" >> $GITHUB_OUTPUT
+          else
+            echo "updated=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create PR
+        if: steps.update.outputs.updated == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add tt-rss/
+          git commit -m "chore: update tt-rss submodule"
+          
+          git push origin HEAD:refs/heads/update/submodule-$(date +%Y%m%d)
+          
+          gh pr create \
+            --title "Update tt-rss submodule" \
+            --body "Automated weekly update of tt-rss submodule to latest commit." \
+            --base main || echo "PR may already exist"

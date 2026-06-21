@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Manual trigger for version bump
 
 permissions:
   contents: write
@@ -14,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: npm
@@ -25,11 +26,48 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Create Release PR
-        uses: changesets/action@3841a0683d3cfa6dae0f9bb335290003010fe3f0
+      - name: Create Release PR or Publish
+        uses: changesets/action@v1.9.0
         with:
           commit: "Release changes"
           title: "Release changes"
-          createRelease: "draft"
+          createRelease: true  # Auto-publish releases (not draft)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  version-bump:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Bump version
+        run: npx changeset version
+
+      - name: Create Commit and PR
+        run: |
+          if git diff --quiet; then
+            echo "No changesets found. Create a changeset file first:"
+            echo "echo '---' > .changeset/VERSION.md"
+            echo 'echo \'package-name: patch\' >> .changeset/VERSION.md'
+            echo 'echo \'---\' >> .changeset/VERSION.md'
+            echo 'echo \'Description\' >> .changeset/VERSION.md'
+            exit 1
+          fi
+          
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "version: bump packages"
+          git tag $(node -p "require('./package.json').version")
+          git push && git push --tags
