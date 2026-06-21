@@ -37,6 +37,61 @@ jobs:
         with:
           commit: "Release changes"
           title: "Release changes"
-          createRelease: true  # Auto-publish when version is bumped
+          createRelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get version
+        id: version
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          VERSION=${TAG#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Update package-lock.json
+        run: |
+          npm install --package-lock-only
+          git add package-lock.json
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit --amend --no-edit || true
+          git push --force-with-lease || true
+
+      - name: Update README version
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [ -n "$VERSION" ]; then
+            # Update badges
+            sed -i "s/Release v[0-9.]*/Release v${VERSION}/g" README.md
+            # Update download links
+            sed -i "s|/download/v[0-9.]*/|/download/v${VERSION}/|g" README.md
+            sed -i "s|tt-rss-feedly-theme-dist-v[0-9.]*.zip|tt-rss-feedly-theme-dist-v${VERSION}.zip|g" README.md
+            # Update download text
+            sed -i "s/Download v[0-9.]*/Download v${VERSION}/g" README.md
+            
+            git add README.md
+            git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit --amend --no-edit || true
+            git push --force-with-lease || true
+          fi
+
+      - name: Update Release Description
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          if [ -n "$TAG" ] && [ -n "$VERSION" ]; then
+            BODY="## Feedly Theme for Tiny Tiny RSS
+
+A clean, minimalist Feedly-inspired theme for Tiny Tiny RSS.
+
+### Quick Start
+1. Download v${VERSION}
+2. Extract to your tt-rss themes directory
+3. Activate in tt-RSS preferences
+
+### Changes
+See [CHANGELOG.md](https://github.com/ashcoft/tt-rss-feedly-theme/blob/main/CHANGELOG.md) for details."
+
+            curl -s -X PATCH "https://api.github.com/repos/${{ github.repository }}/releases/tags/$TAG" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              -d "{\"body\": \"$BODY\"}" || true
+          fi
