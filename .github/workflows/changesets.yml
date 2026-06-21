@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@b4f1987b072e20798b1e458b1e56f5ea751f3d37
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
 
       - name: Setup Node
-        uses: actions/setup-node@0a7d64603bf2be26ff8f59ad5c48e3c987c2a4f2
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: "24"
           cache: npm
