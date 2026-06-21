@@ -23,7 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
-      (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
+      (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true) ||
+      (github.event_name == 'workflow_dispatch')
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,9 +41,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          # Skip if only submodule changed
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            # For PR merges, compare against the merge base
             if git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.sha }} | grep -v "^tt-rss$" | grep -q .; then
               echo "has_changes=true" >> $GITHUB_OUTPUT
             else
@@ -57,7 +56,6 @@ jobs:
       - name: Create changeset if needed
         if: steps.changes.outputs.has_changes == 'true'
         run: |
-          # Check if changeset already exists for this release
           if ! ls .changeset/*.md 2>/dev/null | grep -v config.json | grep -q .; then
             TIMESTAMP=$(date +%Y%m%d%H%M%S)
             echo "---
