@@ -1,10 +1,18 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
-  "changelog": "@changesets/cli/changelog",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "ashcoft/tt-rss-feedly-theme" }
+  ],
   "commit": false,
   "fixed": [],
-  "access": "public",
+  "linked": [],
+  "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  },
   "ignore": []
 }
