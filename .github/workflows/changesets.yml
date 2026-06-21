@@ -37,14 +37,38 @@ jobs:
         with:
           commit: "Release changes"
           title: "Release changes"
-          createRelease: true  # Auto-publish when version is bumped
+          createRelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update package-lock.json
         run: |
-          # Regenerate package-lock.json to ensure it matches package.json
           npm install --package-lock-only
           git add package-lock.json
           git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit --amend --no-edit || true
           git push --force-with-lease || true
+
+      - name: Update Release Description
+        if: success()
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -n "$TAG" ]; then
+            VERSION=${TAG#v}
+            BODY="## Feedly Theme for Tiny Tiny RSS
+
+A clean, minimalist Feedly-inspired theme for Tiny Tiny RSS.
+
+### Quick Start
+1. Download this release
+2. Extract to your tt-rss themes directory  
+3. Activate in tt-RSS preferences
+
+### Changes
+See CHANGELOG.md for details."
+
+            # Update release body using GitHub API
+            curl -s -X PATCH "https://api.github.com/repos/${{ github.repository }}/releases/tags/$TAG" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              -d "{\"body\": \"$BODY\"}" || true
+          fi
