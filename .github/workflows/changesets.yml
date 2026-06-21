@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Create Release PR
-        uses: changesets/action@v1
+        uses: changesets/action@v1.9.0
         with:
           commit: "Release changes"
           title: "Release changes"
