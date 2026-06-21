@@ -52,6 +52,14 @@
   }
 }
 
+/*
+  Hide update notification in the toolbar.
+  Useful for Docker-based setups where updates are handled by pulling a new image.
+*/
+#updates-available {
+  display: none !important;
+}
+
 body.flat.ttrss_utility {
   &::-webkit-scrollbar {
     height: 4px !important;
