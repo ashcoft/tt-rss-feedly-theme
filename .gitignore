@@ -1,20 +1,45 @@
-# build artifacts
-dist
-feedly*.css
-local-overrides.css
-!*_auto.css
-!dist/.gitignore
+```
+# Environment
+.env
+.env.local
+*.env.*
 
-# junk
-*~
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
+
+# Logs
+*.log
+
+# OS generated files
 .DS_Store
+.DS_Store?
 ._*
-[Dd]esktop.ini
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# logs and dependencies
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+```
