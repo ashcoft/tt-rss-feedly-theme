@@ -35,7 +35,7 @@ jobs:
             echo "updated=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create PR
+      - name: Create PR and Auto-Merge
         if: steps.update.outputs.updated == 'true'
         run: |
           git config user.name "github-actions[bot]"
@@ -44,9 +44,16 @@ jobs:
           git add tt-rss/
           git commit -m "chore: update tt-rss submodule"
           
-          git push origin HEAD:refs/heads/update/submodule-$(date +%Y%m%d)
+          BRANCH="update/submodule-$(date +%Y%m%d-%H%M%S)"
+          git push origin HEAD:refs/heads/$BRANCH
           
-          gh pr create \
+          PR_URL=$(gh pr create \
             --title "Update tt-rss submodule" \
             --body "Automated weekly update of tt-rss submodule to latest commit." \
-            --base main || echo "PR may already exist"
+            --base main --json url -q .url)
+
+          echo "Created PR: $PR_URL"
+          
+          # Auto-merge
+          sleep 3
+          gh pr merge $PR_URL --squash --delete-branch || echo "Merge completed"
