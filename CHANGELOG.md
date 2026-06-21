@@ -1,5 +1,11 @@
 # tt-rss-feedly-theme
 
+## 4.3.0
+
+### Minor Changes
+
+- [#20](https://github.com/ashcoft/tt-rss-feedly-theme/pull/20) [`177b7d3`](https://github.com/ashcoft/tt-rss-feedly-theme/commit/177b7d3e559cabe23ff1fa4df9e6130198a143e9) Thanks [@ashcoft](https://github.com/ashcoft)! - Add workflow to auto-update tt-rss submodule weekly and update submodule URL to GitHub mirror
+
 ## 4.2.0
 
 ### Minor Changes
