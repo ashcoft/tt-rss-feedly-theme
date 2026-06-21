@@ -40,3 +40,11 @@ jobs:
           createRelease: true  # Auto-publish when version is bumped
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update package-lock.json
+        run: |
+          # Regenerate package-lock.json to ensure it matches package.json
+          npm install --package-lock-only
+          git add package-lock.json
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit --amend --no-edit || true
+          git push --force-with-lease || true
