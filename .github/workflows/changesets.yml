@@ -72,3 +72,22 @@ See CHANGELOG.md for details."
               -H "Content-Type: application/json" \
               -d "{\"body\": \"$BODY\"}" || true
           fi
+
+      - name: Update README Version
+        if: success()
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -n "$TAG" ]; then
+            VERSION=${TAG#v}
+            
+            # Update README.md with new version
+            sed -i "s/\[!\[Release v[0-9.]*\](https:\/\/img.shields.io\/badge\/Release-v[0-9.]*-blue)\](\[https:\/\/github.com\/ashcoft\/tt-rss-feedly-theme\/releases\]\)/[![Release v${VERSION}](https:\/\/img.shields.io\/badge\/Release-v${VERSION}-blue)](https:\/\/github.com\/ashcoft\/tt-rss-feedly-theme\/releases)/g" README.md
+            
+            sed -i "s/\/download\/v[0-9.]*\/tt-rss-feedly-theme/\/download\/v${VERSION}\/tt-rss-feedly-theme/g" README.md
+            
+            sed -i "s/Download v[0-9.]*/Download v${VERSION}/g" README.md
+            
+            git add README.md
+            git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit --amend --no-edit || true
+            git push --force-with-lease || true
+          fi
