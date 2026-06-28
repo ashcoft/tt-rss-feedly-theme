@@ -1,1 +1,1505 @@
-html{--base-spacing:45px;--font-size-post:16px;--fonts-ui:"Helvetica Neue",Arial,Helvetica,"Liberation Sans","Nimbus Sans L",FreeSans,sans-serif;--fonts-content:var(--fonts-ui);--fonts-heading:sans-serif-condensed,SansCn;--fonts-mono:"Fira Code",Menlo,Monaco,Consolas,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace;--reading-width:45;--card-max-column-count:10;--card-min-column-width:300px}body.flat.ttrss_utility::-webkit-scrollbar{height:4px!important}@media (hover:none){body.flat.ttrss_utility::-webkit-scrollbar{width:0!important;height:0!important}}body.flat.ttrss_utility::-webkit-scrollbar-track{background-color:#0000!important}body.flat.ttrss_utility :focus{outline:none}body.flat.ttrss_utility *{scrollbar-color:#257aa7 transparent;scrollbar-width:thin}body.flat.ttrss_utility ::-webkit-scrollbar{height:4px!important}@media (hover:none){body.flat.ttrss_utility ::-webkit-scrollbar{width:0!important;height:0!important}}body.flat.ttrss_utility ::-webkit-scrollbar-thumb{background-color:#257aa7!important}body.flat.ttrss_utility ::-webkit-scrollbar-track{background-color:#0000!important}body.flat.ttrss_utility.flat{color:#000b;font-family:var(--fonts-ui);-webkit-tap-highlight-color:#257aa766;background-color:#fff}body.flat.ttrss_utility.flat .dijitMenuItemLabel{font-family:unset}body.flat.ttrss_utility.flat .dijitTextBox{box-sizing:border-box}body.flat.ttrss_utility.flat a:any-link:any-link{color:#257aa7;text-decoration:none}body.flat.ttrss_utility.flat a:any-link:is(:hover,:focus-visible){transition:color .1s}@media (hover:hover){body.flat.ttrss_utility.flat a:any-link:is(:hover,:focus-visible){color:#174c68;text-decoration:underline}}body.flat.ttrss_utility.flat .dijitContentPane,body.flat.ttrss_utility.flat .dijitDialog,body.flat.ttrss_utility.flat .dijitTab.dijitChecked,body.flat.ttrss_utility.flat .dijitTabPaneWrapper{background-color:#fff}body.flat.ttrss_utility.flat #feedsTab,body.flat.ttrss_utility.flat #footer,body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,body.flat.ttrss_utility.flat .dijitAccordionTitle.dijitAccordionTitle,body.flat.ttrss_utility.flat .dijitDialog .dijitToolbar,body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonContents,body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonNode,body.flat.ttrss_utility.flat .dijitSplitter.dijitSplitter,body.flat.ttrss_utility.flat .dijitTab.dijitTab:not(.dijitChecked){background-color:#0000}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:is(:hover,:focus-visible),body.flat.ttrss_utility.flat .dijitTab.dijitHover:not(.dijitChecked),body.flat.ttrss_utility.flat :where(.dijitTreeRow:focus-within),body.flat.ttrss_utility.flat .dijitTreeRowHover,body.flat.ttrss_utility.flat .dijitToolbar{background-color:#0001}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,body.flat.ttrss_utility.flat label.dijitButton.dijitButton,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButton,.dijitUpArrowButton){background-color:#eee}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitHover,body.flat.ttrss_utility.flat label.dijitButton.dijitButton:is(:hover,:focus-within),body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton):where(.dijitFocused,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info:where(.dijitFocused,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonHover,.dijitUpArrowButtonHover),body.flat.ttrss_utility.flat .dijitToolbar .dijitHover:not(.dijitSelect) .dijitButtonNode{background-color:#ddd}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:active,body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitActive,body.flat.ttrss_utility.flat label.dijitButton.dijitButton:active,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton):where(.dijitActive) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info:where(.dijitActive) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonActive,.dijitUpArrowButtonActive),body.flat.ttrss_utility.flat .dijitToolbar .dijitActive:not(.dijitSelect) .dijitButtonNode{background-color:#ccc}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer{transition-duration:.1s}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected{background-color:#a8cadc}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected .dijitAccordionTitle{color:#fff;background-color:#257aa7;border-bottom-right-radius:0;border-bottom-left-radius:0}body.flat.ttrss_utility.flat .dijitCheckBox,body.flat.ttrss_utility.flat .dijitComboBoxMenu,body.flat.ttrss_utility.flat .dijitComboBoxMenuPopup,body.flat.ttrss_utility.flat .dijitMenu,body.flat.ttrss_utility.flat .dijitMenuPopup,body.flat.ttrss_utility.flat .dijitMultiSelect,body.flat.ttrss_utility.flat .dijitSelect,body.flat.ttrss_utility.flat .dijitSelect .dijitButtonNode,body.flat.ttrss_utility.flat .dijitSelectMenu,body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox.dijitTextBox{background-color:#fff}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:active,body.flat.ttrss_utility.flat label.dijitButton.dijitButton.dijitButton,body.flat.ttrss_utility.flat [class*=alt-] .dijitButtonNode.dijitButtonNode,body.flat.ttrss_utility.flat .dijitButtonNode.dijitButtonNode,body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitActive,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox,body.flat.ttrss_utility.flat .dijitDialog,body.flat.ttrss_utility.flat .dijitDialog .panel.panel,body.flat.ttrss_utility.flat .dijitDialogTitleBar,body.flat.ttrss_utility.flat .dijitMenu,body.flat.ttrss_utility.flat .dijitMenuSeparatorTop,body.flat.ttrss_utility.flat .dijitMultiSelect,body.flat.ttrss_utility.flat .dijitSelect,body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),body.flat.ttrss_utility.flat .dijitTab.dijitChecked,body.flat.ttrss_utility.flat .dijitTabPaneWrapper,body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox{border-color:#0002}body.flat.ttrss_utility.flat .dijitComboBox .dijitButtonNode{border-color:#0001}body.flat.ttrss_utility.flat :is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,.dijitHover):not(.dijitDisabled){border-color:#257aa7}body.flat.ttrss_utility.flat :is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox).dijitError.dijitError{border-color:#d45}body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox:not(.dijitChecked):before{color:#0000}body.flat.ttrss_utility.flat :is(.dijitButton .material-icons,.dijitDisabled,.dijitDisabled .dijitMenuItemLabel){color:unset!important}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitComboBox .dijitButtonNode,.dijitSpinner .dijitArrowButton,label.dijitButton){transition:all .15s}body.flat.ttrss_utility.flat .dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitActive:is(.dijitComboBox .dijitButtonNode,.dijitSpinner .dijitArrowButton),body.flat.ttrss_utility.flat label.dijitButton:active{transition:none}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox){transition:border .2s,box-shadow .2s}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,:focus-within):not(.dijitDisabled){box-shadow:0 0 0 2px #257aa766}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,:focus-within):not(.dijitDisabled).dijitError{box-shadow:0 0 0 2px #d456}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect){border-radius:4px}body.flat.ttrss_utility.flat :is(.dijitMultiSelect,.dijitSelectActive){box-shadow:none}body.flat.ttrss_utility.flat .dijitDialogUnderlay{opacity:.4}body.flat.ttrss_utility.flat .dijitSplitterThumb{display:none}body.flat.ttrss_utility.flat .alt-primary:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#206b92}body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-primary.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#1c5e81}body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#18506e}body.flat.ttrss_utility.flat .alt-success:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#529644}body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-success.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#48843c}body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#3d7033}body.flat.ttrss_utility.flat .alt-warning:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#ca623a}body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-warning.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#b25633}body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#98492b}body.flat.ttrss_utility.flat .alt-danger:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#c73d4d}body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-danger.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#af3643}body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#952e39}body.flat.ttrss_utility.flat .alt-info.alt-info .dijitButtonNode{color:#257aa7}body.flat.ttrss_utility.flat .alt-info.alt-info:is(.dijitFocused,.dijitHover) .dijitButtonNode{color:#1e6388;border-color:currentColor}body.flat.ttrss_utility.flat .dijitDisabled{opacity:.5}body.flat.ttrss_utility.flat .dijitDisabled:not(.dijitChecked):is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox){background-color:#0001}body.flat.ttrss_utility.flat :is(*,.dijitDisabled) .dijitButtonNode{color:#000b}body.flat.ttrss_utility.flat :is(*,.dijitDisabled)[class*=alt-] .dijitButtonNode{color:#fff}body.flat.ttrss_utility.flat :is(*,.dijitDisabled).alt-info .dijitButtonNode{color:#257aa7}body.flat.ttrss_utility.flat .dijitSelect .dijitInputField{padding-left:6px}body.flat.ttrss_utility.flat .dijitTooltip .dijitTooltipContents{color:#fff}body.flat.ttrss_utility.flat :is(.small,.text-small){font-size:.857em}body.flat.ttrss_utility.flat .text-muted{color:#0006}body.flat.ttrss_utility.flat.flat.flat :is(.alert,.article-note){color:#bd830f;background-color:#ea23;border-color:#ea24}body.flat.ttrss_utility.flat.flat.flat :is(.alert,.article-note) h4{color:unset}body.flat.ttrss_utility.flat.flat.flat .alert-danger{color:#b23;background-color:#d453;border-color:#d454}body.flat.ttrss_utility.flat.flat.flat .text-danger{color:#c92537}body.flat.ttrss_utility.flat.flat.flat .alert-error{color:#b23;background-color:#d453;border-color:#d454}body.flat.ttrss_utility.flat.flat.flat .text-error{color:#c92537}body.flat.ttrss_utility.flat.flat.flat .alert-info{color:#257096;background-color:#39c3;border-color:#39c4}body.flat.ttrss_utility.flat.flat.flat .text-info{color:#297aa3}body.flat.ttrss_utility.flat.flat.flat .alert-success{color:#49923a;background-color:#6b53;border-color:#6b54}body.flat.ttrss_utility.flat.flat.flat .text-success{color:#4f9e3f}body.flat.ttrss_utility.flat.flat.flat .alert-warning{color:#bd830f;background-color:#ea23;border-color:#ea24}body.flat.ttrss_utility.flat.flat.flat .text-warning{color:#cd8e10}body.flat.ttrss_utility.flat .panel.panel{border-color:#0001;border-radius:4px}body.flat.ttrss_utility.flat label.checkbox{min-height:30px;vertical-align:middle;align-items:center;gap:10px;display:inline-flex!important}body.flat.ttrss_utility.flat label.checkbox :is(.dijitButton,.dijitSelect,.dijitTextBox){margin-block:0}body.flat.ttrss_utility.flat .dijitCheckBox{flex-shrink:0}body.flat.ttrss_utility.flat .dijitDropDownButton .dijitArrowButtonInner:before,body.flat.ttrss_utility.flat .dijitArrowButton:before,body.flat.ttrss_utility.flat .dijitTreeExpandoClosed:before,body.flat.ttrss_utility.flat .dijitTreeExpandoOpened:before{content:""}body.flat.ttrss_utility.flat :is(.dijitTreeExpandoClosed,.dijitTreeExpandoOpened){font-size:20px;position:relative;top:-1px;left:2px;transition:all .2s!important}body.flat.ttrss_utility.flat .dijitTreeExpandoClosed{transform:translate(3px,3px)rotate(-90deg)}body.flat.ttrss_utility.flat .dijitTreeIcon{margin-inline:4px}body.flat.ttrss_utility.flat .dijitTreeRow .dijitCheckBox{vertical-align:top;margin-left:8px}body.flat.ttrss_utility.flat .dijitToolbar{border:1px solid #0001;border-radius:4px;margin:8px;padding:4px}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton,.dijitComboButton,.dijitDropDownButton){margin:0}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton,.dijitComboButton,.dijitDropDownButton):is(.dijitActive,.dijitFocused):not(.dijitDisabled){box-shadow:none}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitSelect,.dijitTextBox){margin:3px 0}body.flat.ttrss_utility.flat .dijitToolbar .dijitSelect .dijitButtonNode{padding-block:2px}body.flat.ttrss_utility.flat .dijitDialogPaneContent .dijitToolbar{border:none;margin:0 0 8px;padding:0}body.flat.ttrss_utility.flat :is(.dijitMultiSelect,.dijitTab.dijitActive,.dijitTab.dijitHover,.dijitTextArea){color:#000b}body.flat.ttrss_utility.flat .dijitTab:not(.dijitChecked){border:1px solid #0000}body.flat.ttrss_utility.flat .dijitTabContainerTop-tabs .dijitTabChecked{border-bottom-color:#0000}body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs{margin-right:-.4px}body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs .dijitTabChecked{border-right-color:#0000}body.flat.ttrss_utility.flat.flat :is(code,pre),body.flat.ttrss_utility.flat .dijitTextArea{font-family:var(--fonts-mono)}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton,.dijitSelect,.dijitTextBox){margin:4px 4px 4px 0}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton,.dijitSelect,.dijitTextBox).pull-right{margin-inline:4px 0}body.flat.ttrss_utility.flat :is(.dijitDialog footer,.dijitDialog .dlgButtons) :last-child{margin-right:0}body.flat.ttrss_utility.flat :is(label.dijitButton,.dijitButton i.material-icons,.tabLabel>i.material-icons){top:0}body.flat.ttrss_utility.flat :is(label.dijitButton,span.dijitButtonContents,.dijitButtonText){height:20px;justify-content:center;align-items:center;gap:4px;display:flex}body.flat.ttrss_utility.flat span.dijitButtonNode{display:block}body.flat.ttrss_utility.flat .dijitButton+a{box-sizing:border-box;min-height:30px;vertical-align:middle;justify-content:center;align-items:center;margin:4px 0;padding:5px 9px;display:inline-flex}body.flat.ttrss_utility.flat label.dijitButton{padding:4px 8px;display:inline-flex}body.flat.ttrss_utility.flat label.dijitButton a:any-link{all:unset}body.flat.ttrss_utility.flat label.dijitButton input{width:1px;height:1px;clip:rect(0 0 0 0);clip-path:inset(50%);opacity:0;position:absolute;display:block!important}body.flat.ttrss_utility.flat .dijitTab{vertical-align:top}body.flat.ttrss_utility.flat .tabLabel{min-height:18px;align-items:center;gap:4px;display:flex}body.flat.ttrss_utility.flat .tabLabel .material-icons{width:18px}body.flat.ttrss_utility.flat .dijitComboBoxMenu .dijitMenuItem{padding-block:4px}body.flat.ttrss_utility.flat .dijitToolbar{flex-wrap:wrap;display:flex}body.flat.ttrss_utility.flat .dijitToolbar>:is(.pull-right,[style*=float]){order:1;margin-left:auto;padding-right:0!important}body.flat.ttrss_utility.flat .dijitToolbar .dijitValidationTextBox .dijitValidationContainer{padding:3px}body.flat.ttrss_utility.flat .dijitDialog[style*="width: auto"]{width:600px!important}body.flat.ttrss_utility.flat .dijitDialog :is(.dijitComboBox,.dijitSelect,.dijitTextBox){max-width:100%}@media (max-width:768px){body.flat.ttrss_utility.flat .dijitDialog{width:min(600px,100vw - 22px)!important;left:calc(50vw + min(600px,100vw - 22px)/-2 - 1px)!important}body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*=width]{margin-right:0;width:100%!important}body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*=width]+.material-icons{margin:9.5px 0 0 5px;position:absolute}}body.flat.ttrss_utility.flat :is(.dijitDialog,.dijitDialogPaneContent){flex-direction:column;display:flex}body.flat.ttrss_utility.flat :is(.dijitDialogTitleBar,.dijitDialogPaneContent){width:auto!important;height:auto!important;position:static!important}body.flat.ttrss_utility.flat .dijitDialogPaneContent{background-color:#0001;flex:1;overflow:auto}body.flat.ttrss_utility.flat{background-color:#eee}body.flat.ttrss_utility.flat::-webkit-scrollbar-thumb{background-color:#257aa7!important}body.flat.ttrss_utility.flat hr{border-color:#0002!important}body.flat.ttrss_utility.flat .content{background-color:#fff;border-color:#0002}body.flat.ttrss_utility.flat .dijitCheckBoxChecked{background-color:#257aa7}body.flat.ttrss_utility.flat :is(.footer,.footer a){color:#0006!important}body.flat.ttrss_utility.flat .dijitTooltipContents{background-color:#1c5c7d}body.flat.ttrss_utility.flat .dijitTooltipRight .dijitTooltipConnector{border-right-color:#1c5c7d}body.flat.ttrss_utility.flat .dijitTooltipLeft .dijitTooltipConnector{border-left-color:#1c5c7d}body.flat.ttrss_utility.flat .dijitTooltipBelow .dijitTooltipConnector{border-bottom-color:#1c5c7d}body.flat.ttrss_utility.flat .dijitTooltipAbove .dijitTooltipConnector{border-top-color:#1c5c7d}body.flat.ttrss_utility.ttrss_zoom .header{color:#0006;border-bottom-color:#0002}body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote,code,pre,th){background-color:#00000009}body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote,hr,th,td){border-color:#0002}body.flat.ttrss_utility.ttrss_zoom .content :is(code,pre){border:1px solid #00000009}@media (prefers-color-scheme:dark){body.flat.ttrss_utility html{--base-spacing:45px;--font-size-post:16px;--fonts-ui:"Helvetica Neue",Arial,Helvetica,"Liberation Sans","Nimbus Sans L",FreeSans,sans-serif;--fonts-content:var(--fonts-ui);--fonts-heading:sans-serif-condensed,SansCn;--fonts-mono:"Fira Code",Menlo,Monaco,Consolas,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace;--reading-width:45;--card-max-column-count:10;--card-min-column-width:300px}body.flat.ttrss_utility *{scrollbar-color:#505050 transparent;scrollbar-width:thin}body.flat.ttrss_utility ::-webkit-scrollbar{height:4px!important}body.flat.ttrss_utility ::-webkit-scrollbar-thumb{background-color:#505050!important}body.flat.ttrss_utility ::-webkit-scrollbar-track{background-color:#0000!important}body.flat.ttrss_utility.flat{color:#fffa;font-family:var(--fonts-ui);-webkit-tap-highlight-color:#b87d2c66;background-color:#111}body.flat.ttrss_utility.flat .dijitMenuItemLabel{font-family:unset}body.flat.ttrss_utility.flat .dijitTextBox{box-sizing:border-box}body.flat.ttrss_utility.flat a:any-link:any-link{color:#b87d2c;text-decoration:none}body.flat.ttrss_utility.flat a:any-link:is(:hover,:focus-visible){transition:color .1s}body.flat.ttrss_utility.flat .dijitContentPane,body.flat.ttrss_utility.flat .dijitDialog,body.flat.ttrss_utility.flat .dijitTab.dijitChecked,body.flat.ttrss_utility.flat .dijitTabPaneWrapper{background-color:#111}body.flat.ttrss_utility.flat #feedsTab,body.flat.ttrss_utility.flat #footer,body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,body.flat.ttrss_utility.flat .dijitAccordionTitle.dijitAccordionTitle,body.flat.ttrss_utility.flat .dijitDialog .dijitToolbar,body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonContents,body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonNode,body.flat.ttrss_utility.flat .dijitSplitter.dijitSplitter,body.flat.ttrss_utility.flat .dijitTab.dijitTab:not(.dijitChecked){background-color:#0000}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:is(:hover,:focus-visible),body.flat.ttrss_utility.flat .dijitTab.dijitHover:not(.dijitChecked),body.flat.ttrss_utility.flat :where(.dijitTreeRow:focus-within),body.flat.ttrss_utility.flat .dijitTreeRowHover,body.flat.ttrss_utility.flat .dijitToolbar{background-color:#fff1}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,body.flat.ttrss_utility.flat label.dijitButton.dijitButton,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButton,.dijitUpArrowButton){background-color:#212121}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitHover,body.flat.ttrss_utility.flat label.dijitButton.dijitButton:is(:hover,:focus-within),body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton):where(.dijitFocused,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info:where(.dijitFocused,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonHover,.dijitUpArrowButtonHover),body.flat.ttrss_utility.flat .dijitToolbar .dijitHover:not(.dijitSelect) .dijitButtonNode{background-color:#313131}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:active,body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitActive,body.flat.ttrss_utility.flat label.dijitButton.dijitButton:active,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton):where(.dijitActive) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitButton,.dijitDropDownButton).alt-info:where(.dijitActive) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonActive,.dijitUpArrowButtonActive),body.flat.ttrss_utility.flat .dijitToolbar .dijitActive:not(.dijitSelect) .dijitButtonNode{background-color:#0e0e0e}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer{transition-duration:.1s}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected{background-color:#543c1c}body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected .dijitAccordionTitle{color:#fff;background-color:#b87d2c;border-bottom-right-radius:0;border-bottom-left-radius:0}body.flat.ttrss_utility.flat .dijitCheckBox,body.flat.ttrss_utility.flat .dijitComboBoxMenu,body.flat.ttrss_utility.flat .dijitComboBoxMenuPopup,body.flat.ttrss_utility.flat .dijitMenu,body.flat.ttrss_utility.flat .dijitMenuPopup,body.flat.ttrss_utility.flat .dijitMultiSelect,body.flat.ttrss_utility.flat .dijitSelect,body.flat.ttrss_utility.flat .dijitSelect .dijitButtonNode,body.flat.ttrss_utility.flat .dijitSelectMenu,body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox.dijitTextBox{background-color:#080808}body.flat.ttrss_utility.flat.ttrss_prefs #header>a:active,body.flat.ttrss_utility.flat label.dijitButton.dijitButton.dijitButton,body.flat.ttrss_utility.flat [class*=alt-] .dijitButtonNode.dijitButtonNode,body.flat.ttrss_utility.flat .dijitButtonNode.dijitButtonNode,body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitActive,.dijitHover) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox,body.flat.ttrss_utility.flat .dijitDialog,body.flat.ttrss_utility.flat .dijitDialog .panel.panel,body.flat.ttrss_utility.flat .dijitDialogTitleBar,body.flat.ttrss_utility.flat .dijitMenu,body.flat.ttrss_utility.flat .dijitMenuSeparatorTop,body.flat.ttrss_utility.flat .dijitMultiSelect,body.flat.ttrss_utility.flat .dijitSelect,body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),body.flat.ttrss_utility.flat .dijitTab.dijitChecked,body.flat.ttrss_utility.flat .dijitTabPaneWrapper,body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox{border-color:#fff2}body.flat.ttrss_utility.flat .dijitComboBox .dijitButtonNode{border-color:#fff1}body.flat.ttrss_utility.flat :is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,.dijitHover):not(.dijitDisabled){border-color:#b87d2c}body.flat.ttrss_utility.flat :is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox).dijitError.dijitError{border-color:#d45}body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox:not(.dijitChecked):before{color:#0000}body.flat.ttrss_utility.flat :is(.dijitButton .material-icons,.dijitDisabled,.dijitDisabled .dijitMenuItemLabel){color:unset!important}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat :is(.dijitComboBox .dijitButtonNode,.dijitSpinner .dijitArrowButton,label.dijitButton){transition:all .15s}body.flat.ttrss_utility.flat .dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .dijitActive:is(.dijitComboBox .dijitButtonNode,.dijitSpinner .dijitArrowButton),body.flat.ttrss_utility.flat label.dijitButton:active{transition:none}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox){transition:border .2s,box-shadow .2s}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,:focus-within):not(.dijitDisabled){box-shadow:0 0 0 2px #b87d2c66}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitCheckBox,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect,.dijitSelect,.dijitTextBox):is(.dijitActive,.dijitFocused,:focus-within):not(.dijitDisabled).dijitError{box-shadow:0 0 0 2px #d456}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitMultiSelect){border-radius:4px}body.flat.ttrss_utility.flat :is(.dijitMultiSelect,.dijitSelectActive){box-shadow:none}body.flat.ttrss_utility.flat .dijitDialogUnderlay{opacity:.4}body.flat.ttrss_utility.flat .dijitSplitterThumb{display:none}body.flat.ttrss_utility.flat .alt-primary:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#a36f27}body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-primary.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#906222}body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#7b531d}body.flat.ttrss_utility.flat .alt-success:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#529644}body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-success.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#48843c}body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#3d7033}body.flat.ttrss_utility.flat .alt-warning:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#ca623a}body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-warning.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#b25633}body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#98492b}body.flat.ttrss_utility.flat .alt-danger:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode{background-color:#c73d4d}body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton):is(.dijitFocused,.dijitHover):is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeHover,.dijitDownArrowButtonFocused,.dijitDownArrowButtonHover),body.flat.ttrss_utility.flat .alt-danger.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused){background-color:#af3643}body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton).dijitActive:is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton) .dijitButtonNode,body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive,.dijitDownArrowButtonActive){background-color:#952e39}body.flat.ttrss_utility.flat .alt-info.alt-info .dijitButtonNode{color:#b87d2c}body.flat.ttrss_utility.flat .alt-info.alt-info:is(.dijitFocused,.dijitHover) .dijitButtonNode{color:#d0913a;border-color:currentColor}body.flat.ttrss_utility.flat .dijitDisabled{opacity:.5}body.flat.ttrss_utility.flat .dijitDisabled:not(.dijitChecked):is(.dijitCheckBox,.dijitMultiSelect,.dijitSelect,.dijitTextBox){background-color:#fff1}body.flat.ttrss_utility.flat :is(*,.dijitDisabled) .dijitButtonNode{color:#fffa}body.flat.ttrss_utility.flat :is(*,.dijitDisabled)[class*=alt-] .dijitButtonNode{color:#fffd}body.flat.ttrss_utility.flat :is(*,.dijitDisabled).alt-info .dijitButtonNode{color:#b87d2c}body.flat.ttrss_utility.flat .dijitSelect .dijitInputField{padding-left:6px}body.flat.ttrss_utility.flat .dijitTooltip .dijitTooltipContents{color:#000d}body.flat.ttrss_utility.flat :is(.small,.text-small){font-size:.857em}body.flat.ttrss_utility.flat .text-muted{color:#fff6}body.flat.ttrss_utility.flat.flat.flat :is(.alert,.article-note){color:#f3c261;background-color:#ea23;border-color:#ea24}body.flat.ttrss_utility.flat.flat.flat :is(.alert,.article-note) h4{color:unset}body.flat.ttrss_utility.flat.flat.flat .alert-danger{color:#e77e89;background-color:#d453;border-color:#d454}body.flat.ttrss_utility.flat.flat.flat .text-danger{color:#e15a69}body.flat.ttrss_utility.flat.flat.flat .alert-error{color:#e77e89;background-color:#d453;border-color:#d454}body.flat.ttrss_utility.flat.flat.flat .text-error{color:#e15a69}body.flat.ttrss_utility.flat.flat.flat .alert-info{color:#69b4da;background-color:#39c3;border-color:#39c4}body.flat.ttrss_utility.flat.flat.flat .text-info{color:#47a3d1}body.flat.ttrss_utility.flat.flat.flat .alert-success{color:#92ce86;background-color:#6b53;border-color:#6b54}body.flat.ttrss_utility.flat.flat.flat .text-success{color:#76c267}body.flat.ttrss_utility.flat.flat.flat .alert-warning{color:#f3c261;background-color:#ea23;border-color:#ea24}body.flat.ttrss_utility.flat.flat.flat .text-warning{color:#f0b33a}body.flat.ttrss_utility.flat .panel.panel{border-color:#fff1;border-radius:4px}body.flat.ttrss_utility.flat label.checkbox{min-height:30px;vertical-align:middle;align-items:center;gap:10px;display:inline-flex!important}body.flat.ttrss_utility.flat label.checkbox :is(.dijitButton,.dijitSelect,.dijitTextBox){margin-block:0}body.flat.ttrss_utility.flat .dijitCheckBox{flex-shrink:0}body.flat.ttrss_utility.flat .dijitDropDownButton .dijitArrowButtonInner:before,body.flat.ttrss_utility.flat .dijitArrowButton:before,body.flat.ttrss_utility.flat .dijitTreeExpandoClosed:before,body.flat.ttrss_utility.flat .dijitTreeExpandoOpened:before{content:""}body.flat.ttrss_utility.flat :is(.dijitTreeExpandoClosed,.dijitTreeExpandoOpened){font-size:20px;position:relative;top:-1px;left:2px;transition:all .2s!important}body.flat.ttrss_utility.flat .dijitTreeExpandoClosed{transform:translate(3px,3px)rotate(-90deg)}body.flat.ttrss_utility.flat .dijitTreeIcon{margin-inline:4px}body.flat.ttrss_utility.flat .dijitTreeRow .dijitCheckBox{vertical-align:top;margin-left:8px}body.flat.ttrss_utility.flat .dijitToolbar{border:1px solid #fff1;border-radius:4px;margin:8px;padding:4px}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton,.dijitComboButton,.dijitDropDownButton){margin:0}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton,.dijitComboButton,.dijitDropDownButton):is(.dijitActive,.dijitFocused):not(.dijitDisabled){box-shadow:none}body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitSelect,.dijitTextBox){margin:3px 0}body.flat.ttrss_utility.flat .dijitToolbar .dijitSelect .dijitButtonNode{padding-block:2px}body.flat.ttrss_utility.flat .dijitDialogPaneContent .dijitToolbar{border:none;margin:0 0 8px;padding:0}body.flat.ttrss_utility.flat :is(.dijitMultiSelect,.dijitTab.dijitActive,.dijitTab.dijitHover,.dijitTextArea){color:#fffa}body.flat.ttrss_utility.flat .dijitTab:not(.dijitChecked){border:1px solid #0000}body.flat.ttrss_utility.flat .dijitTabContainerTop-tabs .dijitTabChecked{border-bottom-color:#0000}body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs{margin-right:-.4px}body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs .dijitTabChecked{border-right-color:#0000}body.flat.ttrss_utility.flat.flat :is(code,pre),body.flat.ttrss_utility.flat .dijitTextArea{font-family:var(--fonts-mono)}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton,.dijitSelect,.dijitTextBox){margin:4px 4px 4px 0}body.flat.ttrss_utility.flat :is(.dijitButton,.dijitComboButton,.dijitDropDownButton,.dijitToggleButton,.dijitSelect,.dijitTextBox).pull-right{margin-inline:4px 0}body.flat.ttrss_utility.flat :is(.dijitDialog footer,.dijitDialog .dlgButtons) :last-child{margin-right:0}body.flat.ttrss_utility.flat :is(label.dijitButton,.dijitButton i.material-icons,.tabLabel>i.material-icons){top:0}body.flat.ttrss_utility.flat :is(label.dijitButton,span.dijitButtonContents,.dijitButtonText){height:20px;justify-content:center;align-items:center;gap:4px;display:flex}body.flat.ttrss_utility.flat span.dijitButtonNode{display:block}body.flat.ttrss_utility.flat .dijitButton+a{box-sizing:border-box;min-height:30px;vertical-align:middle;justify-content:center;align-items:center;margin:4px 0;padding:5px 9px;display:inline-flex}body.flat.ttrss_utility.flat label.dijitButton{padding:4px 8px;display:inline-flex}body.flat.ttrss_utility.flat label.dijitButton a:any-link{all:unset}body.flat.ttrss_utility.flat label.dijitButton input{width:1px;height:1px;clip:rect(0 0 0 0);clip-path:inset(50%);opacity:0;position:absolute;display:block!important}body.flat.ttrss_utility.flat .dijitTab{vertical-align:top}body.flat.ttrss_utility.flat .tabLabel{min-height:18px;align-items:center;gap:4px;display:flex}body.flat.ttrss_utility.flat .tabLabel .material-icons{width:18px}body.flat.ttrss_utility.flat .dijitComboBoxMenu .dijitMenuItem{padding-block:4px}body.flat.ttrss_utility.flat .dijitToolbar{flex-wrap:wrap;display:flex}body.flat.ttrss_utility.flat .dijitToolbar>:is(.pull-right,[style*=float]){order:1;margin-left:auto;padding-right:0!important}body.flat.ttrss_utility.flat .dijitToolbar .dijitValidationTextBox .dijitValidationContainer{padding:3px}body.flat.ttrss_utility.flat .dijitDialog[style*="width: auto"]{width:600px!important}body.flat.ttrss_utility.flat .dijitDialog :is(.dijitComboBox,.dijitSelect,.dijitTextBox){max-width:100%}body.flat.ttrss_utility.flat :is(.dijitDialog,.dijitDialogPaneContent){flex-direction:column;display:flex}body.flat.ttrss_utility.flat :is(.dijitDialogTitleBar,.dijitDialogPaneContent){width:auto!important;height:auto!important;position:static!important}body.flat.ttrss_utility.flat .dijitDialogPaneContent{background-color:#fff1;flex:1;overflow:auto}body.flat.ttrss_utility #main#main .cdm.expandable.active{background-color:#0000!important}body.flat.ttrss_utility #main#main :is(.cdm[data-article-id],.hl) :is(.dijitCheckBox,.marked-pic,.pub-pic){transition:all .2s!important}body.flat.ttrss_utility #main#main :is(.cdm[data-article-id],.hl) .icon-score:not([title="0"]),body.flat.ttrss_utility #main#main :is(.cdm[data-article-id],.hl).marked .marked-pic,body.flat.ttrss_utility #main#main :is(.cdm[data-article-id],.hl).published .pub-pic,body.flat.ttrss_utility #main#main :is(.cdm[data-article-id],.hl) .dijitCheckBox.dijitChecked{opacity:.75}body.flat.ttrss_utility #main#main img.icon{filter:opacity(.8)drop-shadow(0 0 .2px #fff)drop-shadow(0 0 .4px #fff)}body.flat.ttrss_utility.flat code{color:#ea2!important}body.flat.ttrss_utility.flat :is(.dijitMenuItemHover,.dijitMenuItemSelected){color:#000}body.flat.ttrss_utility.flat :is(.dijitMenuItemHover,.dijitMenuItemSelected) td{color:unset}body.flat.ttrss_utility .notify{color:#000a}body.flat.ttrss_utility.flat{background-color:#111}body.flat.ttrss_utility.flat::-webkit-scrollbar-thumb{background-color:#505050!important}body.flat.ttrss_utility.flat hr{border-color:#fff2!important}body.flat.ttrss_utility.flat .content{background-color:#fff1;border-color:#fff1}body.flat.ttrss_utility.flat .dijitCheckBoxChecked{background-color:#b87d2c}body.flat.ttrss_utility.flat :is(.footer,.footer a){color:#fff6!important}body.flat.ttrss_utility.flat .dijitTooltipContents{background-color:#8f6122}body.flat.ttrss_utility.flat .dijitTooltipRight .dijitTooltipConnector{border-right-color:#8f6122}body.flat.ttrss_utility.flat .dijitTooltipLeft .dijitTooltipConnector{border-left-color:#8f6122}body.flat.ttrss_utility.flat .dijitTooltipBelow .dijitTooltipConnector{border-bottom-color:#8f6122}body.flat.ttrss_utility.flat .dijitTooltipAbove .dijitTooltipConnector{border-top-color:#8f6122}body.flat.ttrss_utility.ttrss_zoom .header{color:#fff6;border-bottom-color:#fff2}body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote,code,pre,th){background-color:#ffffff09}body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote,hr,th,td){border-color:#fff2}body.flat.ttrss_utility.ttrss_zoom .content :is(code,pre){border:1px solid #ffffff09}}@media (prefers-color-scheme:dark) and (hover:none){body.flat.ttrss_utility ::-webkit-scrollbar{width:0!important;height:0!important}}@media (prefers-color-scheme:dark) and (hover:hover){body.flat.ttrss_utility.flat a:any-link:is(:hover,:focus-visible){color:#d7a259;text-decoration:underline}}@media (prefers-color-scheme:dark) and (max-width:768px){body.flat.ttrss_utility.flat .dijitDialog{width:min(600px,100vw - 22px)!important;left:calc(50vw + min(600px,100vw - 22px)/-2 - 1px)!important}body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*=width]{margin-right:0;width:100%!important}body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*=width]+.material-icons{margin:9.5px 0 0 5px;position:absolute}}body.flat.ttrss_utility.flat{box-sizing:border-box;margin:0 auto;padding:max(0px,min(10vw - 50px,50px))}body.flat.ttrss_utility.flat :is(h1,h2,h3,h4){color:unset;margin-bottom:14px;font-family:unset}body.flat.ttrss_utility.flat h1{margin-top:14px;font-size:21px}body.flat.ttrss_utility.flat pre{overflow:auto}body.flat.ttrss_utility.flat .container{margin:10px}body.flat.ttrss_utility.flat .content.content{border-radius:4px;padding:20px 29px}body.flat.ttrss_utility.flat fieldset{width:100%;word-spacing:-.3em;margin-inline:0}body.flat.ttrss_utility.flat fieldset *{word-spacing:0}body.flat.ttrss_utility.flat fieldset.narrow>label+label{min-height:30px;align-items:center;gap:10px;display:inline-flex}body.flat.ttrss_utility.flat fieldset>:last-child{margin-right:0}@media (max-width:480px){body.flat.ttrss_utility.flat :is(.dijitSelect,.dijitTextBox){width:100%!important}body.flat.ttrss_utility.flat fieldset>label:first-of-type{text-align:left}body.flat.ttrss_utility.flat fieldset.narrow>label:first-of-type{display:none}}body.flat.ttrss_utility:is(.ttrss_login,.otp){height:auto;min-height:100vh;min-height:100svh;justify-content:center;align-items:center;display:flex}body.flat.ttrss_utility:is(.ttrss_login,.otp) h1{display:none}body.flat.ttrss_utility:is(.ttrss_login,.otp) .dijitTextBox{font-size:16px}body.flat.ttrss_utility:is(.ttrss_login,.otp) form>fieldset:last-child .dijitButton{width:100%}body.flat.ttrss_utility.ttrss_login form>fieldset:last-child label{display:none}body.flat.ttrss_utility.otp .content{flex-basis:400px;margin:10px}body.flat.ttrss_utility.otp .dijitTextBox{width:100%;margin-bottom:14px}body.flat.ttrss_utility.share_popup fieldset{padding:0}body.flat.ttrss_utility.ttrss_zoom .post .header{background-color:#0000;padding:0 0 1em}body.flat.ttrss_utility.ttrss_zoom .post .content{font-size:var(--font-size-post);background-color:#0000;padding:1em 0 0;overflow:auto}@media (min-width:577px){body.flat.ttrss_utility.ttrss_zoom .post .content{line-height:1.625}}body.flat.ttrss_utility.ttrss_zoom .post .content *{margin:0}body.flat.ttrss_utility.ttrss_zoom .post .content :where(img,iframe,blockquote,pre,table,video){margin-block:.375em .625em}body.flat.ttrss_utility.ttrss_zoom .post .content *+*{margin-top:1.5625em}body.flat.ttrss_utility.ttrss_zoom .post .content *+:is(h1,h2,h3,h4,h5,h6){margin-top:2.5em}body.flat.ttrss_utility.ttrss_zoom .post .content *+:is(dt,li){margin-top:.625em}body.flat.ttrss_utility.ttrss_zoom .post .content *+br{margin-top:0}body.flat.ttrss_utility.ttrss_zoom .post .content :is([align=center],center *){margin-left:0;margin-right:auto}body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote,iframe,img,pre,table,video){box-sizing:border-box;max-width:100%}body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote,dl,figcaption,h1,h2,h3,h4,h5,h6,ol,p,ul){max-width:calc(var(--font-size-post)*var(--reading-width))}body.flat.ttrss_utility.ttrss_zoom .post .content :is(h1,h2,h3,h4,h5,h6){-webkit-font-smoothing:antialiased;text-rendering:optimizelegibility;font-weight:700}body.flat.ttrss_utility.ttrss_zoom .post .content h1{font-size:calc((var(--font-size-post) + 10px - 1*2px));line-height:calc(((var(--font-size-post) + 10px - 1*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content h2{font-size:calc((var(--font-size-post) + 10px - 2*2px));line-height:calc(((var(--font-size-post) + 10px - 2*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content h3{font-size:calc((var(--font-size-post) + 10px - 3*2px));line-height:calc(((var(--font-size-post) + 10px - 3*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content h4{font-size:calc((var(--font-size-post) + 10px - 4*2px));line-height:calc(((var(--font-size-post) + 10px - 4*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content h5{font-size:calc((var(--font-size-post) + 10px - 5*2px));line-height:calc(((var(--font-size-post) + 10px - 5*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content h6{font-size:calc((var(--font-size-post) + 10px - 6*2px));line-height:calc(((var(--font-size-post) + 10px - 6*2px) + 6px))}body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul,ol){padding-left:0}body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul,ol) li{margin-left:2.5em;padding:0}body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul,ol) li:only-child{margin:0;list-style:none}body.flat.ttrss_utility.ttrss_zoom .post .content dd{margin:0 0 0 2.5em}body.flat.ttrss_utility.ttrss_zoom .post .content table{border-collapse:collapse}body.flat.ttrss_utility.ttrss_zoom .post .content table :is(th,td){border-style:solid;border-width:1px;padding:.375em .625em}body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] :is(th,td){border:none;padding:0}body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] :is(th,td)+*{padding-left:.375em}body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] table{width:100%}body.flat.ttrss_utility.ttrss_zoom .post .content [bgcolor]{background-color:#0000}body.flat.ttrss_utility.ttrss_zoom .post .content :is(iframe,img,video){display:block}body.flat.ttrss_utility.ttrss_zoom .post .content :is([align=left],[style*=float\:left],[style*="float: left"]){margin-right:1em}body.flat.ttrss_utility.ttrss_zoom .post .content :is([align=right],[style*=float\:right],[style*="float: right"]){margin-left:1em}body.flat.ttrss_utility.ttrss_zoom .post .content img{margin-top:1.5625em}body.flat.ttrss_utility.ttrss_zoom .post .content>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content>:first-child>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>:first-child>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content>:first-child>:first-child>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>:first-child>:first-child>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content>:first-child>:first-child>:first-child>:first-child>:first-child>img:first-child,body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote,figure,td,th)>:first-child>:first-child>:first-child>:first-child>:first-child>img:first-child{margin-top:.375em}body.flat.ttrss_utility.ttrss_zoom .post .content figure>*~figcaption~*,body.flat.ttrss_utility.ttrss_zoom .post .content figure>img+p:last-child,body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption{margin-top:.625em;font-size:.875em;font-style:italic;line-height:1.357}body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption:first-child{margin-top:0}body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption:first-child+*{margin-top:.625em}body.flat.ttrss_utility.ttrss_zoom .post .content :is(pre,code){font-family:var(--fonts-mono);font-size:.875em;line-height:1.357}body.flat.ttrss_utility.ttrss_zoom .post .content pre{white-space:pre-wrap;padding:.625em;overflow:auto}body.flat.ttrss_utility.ttrss_zoom .post .content code{-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .15em!important}body.flat.ttrss_utility.ttrss_zoom .post .content code.hljs{color:unset!important}body.flat.ttrss_utility.ttrss_zoom .post .content pre code{background-color:#0000;border:none;font-size:1em;padding:0!important}body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote,q){font-style:italic}body.flat.ttrss_utility.ttrss_zoom .post .content blockquote{padding:.625em 1em}body.flat.ttrss_utility.ttrss_zoom .post .content :not(area):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):not(link):not(td):not(th):not(track):not(video):not(wbr):not(.dijit *):empty,body.flat.ttrss_utility.ttrss_zoom .post .content :not(area):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):not(link):not(td):not(th):not(track):not(video):not(wbr):not(.dijit *):empty+br,body.flat.ttrss_utility.ttrss_zoom .post .content :is(article,blockquote,div,figure,figcaption,hr,section,table)+br{display:none}body.flat.ttrss_utility.ttrss_zoom .post .content .embed-responsive{aspect-ratio:16/9}body.flat.ttrss_utility.ttrss_zoom .post .content .embed-responsive iframe{width:100%;height:100%;border:none}
+@media (max-width: 768px) {
+}@media (max-width: 768px) {
+}html {
+  --base-spacing: 45px;
+  --font-size-post: 16px;
+  --fonts-ui: "Helvetica Neue", Arial, Helvetica, "Liberation Sans", "Nimbus Sans L", FreeSans, sans-serif;
+  --fonts-content: var(--fonts-ui);
+  --fonts-heading: sans-serif-condensed, SansCn;
+  --fonts-mono: "Fira Code", Menlo, Monaco, Consolas, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Courier New", monospace;
+  --reading-width: 45;
+  --card-max-column-count: 10;
+  --card-min-column-width: 300px;
+}
+body.flat.ttrss_utility::-webkit-scrollbar {
+  height: 4px !important;
+}
+@media (hover: none) {
+  body.flat.ttrss_utility::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+body.flat.ttrss_utility::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+body.flat.ttrss_utility :focus {
+  outline: none;
+}
+body.flat.ttrss_utility * {
+  scrollbar-color: #257aa7 transparent;
+  scrollbar-width: thin;
+}
+body.flat.ttrss_utility ::-webkit-scrollbar {
+  height: 4px !important;
+}
+@media (hover: none) {
+  body.flat.ttrss_utility ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+body.flat.ttrss_utility ::-webkit-scrollbar-thumb {
+  background-color: #257aa7 !important;
+}
+body.flat.ttrss_utility ::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+body.flat.ttrss_utility.flat {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.73333333);
+  font-family: var(--fonts-ui);
+  -webkit-tap-highlight-color: rgba(37, 122, 167, 0.4);
+}
+body.flat.ttrss_utility.flat .dijitMenuItemLabel {
+  font-family: unset;
+}
+body.flat.ttrss_utility.flat .dijitTextBox {
+  box-sizing: border-box;
+}
+body.flat.ttrss_utility.flat a:any-link:any-link {
+  color: #257aa7;
+  text-decoration: none;
+}
+body.flat.ttrss_utility.flat a:any-link:is(:hover, :focus-visible) {
+  transition: color 0.1s;
+}
+@media (hover: hover) {
+  body.flat.ttrss_utility.flat a:any-link:is(:hover, :focus-visible) {
+    color: #174c68;
+    text-decoration: underline;
+  }
+}
+body.flat.ttrss_utility.flat .dijitContentPane,
+body.flat.ttrss_utility.flat .dijitDialog,
+body.flat.ttrss_utility.flat .dijitTab.dijitChecked,
+body.flat.ttrss_utility.flat .dijitTabPaneWrapper {
+  background-color: #fff;
+}
+body.flat.ttrss_utility.flat #feedsTab,
+body.flat.ttrss_utility.flat #footer,
+body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,
+body.flat.ttrss_utility.flat .dijitAccordionTitle.dijitAccordionTitle,
+body.flat.ttrss_utility.flat .dijitDialog .dijitToolbar,
+body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonContents,
+body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitSplitter.dijitSplitter,
+body.flat.ttrss_utility.flat .dijitTab.dijitTab:not(.dijitChecked) {
+  background-color: transparent;
+}
+body.flat.ttrss_utility.flat.ttrss_prefs #header > a:is(:hover, :focus-visible),
+body.flat.ttrss_utility.flat .dijitTab.dijitHover:not(.dijitChecked),
+body.flat.ttrss_utility.flat :where(.dijitTreeRow:focus-within),
+body.flat.ttrss_utility.flat .dijitTreeRowHover,
+body.flat.ttrss_utility.flat .dijitToolbar {
+  background-color: rgba(0, 0, 0, 0.06666667);
+}
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,
+body.flat.ttrss_utility.flat label.dijitButton.dijitButton,
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButton, .dijitUpArrowButton) {
+  background-color: #eeeeee;
+}
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitHover,
+body.flat.ttrss_utility.flat label.dijitButton.dijitButton:is(:hover, :focus-within),
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton):where(.dijitFocused, .dijitHover) .dijitButtonNode,
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info:where(.dijitFocused, .dijitHover) .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonHover, .dijitUpArrowButtonHover),
+body.flat.ttrss_utility.flat .dijitToolbar .dijitHover:not(.dijitSelect) .dijitButtonNode {
+  background-color: #dddddd;
+}
+body.flat.ttrss_utility.flat.ttrss_prefs #header > a:active,
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitActive,
+body.flat.ttrss_utility.flat label.dijitButton.dijitButton:active,
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton):where(.dijitActive) .dijitButtonNode,
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info:where(.dijitActive) .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),
+body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonActive, .dijitUpArrowButtonActive),
+body.flat.ttrss_utility.flat .dijitToolbar .dijitActive:not(.dijitSelect) .dijitButtonNode {
+  background-color: #cccccc;
+}
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer {
+  transition-duration: 0.1s;
+}
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected {
+  background-color: #a8cadc;
+}
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected .dijitAccordionTitle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #257aa7;
+  color: #fff;
+}
+body.flat.ttrss_utility.flat .dijitCheckBox,
+body.flat.ttrss_utility.flat .dijitComboBoxMenu,
+body.flat.ttrss_utility.flat .dijitComboBoxMenuPopup,
+body.flat.ttrss_utility.flat .dijitMenu,
+body.flat.ttrss_utility.flat .dijitMenuPopup,
+body.flat.ttrss_utility.flat .dijitMultiSelect,
+body.flat.ttrss_utility.flat .dijitSelect,
+body.flat.ttrss_utility.flat .dijitSelect .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitSelectMenu,
+body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox.dijitTextBox {
+  background-color: #ffffff;
+}
+body.flat.ttrss_utility.flat.ttrss_prefs #header > a:active,
+body.flat.ttrss_utility.flat label.dijitButton.dijitButton.dijitButton,
+body.flat.ttrss_utility.flat [class*="alt-"] .dijitButtonNode.dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitButtonNode.dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitActive, .dijitHover) .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,
+body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,
+body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox,
+body.flat.ttrss_utility.flat .dijitDialog,
+body.flat.ttrss_utility.flat .dijitDialog .panel.panel,
+body.flat.ttrss_utility.flat .dijitDialogTitleBar,
+body.flat.ttrss_utility.flat .dijitMenu,
+body.flat.ttrss_utility.flat .dijitMenuSeparatorTop,
+body.flat.ttrss_utility.flat .dijitMultiSelect,
+body.flat.ttrss_utility.flat .dijitSelect,
+body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),
+body.flat.ttrss_utility.flat .dijitTab.dijitChecked,
+body.flat.ttrss_utility.flat .dijitTabPaneWrapper,
+body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox {
+  border-color: rgba(0, 0, 0, 0.13333333);
+}
+body.flat.ttrss_utility.flat .dijitComboBox .dijitButtonNode {
+  border-color: rgba(0, 0, 0, 0.06666667);
+}
+body.flat.ttrss_utility.flat :is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox):is(.dijitActive, .dijitFocused, .dijitHover):not(.dijitDisabled) {
+  border-color: #257aa7;
+}
+body.flat.ttrss_utility.flat :is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox).dijitError.dijitError {
+  border-color: #d45;
+}
+body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox:not(.dijitChecked)::before {
+  color: transparent;
+}
+body.flat.ttrss_utility.flat :is(.dijitButton .material-icons, .dijitDisabled, .dijitDisabled .dijitMenuItemLabel) {
+  color: unset !important;
+}
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat :is(.dijitComboBox .dijitButtonNode, .dijitSpinner .dijitArrowButton, label.dijitButton) {
+  transition: all 0.15s;
+}
+body.flat.ttrss_utility.flat .dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .dijitActive:is(.dijitComboBox .dijitButtonNode, .dijitSpinner .dijitArrowButton),
+body.flat.ttrss_utility.flat label.dijitButton:active {
+  transition: none;
+}
+body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ) {
+  transition: border 0.2s, box-shadow 0.2s;
+}
+body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ):is(.dijitActive, .dijitFocused, :focus-within):not(.dijitDisabled) {
+  box-shadow: 0 0 0 2px rgba(37, 122, 167, 0.4);
+}
+body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ):is(.dijitActive, .dijitFocused, :focus-within):not(.dijitDisabled).dijitError {
+  box-shadow: 0 0 0 2px rgba(221, 68, 85, 0.4);
+}
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitMultiSelect) {
+  border-radius: 4px;
+}
+body.flat.ttrss_utility.flat :is(.dijitMultiSelect, .dijitSelectActive) {
+  box-shadow: none;
+}
+body.flat.ttrss_utility.flat .dijitDialogUnderlay {
+  opacity: 40%;
+}
+body.flat.ttrss_utility.flat .dijitSplitterThumb {
+  display: none;
+}
+body.flat.ttrss_utility.flat .alt-primary:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+  background-color: #206b92;
+}
+body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+body.flat.ttrss_utility.flat .alt-primary.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+  background-color: #1c5e81;
+}
+body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+  background-color: #18506e;
+}
+body.flat.ttrss_utility.flat .alt-success:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+  background-color: #529644;
+}
+body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+body.flat.ttrss_utility.flat .alt-success.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+  background-color: #48843c;
+}
+body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+  background-color: #3d7033;
+}
+body.flat.ttrss_utility.flat .alt-warning:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+  background-color: #ca623a;
+}
+body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+body.flat.ttrss_utility.flat .alt-warning.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+  background-color: #b25633;
+}
+body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+  background-color: #98492b;
+}
+body.flat.ttrss_utility.flat .alt-danger:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+  background-color: #c73d4d;
+}
+body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+body.flat.ttrss_utility.flat .alt-danger.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+  background-color: #af3643;
+}
+body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+  background-color: #952e39;
+}
+body.flat.ttrss_utility.flat .alt-info.alt-info .dijitButtonNode {
+  color: #257aa7;
+}
+body.flat.ttrss_utility.flat .alt-info.alt-info:is(.dijitFocused, .dijitHover) .dijitButtonNode {
+  color: #1e6388;
+  border-color: currentColor;
+}
+body.flat.ttrss_utility.flat .dijitDisabled {
+  opacity: 0.5;
+}
+body.flat.ttrss_utility.flat .dijitDisabled:not(.dijitChecked):is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox) {
+  background-color: rgba(0, 0, 0, 0.06666667);
+}
+body.flat.ttrss_utility.flat :is(*, .dijitDisabled) .dijitButtonNode {
+  color: rgba(0, 0, 0, 0.73333333);
+}
+body.flat.ttrss_utility.flat :is(*, .dijitDisabled)[class*="alt-"] .dijitButtonNode {
+  color: #ffffff;
+}
+body.flat.ttrss_utility.flat :is(*, .dijitDisabled).alt-info .dijitButtonNode {
+  color: #257aa7;
+}
+body.flat.ttrss_utility.flat .dijitSelect .dijitInputField {
+  padding-left: 6px;
+}
+body.flat.ttrss_utility.flat .dijitTooltip .dijitTooltipContents {
+  color: #ffffff;
+}
+body.flat.ttrss_utility.flat :is(.small, .text-small) {
+  font-size: 0.857em;
+}
+body.flat.ttrss_utility.flat .text-muted {
+  color: rgba(0, 0, 0, 0.4);
+}
+body.flat.ttrss_utility.flat.flat.flat :is(.alert, .article-note) {
+  border-color: rgba(238, 170, 34, 0.26666667);
+  background-color: rgba(238, 170, 34, 0.2);
+  color: #bd830f;
+}
+body.flat.ttrss_utility.flat.flat.flat :is(.alert, .article-note) h4 {
+  color: unset;
+}
+body.flat.ttrss_utility.flat.flat.flat .alert-danger {
+  border-color: rgba(221, 68, 85, 0.26666667);
+  background-color: rgba(221, 68, 85, 0.2);
+  color: #bb2233;
+}
+body.flat.ttrss_utility.flat.flat.flat .text-danger {
+  color: #c92537;
+}
+body.flat.ttrss_utility.flat.flat.flat .alert-error {
+  border-color: rgba(221, 68, 85, 0.26666667);
+  background-color: rgba(221, 68, 85, 0.2);
+  color: #bb2233;
+}
+body.flat.ttrss_utility.flat.flat.flat .text-error {
+  color: #c92537;
+}
+body.flat.ttrss_utility.flat.flat.flat .alert-info {
+  border-color: rgba(51, 153, 204, 0.26666667);
+  background-color: rgba(51, 153, 204, 0.2);
+  color: #257096;
+}
+body.flat.ttrss_utility.flat.flat.flat .text-info {
+  color: #297aa3;
+}
+body.flat.ttrss_utility.flat.flat.flat .alert-success {
+  border-color: rgba(102, 187, 85, 0.26666667);
+  background-color: rgba(102, 187, 85, 0.2);
+  color: #49923a;
+}
+body.flat.ttrss_utility.flat.flat.flat .text-success {
+  color: #4f9e3f;
+}
+body.flat.ttrss_utility.flat.flat.flat .alert-warning {
+  border-color: rgba(238, 170, 34, 0.26666667);
+  background-color: rgba(238, 170, 34, 0.2);
+  color: #bd830f;
+}
+body.flat.ttrss_utility.flat.flat.flat .text-warning {
+  color: #cd8e10;
+}
+body.flat.ttrss_utility.flat .panel.panel {
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.06666667);
+}
+body.flat.ttrss_utility.flat label.checkbox {
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 30px;
+  vertical-align: middle;
+  gap: 10px;
+}
+body.flat.ttrss_utility.flat label.checkbox :is(.dijitButton, .dijitSelect, .dijitTextBox) {
+  margin-block: 0;
+}
+body.flat.ttrss_utility.flat .dijitCheckBox {
+  flex-shrink: 0;
+}
+body.flat.ttrss_utility.flat .dijitDropDownButton .dijitArrowButtonInner::before,
+body.flat.ttrss_utility.flat .dijitArrowButton::before,
+body.flat.ttrss_utility.flat .dijitTreeExpandoClosed::before,
+body.flat.ttrss_utility.flat .dijitTreeExpandoOpened::before {
+  content: "\f006";
+}
+body.flat.ttrss_utility.flat :is(.dijitTreeExpandoClosed, .dijitTreeExpandoOpened) {
+  position: relative;
+  top: -1px;
+  left: 2px;
+  transition: all 0.2s !important;
+  font-size: 20px;
+}
+body.flat.ttrss_utility.flat .dijitTreeExpandoClosed {
+  transform: translate(3px, 3px) rotate(-90deg);
+}
+body.flat.ttrss_utility.flat .dijitTreeIcon {
+  margin-inline: 4px;
+}
+body.flat.ttrss_utility.flat .dijitTreeRow .dijitCheckBox {
+  margin-left: 8px;
+  vertical-align: top;
+}
+body.flat.ttrss_utility.flat .dijitToolbar {
+  margin: 8px;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06666667);
+  border-radius: 4px;
+}
+body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton, .dijitComboButton, .dijitDropDownButton) {
+  margin: 0;
+}
+body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton, .dijitComboButton, .dijitDropDownButton):is(.dijitActive, .dijitFocused):not(.dijitDisabled) {
+  box-shadow: none;
+}
+body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitSelect, .dijitTextBox) {
+  margin: 3px 0;
+}
+body.flat.ttrss_utility.flat .dijitToolbar .dijitSelect .dijitButtonNode {
+  padding-block: 2px;
+}
+body.flat.ttrss_utility.flat .dijitDialogPaneContent .dijitToolbar {
+  margin: 0 0 8px;
+  padding: 0;
+  border: none;
+}
+body.flat.ttrss_utility.flat :is(.dijitMultiSelect, .dijitTab.dijitActive, .dijitTab.dijitHover, .dijitTextArea) {
+  color: rgba(0, 0, 0, 0.73333333);
+}
+body.flat.ttrss_utility.flat .dijitTab:not(.dijitChecked) {
+  border: 1px solid transparent;
+}
+body.flat.ttrss_utility.flat .dijitTabContainerTop-tabs .dijitTabChecked {
+  border-bottom-color: transparent;
+}
+body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs {
+  margin-right: -0.4px;
+}
+body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs .dijitTabChecked {
+  border-right-color: transparent;
+}
+body.flat.ttrss_utility.flat.flat :is(code, pre),
+body.flat.ttrss_utility.flat .dijitTextArea {
+  font-family: var(--fonts-mono);
+}
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton, .dijitSelect, .dijitTextBox) {
+  margin: 4px 4px 4px 0;
+}
+body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton, .dijitSelect, .dijitTextBox).pull-right {
+  margin-inline: 4px 0;
+}
+body.flat.ttrss_utility.flat :is(.dijitDialog footer, .dijitDialog .dlgButtons) :last-child {
+  margin-right: 0;
+}
+body.flat.ttrss_utility.flat :is(label.dijitButton, .dijitButton i.material-icons, .tabLabel > i.material-icons) {
+  top: 0;
+}
+body.flat.ttrss_utility.flat :is(label.dijitButton, span.dijitButtonContents, .dijitButtonText) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 20px;
+}
+body.flat.ttrss_utility.flat span.dijitButtonNode {
+  display: block;
+}
+body.flat.ttrss_utility.flat .dijitButton + a {
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  margin: 4px 0;
+  padding: 5px 9px;
+  vertical-align: middle;
+}
+body.flat.ttrss_utility.flat label.dijitButton {
+  display: inline-flex;
+  padding: 4px 8px;
+}
+body.flat.ttrss_utility.flat label.dijitButton a:any-link {
+  all: unset;
+}
+body.flat.ttrss_utility.flat label.dijitButton input {
+  display: block !important;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  opacity: 0;
+}
+body.flat.ttrss_utility.flat .dijitTab {
+  vertical-align: top;
+}
+body.flat.ttrss_utility.flat .tabLabel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 18px;
+}
+body.flat.ttrss_utility.flat .tabLabel .material-icons {
+  width: 18px;
+}
+body.flat.ttrss_utility.flat .dijitComboBoxMenu .dijitMenuItem {
+  padding-block: 4px;
+}
+body.flat.ttrss_utility.flat .dijitToolbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.flat.ttrss_utility.flat .dijitToolbar > :is(.pull-right, [style*="float"]) {
+  order: 1;
+  margin-left: auto;
+  padding-right: 0 !important;
+}
+body.flat.ttrss_utility.flat .dijitToolbar .dijitValidationTextBox .dijitValidationContainer {
+  padding: 3px;
+}
+body.flat.ttrss_utility.flat .dijitDialog[style*="width: auto"] {
+  width: 600px !important;
+}
+body.flat.ttrss_utility.flat .dijitDialog :is(.dijitComboBox, .dijitSelect, .dijitTextBox) {
+  max-width: 100%;
+}
+@media (max-width: 768px) {
+  body.flat.ttrss_utility.flat .dijitDialog {
+    left: calc((100vw - min(600px, 100vw - 22px)) / 2 - 1px) !important;
+    width: min(600px, 100vw - 22px) !important;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*="width"] {
+    width: 100% !important;
+    margin-right: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*="width"] + .material-icons {
+    position: absolute;
+    margin: 9.5px 0 0 5px;
+  }
+}
+body.flat.ttrss_utility.flat :is(.dijitDialog, .dijitDialogPaneContent) {
+  display: flex;
+  flex-direction: column;
+}
+body.flat.ttrss_utility.flat :is(.dijitDialogTitleBar, .dijitDialogPaneContent) {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+}
+body.flat.ttrss_utility.flat .dijitDialogPaneContent {
+  flex: 1;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.06666667);
+}
+body.flat.ttrss_utility.flat {
+  background-color: #eeeeee;
+}
+body.flat.ttrss_utility.flat::-webkit-scrollbar-thumb {
+  background-color: #257aa7 !important;
+}
+body.flat.ttrss_utility.flat hr {
+  border-color: rgba(0, 0, 0, 0.13333333) !important;
+}
+body.flat.ttrss_utility.flat .content {
+  border-color: rgba(0, 0, 0, 0.13333333);
+  background-color: #fff;
+}
+body.flat.ttrss_utility.flat .dijitCheckBoxChecked {
+  background-color: #257aa7;
+}
+body.flat.ttrss_utility.flat :is(.footer, .footer a) {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+body.flat.ttrss_utility.flat .dijitTooltipContents {
+  background-color: #1c5c7d;
+}
+body.flat.ttrss_utility.flat .dijitTooltipRight .dijitTooltipConnector {
+  border-right-color: #1c5c7d;
+}
+body.flat.ttrss_utility.flat .dijitTooltipLeft .dijitTooltipConnector {
+  border-left-color: #1c5c7d;
+}
+body.flat.ttrss_utility.flat .dijitTooltipBelow .dijitTooltipConnector {
+  border-bottom-color: #1c5c7d;
+}
+body.flat.ttrss_utility.flat .dijitTooltipAbove .dijitTooltipConnector {
+  border-top-color: #1c5c7d;
+}
+body.flat.ttrss_utility.ttrss_zoom .header {
+  border-bottom-color: rgba(0, 0, 0, 0.13333333);
+  color: rgba(0, 0, 0, 0.4);
+}
+body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote, code, pre, th) {
+  background-color: rgba(0, 0, 0, 0.03666667);
+}
+body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote, hr, th, td) {
+  border-color: rgba(0, 0, 0, 0.13333333);
+}
+body.flat.ttrss_utility.ttrss_zoom .content :is(code, pre) {
+  border: 1px solid rgba(0, 0, 0, 0.03666667);
+}
+@media (prefers-color-scheme: dark) {
+  body.flat.ttrss_utility html {
+    --base-spacing: 45px;
+    --font-size-post: 16px;
+    --fonts-ui: "Helvetica Neue", Arial, Helvetica, "Liberation Sans", "Nimbus Sans L", FreeSans, sans-serif;
+    --fonts-content: var(--fonts-ui);
+    --fonts-heading: sans-serif-condensed, SansCn;
+    --fonts-mono: "Fira Code", Menlo, Monaco, Consolas, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Courier New", monospace;
+    --reading-width: 45;
+    --card-max-column-count: 10;
+    --card-min-column-width: 300px;
+  }
+  body.flat.ttrss_utility * {
+    scrollbar-color: #505050 transparent;
+    scrollbar-width: thin;
+  }
+  body.flat.ttrss_utility ::-webkit-scrollbar {
+    height: 4px !important;
+  }
+  body.flat.ttrss_utility ::-webkit-scrollbar-thumb {
+    background-color: #505050 !important;
+  }
+  body.flat.ttrss_utility ::-webkit-scrollbar-track {
+    background-color: transparent !important;
+  }
+  body.flat.ttrss_utility.flat {
+    background-color: #111;
+    color: rgba(255, 255, 255, 0.66666667);
+    font-family: var(--fonts-ui);
+    -webkit-tap-highlight-color: rgba(184, 125, 44, 0.4);
+  }
+  body.flat.ttrss_utility.flat .dijitMenuItemLabel {
+    font-family: unset;
+  }
+  body.flat.ttrss_utility.flat .dijitTextBox {
+    box-sizing: border-box;
+  }
+  body.flat.ttrss_utility.flat a:any-link:any-link {
+    color: #b87d2c;
+    text-decoration: none;
+  }
+  body.flat.ttrss_utility.flat a:any-link:is(:hover, :focus-visible) {
+    transition: color 0.1s;
+  }
+  body.flat.ttrss_utility.flat .dijitContentPane,
+  body.flat.ttrss_utility.flat .dijitDialog,
+  body.flat.ttrss_utility.flat .dijitTab.dijitChecked,
+  body.flat.ttrss_utility.flat .dijitTabPaneWrapper {
+    background-color: #111;
+  }
+  body.flat.ttrss_utility.flat #feedsTab,
+  body.flat.ttrss_utility.flat #footer,
+  body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,
+  body.flat.ttrss_utility.flat .dijitAccordionTitle.dijitAccordionTitle,
+  body.flat.ttrss_utility.flat .dijitDialog .dijitToolbar,
+  body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonContents,
+  body.flat.ttrss_utility.flat .dijitSelect.dijit.dijit.dijit .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitSplitter.dijitSplitter,
+  body.flat.ttrss_utility.flat .dijitTab.dijitTab:not(.dijitChecked) {
+    background-color: transparent;
+  }
+  body.flat.ttrss_utility.flat.ttrss_prefs #header > a:is(:hover, :focus-visible),
+  body.flat.ttrss_utility.flat .dijitTab.dijitHover:not(.dijitChecked),
+  body.flat.ttrss_utility.flat :where(.dijitTreeRow:focus-within),
+  body.flat.ttrss_utility.flat .dijitTreeRowHover,
+  body.flat.ttrss_utility.flat .dijitToolbar {
+    background-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,
+  body.flat.ttrss_utility.flat label.dijitButton.dijitButton,
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButton, .dijitUpArrowButton) {
+    background-color: #212121;
+  }
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitHover,
+  body.flat.ttrss_utility.flat label.dijitButton.dijitButton:is(:hover, :focus-within),
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton):where(.dijitFocused, .dijitHover) .dijitButtonNode,
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info:where(.dijitFocused, .dijitHover) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonHover, .dijitUpArrowButtonHover),
+  body.flat.ttrss_utility.flat .dijitToolbar .dijitHover:not(.dijitSelect) .dijitButtonNode {
+    background-color: #313131;
+  }
+  body.flat.ttrss_utility.flat.ttrss_prefs #header > a:active,
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitActive,
+  body.flat.ttrss_utility.flat label.dijitButton.dijitButton:active,
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton):where(.dijitActive) .dijitButtonNode,
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitDropDownButton).alt-info:where(.dijitActive) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),
+  body.flat.ttrss_utility.flat .dijitTextBox :is(.dijitDownArrowButtonActive, .dijitUpArrowButtonActive),
+  body.flat.ttrss_utility.flat .dijitToolbar .dijitActive:not(.dijitSelect) .dijitButtonNode {
+    background-color: #0e0e0e;
+  }
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer {
+    transition-duration: 0.1s;
+  }
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected {
+    background-color: #543c1c;
+  }
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer.dijitSelected .dijitAccordionTitle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #b87d2c;
+    color: #fff;
+  }
+  body.flat.ttrss_utility.flat .dijitCheckBox,
+  body.flat.ttrss_utility.flat .dijitComboBoxMenu,
+  body.flat.ttrss_utility.flat .dijitComboBoxMenuPopup,
+  body.flat.ttrss_utility.flat .dijitMenu,
+  body.flat.ttrss_utility.flat .dijitMenuPopup,
+  body.flat.ttrss_utility.flat .dijitMultiSelect,
+  body.flat.ttrss_utility.flat .dijitSelect,
+  body.flat.ttrss_utility.flat .dijitSelect .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitSelectMenu,
+  body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox.dijitTextBox {
+    background-color: #080808;
+  }
+  body.flat.ttrss_utility.flat.ttrss_prefs #header > a:active,
+  body.flat.ttrss_utility.flat label.dijitButton.dijitButton.dijitButton,
+  body.flat.ttrss_utility.flat [class*="alt-"] .dijitButtonNode.dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitButtonNode.dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitActive, .dijitHover) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitAccordionChildWrapper.dijitAccordionChildWrapper,
+  body.flat.ttrss_utility.flat .dijitAccordionInnerContainer,
+  body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox,
+  body.flat.ttrss_utility.flat .dijitDialog,
+  body.flat.ttrss_utility.flat .dijitDialog .panel.panel,
+  body.flat.ttrss_utility.flat .dijitDialogTitleBar,
+  body.flat.ttrss_utility.flat .dijitMenu,
+  body.flat.ttrss_utility.flat .dijitMenuSeparatorTop,
+  body.flat.ttrss_utility.flat .dijitMultiSelect,
+  body.flat.ttrss_utility.flat .dijitSelect,
+  body.flat.ttrss_utility.flat .dijitTab.dijitActive:not(.dijitChecked),
+  body.flat.ttrss_utility.flat .dijitTab.dijitChecked,
+  body.flat.ttrss_utility.flat .dijitTabPaneWrapper,
+  body.flat.ttrss_utility.flat .dijitTextBox.dijitTextBox {
+    border-color: rgba(255, 255, 255, 0.13333333);
+  }
+  body.flat.ttrss_utility.flat .dijitComboBox .dijitButtonNode {
+    border-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility.flat :is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox):is(.dijitActive, .dijitFocused, .dijitHover):not(.dijitDisabled) {
+    border-color: #b87d2c;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox).dijitError.dijitError {
+    border-color: #d45;
+  }
+  body.flat.ttrss_utility.flat .dijitCheckBox.dijitCheckBox:not(.dijitChecked)::before {
+    color: transparent;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitButton .material-icons, .dijitDisabled, .dijitDisabled .dijitMenuItemLabel) {
+    color: unset !important;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat :is(.dijitComboBox .dijitButtonNode, .dijitSpinner .dijitArrowButton, label.dijitButton) {
+    transition: all 0.15s;
+  }
+  body.flat.ttrss_utility.flat .dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .dijitActive:is(.dijitComboBox .dijitButtonNode, .dijitSpinner .dijitArrowButton),
+  body.flat.ttrss_utility.flat label.dijitButton:active {
+    transition: none;
+  }
+  body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ) {
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+  body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ):is(.dijitActive, .dijitFocused, :focus-within):not(.dijitDisabled) {
+    box-shadow: 0 0 0 2px rgba(184, 125, 44, 0.4);
+  }
+  body.flat.ttrss_utility.flat :is(
+      .dijitButton,
+      .dijitCheckBox,
+      .dijitComboButton,
+      .dijitDropDownButton,
+      .dijitMultiSelect,
+      .dijitSelect,
+      .dijitTextBox
+    ):is(.dijitActive, .dijitFocused, :focus-within):not(.dijitDisabled).dijitError {
+    box-shadow: 0 0 0 2px rgba(221, 68, 85, 0.4);
+  }
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitMultiSelect) {
+    border-radius: 4px;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitMultiSelect, .dijitSelectActive) {
+    box-shadow: none;
+  }
+  body.flat.ttrss_utility.flat .dijitDialogUnderlay {
+    opacity: 40%;
+  }
+  body.flat.ttrss_utility.flat .dijitSplitterThumb {
+    display: none;
+  }
+  body.flat.ttrss_utility.flat .alt-primary:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+    background-color: #a36f27;
+  }
+  body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+  body.flat.ttrss_utility.flat .alt-primary.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+    background-color: #906222;
+  }
+  body.flat.ttrss_utility.flat .alt-primary:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-primary.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+    background-color: #7b531d;
+  }
+  body.flat.ttrss_utility.flat .alt-success:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+    background-color: #529644;
+  }
+  body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+  body.flat.ttrss_utility.flat .alt-success.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+    background-color: #48843c;
+  }
+  body.flat.ttrss_utility.flat .alt-success:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-success.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+    background-color: #3d7033;
+  }
+  body.flat.ttrss_utility.flat .alt-warning:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+    background-color: #ca623a;
+  }
+  body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+  body.flat.ttrss_utility.flat .alt-warning.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+    background-color: #b25633;
+  }
+  body.flat.ttrss_utility.flat .alt-warning:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-warning.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+    background-color: #98492b;
+  }
+  body.flat.ttrss_utility.flat .alt-danger:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode {
+    background-color: #c73d4d;
+  }
+  body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton):is(.dijitFocused, .dijitHover):is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeHover, .dijitDownArrowButtonFocused, .dijitDownArrowButtonHover),
+  body.flat.ttrss_utility.flat .alt-danger.dijitComboButton .dijitButtonNode:has(.dijitButtonContentsFocused) {
+    background-color: #af3643;
+  }
+  body.flat.ttrss_utility.flat .alt-danger:not(.dijitComboButton).dijitActive:is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton) .dijitButtonNode,
+  body.flat.ttrss_utility.flat .alt-danger.dijitComboButton :is(.dijitButtonNodeActive.dijitButtonNodeActive, .dijitDownArrowButtonActive) {
+    background-color: #952e39;
+  }
+  body.flat.ttrss_utility.flat .alt-info.alt-info .dijitButtonNode {
+    color: #b87d2c;
+  }
+  body.flat.ttrss_utility.flat .alt-info.alt-info:is(.dijitFocused, .dijitHover) .dijitButtonNode {
+    color: #d0913a;
+    border-color: currentColor;
+  }
+  body.flat.ttrss_utility.flat .dijitDisabled {
+    opacity: 0.5;
+  }
+  body.flat.ttrss_utility.flat .dijitDisabled:not(.dijitChecked):is(.dijitCheckBox, .dijitMultiSelect, .dijitSelect, .dijitTextBox) {
+    background-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility.flat :is(*, .dijitDisabled) .dijitButtonNode {
+    color: rgba(255, 255, 255, 0.66666667);
+  }
+  body.flat.ttrss_utility.flat :is(*, .dijitDisabled)[class*="alt-"] .dijitButtonNode {
+    color: rgba(255, 255, 255, 0.86666667);
+  }
+  body.flat.ttrss_utility.flat :is(*, .dijitDisabled).alt-info .dijitButtonNode {
+    color: #b87d2c;
+  }
+  body.flat.ttrss_utility.flat .dijitSelect .dijitInputField {
+    padding-left: 6px;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltip .dijitTooltipContents {
+    color: rgba(0, 0, 0, 0.86666667);
+  }
+  body.flat.ttrss_utility.flat :is(.small, .text-small) {
+    font-size: 0.857em;
+  }
+  body.flat.ttrss_utility.flat .text-muted {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  body.flat.ttrss_utility.flat.flat.flat :is(.alert, .article-note) {
+    border-color: rgba(238, 170, 34, 0.26666667);
+    background-color: rgba(238, 170, 34, 0.2);
+    color: #f3c261;
+  }
+  body.flat.ttrss_utility.flat.flat.flat :is(.alert, .article-note) h4 {
+    color: unset;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .alert-danger {
+    border-color: rgba(221, 68, 85, 0.26666667);
+    background-color: rgba(221, 68, 85, 0.2);
+    color: #e77e89;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .text-danger {
+    color: #e15a69;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .alert-error {
+    border-color: rgba(221, 68, 85, 0.26666667);
+    background-color: rgba(221, 68, 85, 0.2);
+    color: #e77e89;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .text-error {
+    color: #e15a69;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .alert-info {
+    border-color: rgba(51, 153, 204, 0.26666667);
+    background-color: rgba(51, 153, 204, 0.2);
+    color: #69b4da;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .text-info {
+    color: #47a3d1;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .alert-success {
+    border-color: rgba(102, 187, 85, 0.26666667);
+    background-color: rgba(102, 187, 85, 0.2);
+    color: #92ce86;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .text-success {
+    color: #76c267;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .alert-warning {
+    border-color: rgba(238, 170, 34, 0.26666667);
+    background-color: rgba(238, 170, 34, 0.2);
+    color: #f3c261;
+  }
+  body.flat.ttrss_utility.flat.flat.flat .text-warning {
+    color: #f0b33a;
+  }
+  body.flat.ttrss_utility.flat .panel.panel {
+    border-radius: 4px;
+    border-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility.flat label.checkbox {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 30px;
+    vertical-align: middle;
+    gap: 10px;
+  }
+  body.flat.ttrss_utility.flat label.checkbox :is(.dijitButton, .dijitSelect, .dijitTextBox) {
+    margin-block: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitCheckBox {
+    flex-shrink: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitDropDownButton .dijitArrowButtonInner::before,
+  body.flat.ttrss_utility.flat .dijitArrowButton::before,
+  body.flat.ttrss_utility.flat .dijitTreeExpandoClosed::before,
+  body.flat.ttrss_utility.flat .dijitTreeExpandoOpened::before {
+    content: "\f006";
+  }
+  body.flat.ttrss_utility.flat :is(.dijitTreeExpandoClosed, .dijitTreeExpandoOpened) {
+    position: relative;
+    top: -1px;
+    left: 2px;
+    transition: all 0.2s !important;
+    font-size: 20px;
+  }
+  body.flat.ttrss_utility.flat .dijitTreeExpandoClosed {
+    transform: translate(3px, 3px) rotate(-90deg);
+  }
+  body.flat.ttrss_utility.flat .dijitTreeIcon {
+    margin-inline: 4px;
+  }
+  body.flat.ttrss_utility.flat .dijitTreeRow .dijitCheckBox {
+    margin-left: 8px;
+    vertical-align: top;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar {
+    margin: 8px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06666667);
+    border-radius: 4px;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton, .dijitComboButton, .dijitDropDownButton) {
+    margin: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitButton, .dijitComboButton, .dijitDropDownButton):is(.dijitActive, .dijitFocused):not(.dijitDisabled) {
+    box-shadow: none;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar :is(.dijitSelect, .dijitTextBox) {
+    margin: 3px 0;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar .dijitSelect .dijitButtonNode {
+    padding-block: 2px;
+  }
+  body.flat.ttrss_utility.flat .dijitDialogPaneContent .dijitToolbar {
+    margin: 0 0 8px;
+    padding: 0;
+    border: none;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitMultiSelect, .dijitTab.dijitActive, .dijitTab.dijitHover, .dijitTextArea) {
+    color: rgba(255, 255, 255, 0.66666667);
+  }
+  body.flat.ttrss_utility.flat .dijitTab:not(.dijitChecked) {
+    border: 1px solid transparent;
+  }
+  body.flat.ttrss_utility.flat .dijitTabContainerTop-tabs .dijitTabChecked {
+    border-bottom-color: transparent;
+  }
+  body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs {
+    margin-right: -0.4px;
+  }
+  body.flat.ttrss_utility.flat .dijitTabContainerLeft-tabs .dijitTabChecked {
+    border-right-color: transparent;
+  }
+  body.flat.ttrss_utility.flat.flat :is(code, pre),
+  body.flat.ttrss_utility.flat .dijitTextArea {
+    font-family: var(--fonts-mono);
+  }
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton, .dijitSelect, .dijitTextBox) {
+    margin: 4px 4px 4px 0;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitButton, .dijitComboButton, .dijitDropDownButton, .dijitToggleButton, .dijitSelect, .dijitTextBox).pull-right {
+    margin-inline: 4px 0;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitDialog footer, .dijitDialog .dlgButtons) :last-child {
+    margin-right: 0;
+  }
+  body.flat.ttrss_utility.flat :is(label.dijitButton, .dijitButton i.material-icons, .tabLabel > i.material-icons) {
+    top: 0;
+  }
+  body.flat.ttrss_utility.flat :is(label.dijitButton, span.dijitButtonContents, .dijitButtonText) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 20px;
+  }
+  body.flat.ttrss_utility.flat span.dijitButtonNode {
+    display: block;
+  }
+  body.flat.ttrss_utility.flat .dijitButton + a {
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    margin: 4px 0;
+    padding: 5px 9px;
+    vertical-align: middle;
+  }
+  body.flat.ttrss_utility.flat label.dijitButton {
+    display: inline-flex;
+    padding: 4px 8px;
+  }
+  body.flat.ttrss_utility.flat label.dijitButton a:any-link {
+    all: unset;
+  }
+  body.flat.ttrss_utility.flat label.dijitButton input {
+    display: block !important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    opacity: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitTab {
+    vertical-align: top;
+  }
+  body.flat.ttrss_utility.flat .tabLabel {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 18px;
+  }
+  body.flat.ttrss_utility.flat .tabLabel .material-icons {
+    width: 18px;
+  }
+  body.flat.ttrss_utility.flat .dijitComboBoxMenu .dijitMenuItem {
+    padding-block: 4px;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar > :is(.pull-right, [style*="float"]) {
+    order: 1;
+    margin-left: auto;
+    padding-right: 0 !important;
+  }
+  body.flat.ttrss_utility.flat .dijitToolbar .dijitValidationTextBox .dijitValidationContainer {
+    padding: 3px;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog[style*="width: auto"] {
+    width: 600px !important;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog :is(.dijitComboBox, .dijitSelect, .dijitTextBox) {
+    max-width: 100%;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitDialog, .dijitDialogPaneContent) {
+    display: flex;
+    flex-direction: column;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitDialogTitleBar, .dijitDialogPaneContent) {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  body.flat.ttrss_utility.flat .dijitDialogPaneContent {
+    flex: 1;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility #main#main .cdm.expandable.active {
+    background-color: transparent !important;
+  }
+  body.flat.ttrss_utility #main#main :is(.cdm[data-article-id], .hl) :is(.dijitCheckBox, .marked-pic, .pub-pic) {
+    transition: all 0.2s !important;
+  }
+  body.flat.ttrss_utility #main#main :is(.cdm[data-article-id], .hl) .icon-score:not([title="0"]),
+  body.flat.ttrss_utility #main#main :is(.cdm[data-article-id], .hl).marked .marked-pic,
+  body.flat.ttrss_utility #main#main :is(.cdm[data-article-id], .hl).published .pub-pic,
+  body.flat.ttrss_utility #main#main :is(.cdm[data-article-id], .hl) .dijitCheckBox.dijitChecked {
+    opacity: 0.75;
+  }
+  body.flat.ttrss_utility #main#main img.icon {
+    filter: opacity(0.8) drop-shadow(0 0 0.2px #fff) drop-shadow(0 0 0.4px #fff);
+  }
+  body.flat.ttrss_utility.flat code {
+    color: #ea2 !important;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitMenuItemHover, .dijitMenuItemSelected) {
+    color: #000;
+  }
+  body.flat.ttrss_utility.flat :is(.dijitMenuItemHover, .dijitMenuItemSelected) td {
+    color: unset;
+  }
+  body.flat.ttrss_utility .notify {
+    color: rgba(0, 0, 0, 0.66666667);
+  }
+  body.flat.ttrss_utility.flat {
+    background-color: #111;
+  }
+  body.flat.ttrss_utility.flat::-webkit-scrollbar-thumb {
+    background-color: #505050 !important;
+  }
+  body.flat.ttrss_utility.flat hr {
+    border-color: rgba(255, 255, 255, 0.13333333) !important;
+  }
+  body.flat.ttrss_utility.flat .content {
+    border-color: rgba(255, 255, 255, 0.06666667);
+    background-color: rgba(255, 255, 255, 0.06666667);
+  }
+  body.flat.ttrss_utility.flat .dijitCheckBoxChecked {
+    background-color: #b87d2c;
+  }
+  body.flat.ttrss_utility.flat :is(.footer, .footer a) {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltipContents {
+    background-color: #8f6122;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltipRight .dijitTooltipConnector {
+    border-right-color: #8f6122;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltipLeft .dijitTooltipConnector {
+    border-left-color: #8f6122;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltipBelow .dijitTooltipConnector {
+    border-bottom-color: #8f6122;
+  }
+  body.flat.ttrss_utility.flat .dijitTooltipAbove .dijitTooltipConnector {
+    border-top-color: #8f6122;
+  }
+  body.flat.ttrss_utility.ttrss_zoom .header {
+    border-bottom-color: rgba(255, 255, 255, 0.13333333);
+    color: rgba(255, 255, 255, 0.4);
+  }
+  body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote, code, pre, th) {
+    background-color: rgba(255, 255, 255, 0.03666667);
+  }
+  body.flat.ttrss_utility.ttrss_zoom .content :is(blockquote, hr, th, td) {
+    border-color: rgba(255, 255, 255, 0.13333333);
+  }
+  body.flat.ttrss_utility.ttrss_zoom .content :is(code, pre) {
+    border: 1px solid rgba(255, 255, 255, 0.03666667);
+  }
+}
+@media (prefers-color-scheme: dark) and (hover: none) {
+  body.flat.ttrss_utility ::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+}
+@media (prefers-color-scheme: dark) and (hover: hover) {
+  body.flat.ttrss_utility.flat a:any-link:is(:hover, :focus-visible) {
+    color: #d7a259;
+    text-decoration: underline;
+  }
+}
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  body.flat.ttrss_utility.flat .dijitDialog {
+    left: calc((100vw - min(600px, 100vw - 22px)) / 2 - 1px) !important;
+    width: min(600px, 100vw - 22px) !important;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*="width"] {
+    width: 100% !important;
+    margin-right: 0;
+  }
+  body.flat.ttrss_utility.flat .dijitDialog .dijitTextBox[style*="width"] + .material-icons {
+    position: absolute;
+    margin: 9.5px 0 0 5px;
+  }
+}
+body.flat.ttrss_utility.flat {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: clamp(0px, 10vw - 50px, 50px);
+}
+body.flat.ttrss_utility.flat :is(h1, h2, h3, h4) {
+  margin-bottom: 14px;
+  color: unset;
+  font-family: unset;
+}
+body.flat.ttrss_utility.flat h1 {
+  margin-top: 14px;
+  font-size: 21px;
+}
+body.flat.ttrss_utility.flat pre {
+  overflow: auto;
+}
+body.flat.ttrss_utility.flat .container {
+  margin: 10px;
+}
+body.flat.ttrss_utility.flat .content.content {
+  padding: 20px 29px;
+  border-radius: 4px;
+}
+body.flat.ttrss_utility.flat fieldset {
+  width: 100%;
+  margin-inline: 0;
+  word-spacing: -0.3em;
+}
+body.flat.ttrss_utility.flat fieldset * {
+  word-spacing: 0;
+}
+body.flat.ttrss_utility.flat fieldset.narrow > label + label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+}
+body.flat.ttrss_utility.flat fieldset > :last-child {
+  margin-right: 0;
+}
+@media (max-width: 480px) {
+  body.flat.ttrss_utility.flat :is(.dijitSelect, .dijitTextBox) {
+    width: 100% !important;
+  }
+  body.flat.ttrss_utility.flat fieldset > label:first-of-type {
+    text-align: left;
+  }
+  body.flat.ttrss_utility.flat fieldset.narrow > label:first-of-type {
+    display: none;
+  }
+}
+body.flat.ttrss_utility:is(.ttrss_login, .otp) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+body.flat.ttrss_utility:is(.ttrss_login, .otp) h1 {
+  display: none;
+}
+body.flat.ttrss_utility:is(.ttrss_login, .otp) .dijitTextBox {
+  font-size: 16px;
+}
+body.flat.ttrss_utility:is(.ttrss_login, .otp) form > fieldset:last-child .dijitButton {
+  width: 100%;
+}
+body.flat.ttrss_utility.ttrss_login form > fieldset:last-child label {
+  display: none;
+}
+body.flat.ttrss_utility.otp .content {
+  flex-basis: 400px;
+  margin: 10px;
+}
+body.flat.ttrss_utility.otp .dijitTextBox {
+  width: 100%;
+  margin-bottom: 14px;
+}
+body.flat.ttrss_utility.share_popup fieldset {
+  padding: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .header {
+  padding: 0 0 1em;
+  background-color: transparent;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content {
+  padding: 1em 0 0;
+  overflow: auto;
+  background-color: transparent;
+  font-size: var(--font-size-post);
+}
+@media (min-width: 577px) {
+  body.flat.ttrss_utility.ttrss_zoom .post .content {
+    line-height: 1.625;
+  }
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content * {
+  margin: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content *:where(img, iframe, blockquote, pre, table, video) {
+  margin-block: 0.375em 0.625em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content * + * {
+  margin-top: 1.5625em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content * + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 2.5em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content * + :is(dt, li) {
+  margin-top: 0.625em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content * + br {
+  margin-top: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is([align="center"], center *) {
+  margin-right: auto;
+  margin-left: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote, iframe, img, pre, table, video) {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote, dl, figcaption, h1, h2, h3, h4, h5, h6, ol, p, ul) {
+  max-width: calc(var(--font-size-post) * var(--reading-width));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(h1, h2, h3, h4, h5, h6) {
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h1 {
+  font-size: calc((var(--font-size-post) + 10px - 1 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 1 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h2 {
+  font-size: calc((var(--font-size-post) + 10px - 2 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 2 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h3 {
+  font-size: calc((var(--font-size-post) + 10px - 3 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 3 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h4 {
+  font-size: calc((var(--font-size-post) + 10px - 4 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 4 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h5 {
+  font-size: calc((var(--font-size-post) + 10px - 5 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 5 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content h6 {
+  font-size: calc((var(--font-size-post) + 10px - 6 * 2px));
+  line-height: calc(((var(--font-size-post) + 10px - 6 * 2px) + 6px));
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul, ol) {
+  padding-left: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul, ol) li {
+  margin-left: 2.5em;
+  padding: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(ul, ol) li:only-child {
+  margin: 0;
+  list-style: none;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content dd {
+  margin: 0 0 0 2.5em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content table {
+  border-collapse: collapse;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content table :is(th, td) {
+  padding: 0.375em 0.625em;
+  border-width: 1px;
+  border-style: solid;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] :is(th, td) {
+  padding: 0;
+  border: none;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] :is(th, td) + * {
+  padding-left: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content table[border="0"] table {
+  width: 100%;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content [bgcolor] {
+  background-color: transparent;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(iframe, img, video) {
+  display: block;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is([align="left"], [style*="float:left"], [style*="float: left"]) {
+  margin-right: 1em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is([align="right"], [style*="float:right"], [style*="float: right"]) {
+  margin-left: 1em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content img {
+  margin-top: 1.5625em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > :first-child > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > :first-child > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > :first-child > :first-child > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > :first-child > :first-child > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > :first-child > :first-child > :first-child > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > :first-child > :first-child > :first-child > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > :first-child > :first-child > :first-child > :first-child > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > :first-child > :first-child > :first-child > :first-child > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content > :first-child > :first-child > :first-child > :first-child > :first-child > img:first-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content :where(blockquote, figure, td, th) > :first-child > :first-child > :first-child > :first-child > :first-child > img:first-child {
+  margin-top: 0.375em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content figure > * ~ figcaption ~ *,
+body.flat.ttrss_utility.ttrss_zoom .post .content figure > img + p:last-child,
+body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption {
+  margin-top: 0.625em;
+  font-size: 0.875em;
+  font-style: italic;
+  line-height: 1.357;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption:first-child {
+  margin-top: 0;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content figure figcaption:first-child + * {
+  margin-top: 0.625em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(pre, code) {
+  font-family: var(--fonts-mono);
+  font-size: 0.875em;
+  line-height: 1.357;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content pre {
+  padding: 0.625em;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content code {
+  padding: 0 0.15em !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content code.hljs {
+  color: unset !important;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content pre code {
+  padding: 0 !important;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(blockquote, q) {
+  font-style: italic;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content blockquote {
+  padding: 0.625em 1em;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content :not(area, br, col, embed, hr, iframe, img, input, link, td, th, track, video, wbr, .dijit *):empty,
+body.flat.ttrss_utility.ttrss_zoom .post .content :not(area, br, col, embed, hr, iframe, img, input, link, td, th, track, video, wbr, .dijit *):empty + br,
+body.flat.ttrss_utility.ttrss_zoom .post .content :is(article, blockquote, div, figure, figcaption, hr, section, table) + br {
+  display: none;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content .embed-responsive {
+  aspect-ratio: 16 / 9;
+}
+body.flat.ttrss_utility.ttrss_zoom .post .content .embed-responsive iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy8vd29ya3NwYWNlL3Byb2plY3QvdHQtcnNzLWZlZWRseS10aGVtZS90dC1yc3MvdGhlbWVzL2xpZ2h0L3R0LXJzcy5sZXNzIiwic3JjL192YXJpYWJsZXMubGVzcyIsInNyYy9sb2NhbC1vdmVycmlkZXMubGVzcyIsInNyYy9fZmxhdC5sZXNzIiwic3JjLy93b3Jrc3BhY2UvcHJvamVjdC90dC1yc3MtZmVlZGx5LXRoZW1lL3R0LXJzcy90aGVtZXMvbGlnaHQvZGlqaXRfYmFzaWMubGVzcyIsInNyYy9fY29udGVudC1pbm5lci1jb2xvcnMubGVzcyIsInNyYy9fbmlnaHQubGVzcyIsInNyYy9fY29udGVudC1pbm5lci5sZXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXN2QkMsUUFBbUM7Q0E2T25DLFFBQW1DO0NDOTlCcEM7RUFDRSxvQkFBQTtFQUNBLHNCQUFBO0VBQ0EsWUFBWSw0RkFBWjtFQUNBLGlCQUFpQixlQUFqQjtFQUNBLDZDQUFBO0VBQ0EsY0FBYzt3REFBZDtFQUVBLG1CQUFBO0VBQ0EsMkJBQUE7RUFDQSw4QkFBQTs7QUN3Q0EsSUFERSxLQUFLLGNBQ047RUFDQyxzQkFBQTs7QUFFQSxRQUFxQjtFQUFyQixJQUpBLEtBQUssY0FDTjtJQUlHLG1CQUFBO0lBQ0Esb0JBQUE7OztBQUdKLElBVEUsS0FBSyxjQVNOO0VBQ0Msd0NBQUE7O0FBVkosSUFBSSxLQUFLLGNBWVA7RUFDRSxhQUFBOztBQWJKLElBQUksS0FBSyxjQ3BEVDtFQUNFLG9DQUFBO0VBQ0EscUJBQUE7O0FEa0RGLElBQUksS0FBSyxjQ2hEVDtFQUNFLHNCQUFBOztBQUVBLFFBQXFCO0VBQXJCLElENkNFLEtBQUssY0NoRFQ7SUFJSSxtQkFBQTtJQUNBLG9CQUFBOzs7QUQyQ0osSUFBSSxLQUFLLGNDeENUO0VBQ0UseUJBQUE7O0FEdUNGLElBQUksS0FBSyxjQ3JDVDtFQUNFLHdDQUFBOztBQ2xCRCxJRnNERyxLQUFLLGNFdERQO0VEc0JBLHNCQUFBO0VBQ0EsZ0NBQUE7RUFDQSxhRm9CUyxlRXBCVDtFQUNBLG9EQUFBOztBQ3pCRCxJRnNERyxLQUFLLGNFdERQLEtEMkJBO0VBQ0Usa0JBQUE7O0FDNUJILElGc0RHLEtBQUssY0V0RFAsS0Q4QkE7RUFDRSxzQkFBQTs7QUFPQSxJRGdCQSxLQUFLLGNFdERQLEtEcUNBLEVBQUMsU0FDRTtFQUNDLGNBQUE7RUFDQSxxQkFBQTs7QUFFRixJRFlBLEtBQUssY0V0RFAsS0RxQ0EsRUFBQyxTQUtFLEdBQUc7RUFDRixzQkFBQTs7QUFFQSxRQUFzQjtFQUF0QixJRFNGLEtBQUssY0V0RFAsS0RxQ0EsRUFBQyxTQUtFLEdBQUc7SUZ5R04sY0FBQTtJRXBHTSwwQkFBQTs7O0FDL0NQLElGc0RHLEtBQUssY0V0RFAsS0RtREE7QUNuREQsSUZzREcsS0FBSyxjRXREUCxLRG9EQTtBQ3BERCxJRnNERyxLQUFLLGNFdERQLEtEcURBLFVBQVM7QUNyRFYsSUZzREcsS0FBSyxjRXREUCxLRHNEQTtFQUNFLHNCQUFBOztBQ3ZESCxJRnNERyxLQUFLLGNFdERQLEtEeURBO0FDekRELElGc0RHLEtBQUssY0V0RFAsS0QwREE7QUMxREQsSUZzREcsS0FBSyxjRXREUCxLRDJEQSw0QkFBMkI7QUMzRDVCLElGc0RHLEtBQUssY0V0RFAsS0Q0REEscUJBQW9CO0FDNURyQixJRnNERyxLQUFLLGNFdERQLEtENkRBLGFBQWE7QUM3RGQsSUZzREcsS0FBSyxjRXREUCxLRDhEQSxhQUFZLE1BQU0sTUFBTSxNQUFPO0FDOURoQyxJRnNERyxLQUFLLGNFdERQLEtEK0RBLGFBQVksTUFBTSxNQUFNLE1BQU87QUMvRGhDLElGc0RHLEtBQUssY0V0RFAsS0RnRUEsZUFBYztBQ2hFZixJRnNERyxLQUFLLGNFdERQLEtEaUVBLFVBQVMsU0FBUyxJQUFJO0VBQ3BCLDZCQUFBOztBQUVGLElEZEUsS0FBSyxjRXREUCxLRG9FQyxZQUFhLFFBQVEsSUFBRyxHQUFHO0FDcEU3QixJRnNERyxLQUFLLGNFdERQLEtEcUVBLFVBQVMsV0FBVyxJQUFJO0FDckV6QixJRnNERyxLQUFLLGNFdERQLEtEc0VBLE9BQU07QUN0RVAsSUZzREcsS0FBSyxjRXREUCxLRHVFQTtBQ3ZFRCxJRnNERyxLQUFLLGNFdERQLEtEd0VBO0VBQ0UsMkNBQUE7O0FDekVILElGc0RHLEtBQUssY0V0RFAsS0QyRUE7QUMzRUQsSUZzREcsS0FBSyxjRXREUCxLRDRFQSxNQUFLLFlBQVk7QUM1RWxCLElGc0RHLEtBQUssY0V0RFAsS0Q2RUEsSUFBRyxvQ0FBcUM7QUM3RXpDLElGc0RHLEtBQUssY0V0RFAsS0Q4RUEsSUFBRyxvQ0FBb0MsU0FBVTtBQzlFbEQsSUZzREcsS0FBSyxjRXREUCxLRCtFQSxjQUFjLElBQUc7RUFDZix5QkFBQTs7QUNoRkgsSUZzREcsS0FBSyxjRXREUCxLRGtGQSw4QkFBNkI7QUNsRjlCLElGc0RHLEtBQUssY0V0RFAsS0RtRkEsTUFBSyxZQUFZLFlBQVksR0FBRztBQ25GakMsSUZzREcsS0FBSyxjRXREUCxLRG9GQSxJQUFHLG9DQUFvQyxNQUFNLDRCQUE2QjtBQ3BGM0UsSUZzREcsS0FBSyxjRXREUCxLRHFGQSxJQUFHLG9DQUFvQyxTQUFTLE1BQU0sNEJBQTZCO0FDckZwRixJRnNERyxLQUFLLGNFdERQLEtEc0ZBLGNBQWMsSUFBRztBQ3RGbEIsSUZzREcsS0FBSyxjRXREUCxLRHVGQSxjQUFjLFlBQVcsSUFBSSxjQUFlO0VBQzFDLHlCQUFBOztBQUVGLElEcENFLEtBQUssY0V0RFAsS0QwRkMsWUFBYSxRQUFRLElBQUc7QUMxRjFCLElGc0RHLEtBQUssY0V0RFAsS0QyRkEsOEJBQTZCO0FDM0Y5QixJRnNERyxLQUFLLGNFdERQLEtENEZBLE1BQUssWUFBWSxZQUFZO0FDNUY5QixJRnNERyxLQUFLLGNFdERQLEtENkZBLElBQUcsb0NBQW9DLE1BQU0sY0FBZTtBQzdGN0QsSUZzREcsS0FBSyxjRXREUCxLRDhGQSxJQUFHLG9DQUFvQyxTQUFTLE1BQU0sY0FBZTtBQzlGdEUsSUZzREcsS0FBSyxjRXREUCxLRCtGQSxVQUFTLFlBQVksSUFBSTtBQy9GMUIsSUZzREcsS0FBSyxjRXREUCxLRGdHQSxjQUFjLElBQUc7QUNoR2xCLElGc0RHLEtBQUssY0V0RFAsS0RpR0EsY0FBYyxhQUFZLElBQUksY0FBZTtFQUMzQyx5QkFBQTs7QUNsR0gsSUZzREcsS0FBSyxjRXREUCxLRG9HQTtFQUNFLHlCQUFBOztBQUVBLElEakRBLEtBQUssY0V0RFAsS0RvR0EsOEJBR0c7RUFDQyx5QkFBQTs7QUFERixJRGpEQSxLQUFLLGNFdERQLEtEb0dBLDhCQUdHLGNBR0M7RUFDRSw2QkFBQTtFQUNBLDRCQUFBO0VBQ0EseUJBQUE7RUFDQSxXQUFBOztBQzlHUCxJRnNERyxLQUFLLGNFdERQLEtEa0hBO0FDbEhELElGc0RHLEtBQUssY0V0RFAsS0RtSEE7QUNuSEQsSUZzREcsS0FBSyxjRXREUCxLRG9IQTtBQ3BIRCxJRnNERyxLQUFLLGNFdERQLEtEcUhBO0FDckhELElGc0RHLEtBQUssY0V0RFAsS0RzSEE7QUN0SEQsSUZzREcsS0FBSyxjRXREUCxLRHVIQTtBQ3ZIRCxJRnNERyxLQUFLLGNFdERQLEtEd0hBO0FDeEhELElGc0RHLEtBQUssY0V0RFAsS0R5SEEsYUFBYTtBQ3pIZCxJRnNERyxLQUFLLGNFdERQLEtEMEhBO0FDMUhELElGc0RHLEtBQUssY0V0RFAsS0QySEEsY0FBYSxhQUFhO0VBQ3hCLHlCQUFBOztBQUVGLElEeEVFLEtBQUssY0V0RFAsS0Q4SEMsWUFBYSxRQUFRLElBQUc7QUM5SDFCLElGc0RHLEtBQUssY0V0RFAsS0QrSEEsTUFBSyxZQUFZLFlBQVk7QUMvSDlCLElGc0RHLEtBQUssY0V0RFAsS0RnSUEsZ0JBQWdCLGlCQUFnQjtBQ2hJakMsSUZzREcsS0FBSyxjRXREUCxLRGlJQSxpQkFBZ0I7QUNqSWpCLElGc0RHLEtBQUssY0V0RFAsS0RrSUEsY0FBYyxJQUFHLDJCQUE0QjtBQ2xJOUMsSUZzREcsS0FBSyxjRXREUCxLRG1JQSw0QkFBMkI7QUNuSTVCLElGc0RHLEtBQUssY0V0RFAsS0RvSUE7QUNwSUQsSUZzREcsS0FBSyxjRXREUCxLRHFJQSxlQUFjO0FDcklmLElGc0RHLEtBQUssY0V0RFAsS0RzSUE7QUN0SUQsSUZzREcsS0FBSyxjRXREUCxLRHVJQSxhQUFhLE9BQU07QUN2SXBCLElGc0RHLEtBQUssY0V0RFAsS0R3SUE7QUN4SUQsSUZzREcsS0FBSyxjRXREUCxLRHlJQTtBQ3pJRCxJRnNERyxLQUFLLGNFdERQLEtEMElBO0FDMUlELElGc0RHLEtBQUssY0V0RFAsS0QySUE7QUMzSUQsSUZzREcsS0FBSyxjRXREUCxLRDRJQTtBQzVJRCxJRnNERyxLQUFLLGNFdERQLEtENklBLFVBQVMsWUFBWSxJQUFJO0FDN0kxQixJRnNERyxLQUFLLGNFdERQLEtEOElBLFVBQVM7QUM5SVYsSUZzREcsS0FBSyxjRXREUCxLRCtJQTtBQy9JRCxJRnNERyxLQUFLLGNFdERQLEtEZ0pBLGNBQWE7RUFDWCx1Q0FBQTs7QUNqSkgsSUZzREcsS0FBSyxjRXREUCxLRG9KQSxlQUFlO0VBQ2IsdUNBQUE7O0FBR0EsSURsR0EsS0FBSyxjRXREUCxLRHVKQSxJQUFHLGdFQUNBLEdBQUcsMENBQTBDLElBQUk7RUFDaEQscUJBQUE7O0FBRUYsSURyR0EsS0FBSyxjRXREUCxLRHVKQSxJQUFHLGdFQUlBLFdBQVc7RUFDVixrQkFBQTs7QUM1SkwsSUZzREcsS0FBSyxjRXREUCxLRCtKQSxlQUFjLGNBQWMsSUFBSSxlQUFlO0VBQzdDLGtCQUFBOztBQ2hLSCxJRnNERyxLQUFLLGNFdERQLEtEa0tBLElBQUc7RUFDRCx1QkFBQTs7QUNuS0gsSUZzREcsS0FBSyxjRXREUCxLQUFELElBQUcsMkVBT3lCO0FBUDVCLElGc0RHLEtBQUssY0V0RFAsS0FRVSxJQUFHO0VEK0pYLHFCQUFBOztBQ3ZLSCxJRnNERyxLQUFLLGNFdERQLEtBQUQsYUFFRyxHQUNILDJFQUtLO0FBUkwsSUZzREcsS0FBSyxjRXREUCxLQVFzQixhQUV0QixHQUFHO0FBVkosSUZzREcsS0FBSyxjRXREUCxLQWNTLE1BQ1QsWUFFUTtFRDJKTixnQkFBQTs7QUM1S0gsSUZzREcsS0FBSyxjRXREUCxLRDhLQSxJQUFHOzs7Ozs7Ozs7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SURZQSxLQUFLLGNFdERQLEtEcUNBLEVBQUMsU0FLRSxHQUFHO0lBQ0Ysc0JBQUE7O0VDM0NMLElGc0RHLEtBQUssY0V0RFAsS0RtREE7RUNuREQsSUZzREcsS0FBSyxjRXREUCxLRG9EQTtFQ3BERCxJRnNERyxLQUFLLGNFdERQLEtEcURBLFVBQVM7RUNyRFYsSUZzREcsS0FBSyxjRXREUCxLRHNEQTtJQUNFLHNCQUFBOztFQ3ZESCxJRnNERyxLQUFLLGNFdERQLEtEeURBO0VDekRELElGc0RHLEtBQUssY0V0RFAsS0QwREE7RUMxREQsSUZzREcsS0FBSyxjRXREUCxLRDJEQSw0QkFBMkI7RUMzRDVCLElGc0RHLEtBQUssY0V0RFAsS0Q0REEscUJBQW9CO0VDNURyQixJRnNERyxLQUFLLGNFdERQLEtENkRBLGFBQWE7RUM3RGQsSUZzREcsS0FBSyxjRXREUCxLRDhEQSxhQUFZLE1BQU0sTUFBTSxNQUFPO0VDOURoQyxJRnNERyxLQUFLLGNFdERQLEtEK0RBLGFBQVksTUFBTSxNQUFNLE1BQU87RUMvRGhDLElGc0RHLEtBQUssY0V0RFAsS0RnRUEsZUFBYztFQ2hFZixJRnNERyxLQUFLLGNFdERQLEtEaUVBLFVBQVMsU0FBUyxJQUFJO0lBQ3BCLDZCQUFBOztFQUVGLElEZEUsS0FBSyxjRXREUCxLRG9FQyxZQUFhLFFBQVEsSUFBRyxHQUFHO0VDcEU3QixJRnNERyxLQUFLLGNFdERQLEtEcUVBLFVBQVMsV0FBVyxJQUFJO0VDckV6QixJRnNERyxLQUFLLGNFdERQLEtEc0VBLE9BQU07RUN0RVAsSUZzREcsS0FBSyxjRXREUCxLRHVFQTtFQ3ZFRCxJRnNERyxLQUFLLGNFdERQLEtEd0VBO0lBQ0UsaURBQUE7O0VDekVILElGc0RHLEtBQUssY0V0RFAsS0QyRUE7RUMzRUQsSUZzREcsS0FBSyxjRXREUCxLRDRFQSxNQUFLLFlBQVk7RUM1RWxCLElGc0RHLEtBQUssY0V0RFAsS0Q2RUEsSUFBRyxvQ0FBcUM7RUM3RXpDLElGc0RHLEtBQUssY0V0RFAsS0Q4RUEsSUFBRyxvQ0FBb0MsU0FBVTtFQzlFbEQsSUZzREcsS0FBSyxjRXREUCxLRCtFQSxjQUFjLElBQUc7SUFDZix5QkFBQTs7RUNoRkgsSUZzREcsS0FBSyxjRXREUCxLRGtGQSw4QkFBNkI7RUNsRjlCLElGc0RHLEtBQUssY0V0RFAsS0RtRkEsTUFBSyxZQUFZLFlBQVksR0FBRztFQ25GakMsSUZzREcsS0FBSyxjRXREUCxLRG9GQSxJQUFHLG9DQUFvQyxNQUFNLDRCQUE2QjtFQ3BGM0UsSUZzREcsS0FBSyxjRXREUCxLRHFGQSxJQUFHLG9DQUFvQyxTQUFTLE1BQU0sNEJBQTZCO0VDckZwRixJRnNERyxLQUFLLGNFdERQLEtEc0ZBLGNBQWMsSUFBRztFQ3RGbEIsSUZzREcsS0FBSyxjRXREUCxLRHVGQSxjQUFjLFlBQVcsSUFBSSxjQUFlO0lBQzFDLHlCQUFBOztFQUVGLElEcENFLEtBQUssY0V0RFAsS0QwRkMsWUFBYSxRQUFRLElBQUc7RUMxRjFCLElGc0RHLEtBQUssY0V0RFAsS0QyRkEsOEJBQTZCO0VDM0Y5QixJRnNERyxLQUFLLGNFdERQLEtENEZBLE1BQUssWUFBWSxZQUFZO0VDNUY5QixJRnNERyxLQUFLLGNFdERQLEtENkZBLElBQUcsb0NBQW9DLE1BQU0sY0FBZTtFQzdGN0QsSUZzREcsS0FBSyxjRXREUCxLRDhGQSxJQUFHLG9DQUFvQyxTQUFTLE1BQU0sY0FBZTtFQzlGdEUsSUZzREcsS0FBSyxjRXREUCxLRCtGQSxVQUFTLFlBQVksSUFBSTtFQy9GMUIsSUZzREcsS0FBSyxjRXREUCxLRGdHQSxjQUFjLElBQUc7RUNoR2xCLElGc0RHLEtBQUssY0V0RFAsS0RpR0EsY0FBYyxhQUFZLElBQUksY0FBZTtJQUMzQyx5QkFBQTs7RUNsR0gsSUZzREcsS0FBSyxjRXREUCxLRG9HQTtJQUNFLHlCQUFBOztFQUVBLElEakRBLEtBQUssY0V0RFAsS0RvR0EsOEJBR0c7SUFDQyx5QkFBQTs7RUFERixJRGpEQSxLQUFLLGNFdERQLEtEb0dBLDhCQUdHLGNBR0M7SUFDRSw2QkFBQTtJQUNBLDRCQUFBO0lBQ0EseUJBQUE7SUFDQSxXQUFBOztFQzlHUCxJRnNERyxLQUFLLGNFdERQLEtEa0hBO0VDbEhELElGc0RHLEtBQUssY0V0RFAsS0RtSEE7RUNuSEQsSUZzREcsS0FBSyxjRXREUCxLRG9IQTtFQ3BIRCxJRnNERyxLQUFLLGNFdERQLEtEcUhBO0VDckhELElGc0RHLEtBQUssY0V0RFAsS0RzSEE7RUN0SEQsSUZzREcsS0FBSyxjRXREUCxLRHVIQTtFQ3ZIRCxJRnNERyxLQUFLLGNFdERQLEtEd0hBO0VDeEhELElGc0RHLEtBQUssY0V0RFAsS0R5SEEsYUFBYTtFQ3pIZCxJRnNERyxLQUFLLGNFdERQLEtEMEhBO0VDMUhELElGc0RHLEtBQUssY0V0RFAsS0QySEEsY0FBYSxhQUFhO0lBQ3hCLHlCQUFBOztFQUVGLElEeEVFLEtBQUssY0V0RFAsS0Q4SEMsWUFBYSxRQUFRLElBQUc7RUM5SDFCLElGc0RHLEtBQUssY0V0RFAsS0QrSEEsTUFBSyxZQUFZLFlBQVk7RUMvSDlCLElGc0RHLEtBQUssY0V0RFAsS0RnSUEsZ0JBQWdCLGlCQUFnQjtFQ2hJakMsSUZzREcsS0FBSyxjRXREUCxLRGlJQSxpQkFBZ0I7RUNqSWpCLElGc0RHLEtBQUssY0V0RFAsS0RrSUEsY0FBYyxJQUFHLDJCQUE0QjtFQ2xJOUMsSUZzREcsS0FBSyxjRXREUCxLRG1JQSw0QkFBMkI7RUNuSTVCLElGc0RHLEtBQUssY0V0RFAsS0RvSUE7RUNwSUQsSUZzREcsS0FBSyxjRXREUCxLRHFJQSxlQUFjO0VDcklmLElGc0RHLEtBQUssY0V0RFAsS0RzSUE7RUN0SUQsSUZzREcsS0FBSyxjRXREUCxLRHVJQSxhQUFhLE9BQU07RUN2SXBCLElGc0RHLEtBQUssY0V0RFAsS0R3SUE7RUN4SUQsSUZzREcsS0FBSyxjRXREUCxLRHlJQTtFQ3pJRCxJRnNERyxLQUFLLGNFdERQLEtEMElBO0VDMUlELElGc0RHLEtBQUssY0V0RFAsS0QySUE7RUMzSUQsSUZzREcsS0FBSyxjRXREUCxLRDRJQTtFQzVJRCxJRnNERyxLQUFLLGNFdERQLEtENklBLFVBQVMsWUFBWSxJQUFJO0VDN0kxQixJRnNERyxLQUFLLGNFdERQLEtEOElBLFVBQVM7RUM5SVYsSUZzREcsS0FBSyxjRXREUCxLRCtJQTtFQy9JRCxJRnNERyxLQUFLLGNFdERQLEtEZ0pBLGNBQWE7SUFDWCw2Q0FBQTs7RUNqSkgsSUZzREcsS0FBSyxjRXREUCxLRG9KQSxlQUFlO0lBQ2IsNkNBQUE7O0VBR0EsSURsR0EsS0FBSyxjRXREUCxLRHVKQSxJQUFHLGdFQUNBLEdBQUcsMENBQTBDLElBQUk7SUFDaEQscUJBQUE7O0VBRUYsSURyR0EsS0FBSyxjRXREUCxLRHVKQSxJQUFHLGdFQUlBLFdBQVc7SUFDVixrQkFBQTs7RUM1SkwsSUZzREcsS0FBSyxjRXREUCxLRCtKQSxlQUFjLGNBQWMsSUFBSSxlQUFlO0lBQzdDLGtCQUFBOztFQ2hLSCxJRnNERyxLQUFLLGNFdERQLEtEa0tBLElBQUc7SUFDRCx1QkFBQTs7RUNuS0gsSUZzREcsS0FBSyxjRXREUCxLQUFELElBQUcsMkVBT3lCO0VBUDVCLElGc0RHLEtBQUssY0V0RFAsS0FRVSxJQUFHO0lEK0pYLHFCQUFBOztFQ3ZLSCxJRnNERyxLQUFLLGNFdERQLEtBQUQsYUFFRyxHQUNILDJFQUtLO0VBUkwsSUZzREcsS0FBSyxjRXREUCxLQVFzQixhQUV0QixHQUFHO0VBVkosSUZzREcsS0FBSyxjRXREUCxLQWNTLE1BQ1QsWUFFUTtJRDJKTixnQkFBQTs7RUM1S0gsSUZzREcsS0FBSyxjRXREUCxLRDhLQSxJQUFHOzs7Ozs7Ozs7SUFTRCx3Q0FBQTs7RUFFQSxJRG5JQSxLQUFLLGNFdERQLEtEOEtBLElBQUc7Ozs7Ozs7O0tBV0EsR0FBRyw0Q0FBNEMsSUFBSTtJQUNsRCw2Q0FBQTs7RUFFQSxJRHRJRixLQUFLLGNFdERQLEtEOEtBLElBQUc7Ozs7Ozs7O0tBV0EsR0FBRyw0Q0FBNEMsSUFBSSxnQkFHakQ7SUFDQyw0Q0FBQTs7RUM3TFAsSUZzREcsS0FBSyxjRXREUCxLRGlNQSxJQUFHO0lBQ0Qsa0JBQUE7O0VDbE1ILElGc0RHLEtBQUssY0V0RFAsS0RvTUEsSUFBRztJQUNELGdCQUFBOztFQ3JNSCxJRnNERyxLQUFLLGNFdERQLEtEdU1BO0lBQ0UsWUFBQTs7RUN4TUgsSUZzREcsS0FBSyxjRXREUCxLRDBNQTtJQUNFLGFBQUE7O0VDM01ILElGc0RHLEtBQUssY0V0RFAsS0Q2TUEsYUM3TUEsR0FBRywyRUFPeUI7SUg4SDFCLHlCQUFBOztFR3JJSCxJRnNERyxLQUFLLGNFdERQLEtENk1BLGFDN01BLElBQUksbUJBR0ksR0FBRyw0QkFJUixHQUFHLDJFQUtBO0VBQWtCLElGMEN0QixLQUFLLGNFdERQLEtENk1BLGFDak15QixpQkFDZixJQUFHO0VBTVosSUZtQ0MsS0FBSyxjRXREUCxLRDZNQSxhQzFMRSxpQkFHQSxpQkFBZ0IsSUFDbEI7SUhtSEUseUJBQUE7O0VHMUlILElGc0RHLEtBQUssY0V0RFAsS0Q2TUEsYUM3TUEsSUFBSSxtQkFHSSxZQUdSLEdBQUcsMkVBR0w7RUFHTyxJRjBDSCxLQUFLLGNFdERQLEtENk1BLGFDak1NLGlCQUFrQixJQUFHO0lIa0l6Qix5QkFBQTs7RUc5SUgsSUZzREcsS0FBSyxjRXREUCxLRGdOQSxhQ2hOQSxHQUFHLDJFQU95QjtJSDhIMUIseUJBQUE7O0VHcklILElGc0RHLEtBQUssY0V0RFAsS0RnTkEsYUNoTkEsSUFBSSxtQkFHSSxHQUFHLDRCQUlSLEdBQUcsMkVBS0E7RUFBa0IsSUYwQ3RCLEtBQUssY0V0RFAsS0RnTkEsYUNwTXlCLGlCQUNmLElBQUc7RUFNWixJRm1DQyxLQUFLLGNFdERQLEtEZ05BLGFDN0xFLGlCQUdBLGlCQUFnQixJQUNsQjtJSG1IRSx5QkFBQTs7RUcxSUgsSUZzREcsS0FBSyxjRXREUCxLRGdOQSxhQ2hOQSxJQUFJLG1CQUdJLFlBR1IsR0FBRywyRUFHTDtFQUdPLElGMENILEtBQUssY0V0RFAsS0RnTkEsYUNwTU0saUJBQWtCLElBQUc7SUhrSXpCLHlCQUFBOztFRzlJSCxJRnNERyxLQUFLLGNFdERQLEtEbU5BLGFDbk5BLEdBQUcsMkVBT3lCO0lIOEgxQix5QkFBQTs7RUdySUgsSUZzREcsS0FBSyxjRXREUCxLRG1O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 */
