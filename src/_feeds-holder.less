@@ -16,6 +16,20 @@
       });
     }
 
+    // Category header with controls
+    .dijitTreeNode:has(> .dijitTreeNode .category) {
+      > .dijitTreeRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 4px;
+
+        &:hover .category-controls {
+          opacity: 1;
+        }
+      }
+    }
+
     .dijitTreeRow {
       padding-right: 8px;
       transition: none;
@@ -33,6 +47,116 @@
       }
       &.dijitTreeRowSelected {
         background-color: @color-fade2;
+      }
+    }
+
+    // Category controls container
+    .category-controls {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      transition: opacity 0.2s ease;
+      opacity: 0;
+
+      .media(0, sm, {
+        opacity: 1;
+      });
+    }
+
+    // Control buttons
+    .category-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      transition: background-color 0.15s, color 0.15s;
+      border: none;
+      border-radius: 4px;
+      background-color: transparent;
+      color: @color-icon;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: @color-fade2;
+        color: @color-icon-hover;
+      }
+
+      &:active {
+        background-color: @color-fade3;
+      }
+
+      &.mark-read-btn::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        background: transparent;
+      }
+
+      &.mark-read-btn:hover::before {
+        background-color: currentColor;
+      }
+
+      &.refresh-btn::before {
+        content: "↻";
+        font-size: 16px;
+      }
+
+      &.menu-btn {
+        font-size: 16px;
+        letter-spacing: -1px;
+      }
+
+      // Dropdown menu for view options
+      &.menu-open {
+        background-color: @color-fade2;
+      }
+    }
+
+    // Dropdown menu
+    .category-dropdown {
+      position: absolute;
+      z-index: 1000;
+      top: 100%;
+      right: 0;
+      min-width: 160px;
+      padding: 4px 0;
+      border: 1px solid @border-darker;
+      border-radius: 4px;
+      background-color: @default-bg;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 12px;
+        transition: background-color 0.15s;
+        border: none;
+        background: none;
+        color: @default-text;
+        font-size: @font-size-main;
+        text-align: left;
+        cursor: pointer;
+        gap: 8px;
+
+        &:hover {
+          background-color: @color-fade1;
+        }
+
+        &.active {
+          background-color: @color-fade2;
+          font-weight: 600;
+        }
+
+        .material-icons {
+          color: @color-icon;
+          font-size: 18px;
+        }
       }
     }
 
