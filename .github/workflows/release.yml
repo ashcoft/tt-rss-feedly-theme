@@ -83,7 +83,7 @@ jobs:
 
       - name: Upload to GitHub Release
         if: steps.semantic.outputs.tag
-        uses: softprops/action-gh-release@253e495713bfe5f6b50f80de38cce7a44bc1e6e7
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.semantic.outputs.tag }}
           name: Release ${{ steps.semantic.outputs.version }}
