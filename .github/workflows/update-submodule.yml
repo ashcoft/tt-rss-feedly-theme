@@ -2,12 +2,22 @@ name: Update tt-rss Submodule
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight
+    # Run daily at midnight UTC - change to '0 0 * * 0' for weekly (Sunday)
+    - cron: '0 0 * * *'
   workflow_dispatch:  # Manual trigger
+    inputs:
+      branch_name:
+        description: 'Branch name for the update'
+        required: false
+        default: ''
 
 permissions:
   contents: write
   pull-requests: write
+
+env:
+  UPSTREAM_REPO: "https://github.com/tt-rss/tt-rss.git"
+  SUBMODULE_PATH: "tt-rss"
 
 jobs:
   update-submodule:
@@ -17,36 +27,93 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
-          fetch-depth: 0
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-
-      - name: Update submodule
-        id: update
+      - name: Get current submodule commit
+        id: current
         run: |
-          git submodule update --remote --init tt-rss
-          
-          if ! git diff --quiet tt-rss/; then
+          cd ${{ env.SUBMODULE_PATH }}
+          echo "commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Fetch latest from upstream
+        run: |
+          git submodule update --remote --init ${{ env.SUBMODULE_PATH }}
+
+      - name: Get new submodule commit
+        id: new
+        run: |
+          cd ${{ env.SUBMODULE_PATH }}
+          echo "commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Check if update needed
+        id: diff
+        run: |
+          if ! git diff --quiet ${{ env.SUBMODULE_PATH }}/; then
             echo "updated=true" >> $GITHUB_OUTPUT
+            echo "summary=Updated from ${{ steps.current.outputs.short }} to ${{ steps.new.outputs.short }}" >> $GITHUB_OUTPUT
           else
             echo "updated=false" >> $GITHUB_OUTPUT
+            echo "summary=No changes needed" >> $GITHUB_OUTPUT
           fi
 
-      - name: Create PR
-        if: steps.update.outputs.updated == 'true'
+      - name: Create update branch and PR
+        if: steps.diff.outputs.updated == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add tt-rss/
+          # Get latest upstream commit message for context
+          cd ${{ env.SUBMODULE_PATH }}
+          UPSTREAM_MSG=$(git log -1 --format='%s' HEAD 2>/dev/null || echo "Latest upstream update")
+          cd ..
+          
+          BRANCH_NAME="${{ github.event.inputs.branch_name }}"
+          if [ -z "$BRANCH_NAME" ]; then
+            BRANCH_NAME="update/submodule-$(date +%Y%m%d-%H%M%S)"
+          fi
+          
+          git add ${{ env.SUBMODULE_PATH }}/
+          git checkout -b "$BRANCH_NAME"
           git commit -m "chore: update tt-rss submodule to latest"
+          git push -u origin "$BRANCH_NAME" -f
           
-          git push origin HEAD:refs/heads/update/submodule-$(date +%Y%m%d)
-          
+          # Create or update PR
           gh pr create \
             --title "Update tt-rss submodule" \
-            --body "Automated weekly update of tt-rss submodule to latest commit. Please review before merging." \
-            --base main || echo "PR may already exist"
+            --body "## Submodule Update
+
+**Upstream:** ${{ env.UPSTREAM_REPO }}
+
+**Changes:**
+- Previous commit: \`${{ steps.current.outputs.short }}\`
+- New commit: \`${{ steps.new.outputs.short }}\`
+
+**Latest upstream commit:** $UPSTREAM_MSG
+
+This PR updates the tt-rss submodule to the latest upstream commit. Please review before merging." \
+            --base main \
+            --label "automated" || true
+          
+          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+      - name: Summary
+        run: |
+          echo "## Submodule Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Status | ${{ steps.diff.outputs.summary }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Upstream | ${{ env.UPSTREAM_REPO }} |" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.diff.outputs.updated }}" == "true" ]; then
+            echo "| Previous | \`${{ steps.current.outputs.short }}\` |" >> $GITHUB_STEP_SUMMARY
+            echo "| New | \`${{ steps.new.outputs.short }}\` |" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.diff.outputs.updated }}" == "true" ]; then
+            echo "✅ New update available. PR created for review." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Already up to date. No action needed." >> $GITHUB_STEP_SUMMARY
+          fi
