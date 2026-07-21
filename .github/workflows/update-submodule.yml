@@ -78,7 +78,7 @@ jobs:
           git add ${{ env.SUBMODULE_PATH }}/
           git checkout -b "$BRANCH_NAME"
           git commit -m "chore: update tt-rss submodule to latest"
-          git push -u origin "$BRANCH_NAME" -f
+          git push -u origin "$BRANCH_NAME"
           
           # Create or update PR
           gh pr create \
