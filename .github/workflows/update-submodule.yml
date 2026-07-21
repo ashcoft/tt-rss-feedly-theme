@@ -2,14 +2,9 @@ name: Update tt-rss Submodule
 
 on:
   schedule:
-    # Run daily at midnight UTC - change to '0 0 * * 0' for weekly (Sunday)
-    - cron: '0 0 * * *'
+    # Run weekly on Sunday at midnight UTC
+    - cron: '0 0 * * 0'
   workflow_dispatch:  # Manual trigger
-    inputs:
-      branch_name:
-        description: 'Branch name for the update'
-        required: false
-        default: ''
 
 permissions:
   contents: write
@@ -61,7 +56,12 @@ jobs:
 
       - name: Create update branch and PR
         if: steps.diff.outputs.updated == 'true'
+        env:
+          # Sanitize branch name - only allow safe characters
+          BRANCH_NAME: ${{ github.run_id }}-submodule-update
         run: |
+          set -euo pipefail
+          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
@@ -70,17 +70,15 @@ jobs:
           UPSTREAM_MSG=$(git log -1 --format='%s' HEAD 2>/dev/null || echo "Latest upstream update")
           cd ..
           
-          BRANCH_NAME="${{ github.event.inputs.branch_name }}"
-          if [ -z "$BRANCH_NAME" ]; then
-            BRANCH_NAME="update/submodule-$(date +%Y%m%d-%H%M%S)"
-          fi
+          # Use unique branch name based on run ID to avoid conflicts
+          UNIQUE_BRANCH="${{ env.BRANCH_NAME }}"
           
           git add ${{ env.SUBMODULE_PATH }}/
-          git checkout -b "$BRANCH_NAME"
+          git checkout -b "$UNIQUE_BRANCH"
           git commit -m "chore: update tt-rss submodule to latest"
-          git push -u origin "$BRANCH_NAME"
+          git push -u origin "$UNIQUE_BRANCH"
           
-          # Create or update PR
+          # Create PR - let failures propagate
           gh pr create \
             --title "Update tt-rss submodule" \
             --body "## Submodule Update
@@ -97,7 +95,7 @@ This PR updates the tt-rss submodule to the latest upstream commit. Please revie
             --base main \
             --label "automated"
           
-          echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "branch=$UNIQUE_BRANCH" >> $GITHUB_OUTPUT
 
       - name: Summary
         run: |
