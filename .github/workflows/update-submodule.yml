@@ -95,7 +95,7 @@ jobs:
 
 This PR updates the tt-rss submodule to the latest upstream commit. Please review before merging." \
             --base main \
-            --label "automated" || true
+            --label "automated"
           
           echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
 
