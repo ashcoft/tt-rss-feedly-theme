@@ -53,8 +53,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Use npm exec instead of npx to avoid installing unverified packages
-          result=$(npm exec semantic-release 2>&1)
+          # Run semantic-release directly from local node_modules
+          result=$(./node_modules/.bin/semantic-release 2>&1)
           echo "$result"
           
           # Extract tag from output
