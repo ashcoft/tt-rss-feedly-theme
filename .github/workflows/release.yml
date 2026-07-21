@@ -13,6 +13,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.semantic.outputs.tag }}
+      version: ${{ steps.semantic.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,22 +35,36 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          # Check if there are changes outside tt-rss submodule
-          if git diff --name-only | grep -v "^tt-rss/" | grep -q .; then
+          # Compare HEAD with its parent to detect new commits
+          if git diff --name-only HEAD~1 HEAD | grep -v "^tt-rss/" | grep -q .; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "changed_files=$(git diff --name-only | grep -v '^tt-rss/' | tr '\n' ' ')" >> $GITHUB_OUTPUT
+            echo "changed_files=$(git diff --name-only HEAD~1 HEAD | grep -v '^tt-rss/' | tr '\n' ' ')" >> $GITHUB_OUTPUT
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Build CSS from LESS
+        if: steps.changes.outputs.has_changes == 'true'
+        run: npm run build
+
       - name: Run Semantic Release
         if: steps.changes.outputs.has_changes == 'true'
+        id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: |
+          result=$(npx semantic-release 2>&1)
+          echo "$result"
+          
+          # Extract tag from output
+          if echo "$result" | grep -q "Published release"; then
+            tag=$(git describe --tags --abbrev=0)
+            echo "tag=$tag" >> $GITHUB_OUTPUT
+            echo "version=${tag#v}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Prepare Release Assets
-        if: steps.changes.outputs.has_changes == 'true'
+        if: steps.semantic.outputs.tag
         run: |
           mkdir -p release-assets
           
@@ -64,11 +81,11 @@ jobs:
           ls -la release.zip
 
       - name: Upload to GitHub Release
-        if: steps.changes.outputs.has_changes == 'true'
+        if: steps.semantic.outputs.tag
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ env.GITHUB_REF_NAME }}
-          name: Release ${{ env.GITHUB_REF_NAME }}
+          tag_name: ${{ steps.semantic.outputs.tag }}
+          name: Release ${{ steps.semantic.outputs.version }}
           body: |
             ## Feedly Theme for Tiny Tiny RSS
 
@@ -95,10 +112,13 @@ jobs:
           echo "| Has Changes | ${{ steps.changes.outputs.has_changes }} |" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
             echo "| Changed Files | \`${{ steps.changes.outputs.changed_files }}\` |" >> $GITHUB_STEP_SUMMARY
+            echo "| Version | ${{ steps.semantic.outputs.version || 'skipped' }} |" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
-            echo "✅ Semantic release triggered. Check the release at https://github.com/ashcoft/tt-rss-feedly-theme/releases" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.semantic.outputs.tag }}" ]; then
+            echo "✅ Release published: https://github.com/ashcoft/tt-rss-feedly-theme/releases/tag/${{ steps.semantic.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+            echo "ℹ️ Changes detected but no version bump (e.g., chore commits)." >> $GITHUB_STEP_SUMMARY
           else
             echo "ℹ️ No changes detected. Release skipped." >> $GITHUB_STEP_SUMMARY
           fi

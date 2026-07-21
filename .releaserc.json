@@ -21,6 +21,7 @@
         ]
       }
     ],
+    "@semantic-release/changelog",
     [
       "@semantic-release/release-notes-generator",
       {
@@ -29,7 +30,7 @@
           "types": [
             { "type": "feat", "section": "Features", "hidden": false },
             { "type": "fix", "section": "Bug Fixes", "hidden": false },
-            { "type": "perf", "section": "Performance", "hidden": true },
+            { "type": "perf", "section": "Performance Improvements", "hidden": false },
             { "type": "refactor", "section": "Refactoring", "hidden": true },
             { "type": "docs", "section": "Documentation", "hidden": true },
             { "type": "test", "section": "Tests", "hidden": true },
@@ -43,7 +44,6 @@
       "@semantic-release/github",
       {
         "assets": [],
-        "assignees": "${{ github.actor }}",
         "labels": ["released"]
       }
     ],
