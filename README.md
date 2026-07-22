@@ -1,6 +1,3 @@
-![preferences mobile](screenshots/prefs-mobile.png)
-_Preferences on mobile: main, plugins, feeds, edit feed_
-# test
 # Feedly theme for Tiny Tiny RSS
 
 [![Release v4.6.0](https://img.shields.io/badge/Release-v4.6.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
