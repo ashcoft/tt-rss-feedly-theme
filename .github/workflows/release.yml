@@ -87,9 +87,10 @@ jobs:
 
       - name: Extract Version from PR Title
         id: version
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           # Sanitize PR title to prevent script injection
-          PR_TITLE="${{ github.event.pull_request.title }}"
           # Only allow alphanumeric, dots, hyphens in version
           VERSION=$(echo "$PR_TITLE" | sed -n 's/.*Release v\([0-9.]*\).*/\1/p')
           if [ -z "$VERSION" ]; then
