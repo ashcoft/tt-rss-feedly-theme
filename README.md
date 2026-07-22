@@ -1,7 +1,8 @@
 # Feedly theme for Tiny Tiny RSS
 
-[![Release v4.4.0](https://img.shields.io/badge/Release-v4.4.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
-[![Download](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.4.0/tt-rss-feedly-theme-dist-v4.4.0.zip)
+[![Release v4.6.0](https://img.shields.io/badge/Release-v4.6.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.6.0/tt-rss-feedly-theme-4.6.0.zip)
+[![Download TAR.GZ](https://img.shields.io/badge/Download-TAR.GZ-green)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.6.0/tt-rss-feedly-theme-4.6.0.tar.gz)
 
 This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://tt-rss.org) that provides a Feedly-inspired interface. Enjoy a clean, minimalist design that makes it easy to quickly scan and read your feeds.
 
@@ -9,15 +10,17 @@ For the best experience, please use a current browser.
 
 ## Quick Start
 
-1. [Download v4.4.0](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.4.0/tt-rss-feedly-theme-dist-v4.4.0.zip) or clone the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist)
+1. Download the latest release:
+   - [ZIP format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `tt-rss-feedly-theme-{version}.zip`
+   - [TAR.GZ format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `tt-rss-feedly-theme-{version}.tar.gz`
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
    - `local-overrides.css` is optional, but depends on `local-overrides.js` to customize the utility views
 3. Go into your TT-RSS preferences and select the feedly theme.
-4. Install/activate recommended plugins
-   - `toggle_sidebar` for collapsing the feeds holder sidebar by clicking the left side of the screen
-   - `close_button` to allow closing article detail in split view, important for mobile
+4. Install/activate recommended plugins:
+   - `toggle_sidebar` for collapsing the feeds holder sidebar
+   - `close_button` to allow closing article detail in split view
    - `shorten_expanded` to truncate long articles in combined view
 
 ## Features
@@ -25,62 +28,46 @@ For the best experience, please use a current browser.
 - A clean, minimalist design that's easy on the eyes
 - Responsive layout that works great on mobile devices
 - An additional cards view that's not available with the default theme
-- Different color variants with light and dark modes to match your personal preferences
+- Different color variants with light and dark modes
 - High contrast variants for improved accessibility
-- Customizable fonts and spacing by setting CSS variables via the _Customize_ button
-- Preferences theming and visual fixes
-- Optional theming of the utility views (login, password recovery, share/subscribe bookmarklets, database update etc.)
+- Customizable fonts and spacing via CSS variables
 - Support for various plugins
 
 ## Configuration
 
 There are different color variants available. If you choose the _auto_ variants, your OS/browser will decide whether to use the light or dark color scheme.
 
-You can configure the fonts and the UI spacing by using the _Customize_ button in the TT-RSS settings and adding/adjusting this chunk of CSS code:
+You can configure fonts and spacing using the _Customize_ button in TT-RSS settings:
 
 ```css
-/* These are the default settings for feedly.css */
 :root {
-  --base-spacing: 45px; /* works best with a value between 30px and 75px */
+  --base-spacing: 45px;
   --font-size-post: 16px;
-  --fonts-ui: "Helvetica Neue", Arial, Helvetica, "Liberation Sans",
-    "Nimbus Sans L", FreeSans, sans-serif;
-  --fonts-content: var(--fonts-ui);
-  --fonts-heading: SansCn;
-  --fonts-mono: "Fira Code", Menlo, Monaco, Consolas, "Lucida Console",
-    "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-    "Courier New", monospace;
-  --reading-width: 45; /* use a unitless `em` value */
-  --card-max-column-count: 10;
-  --card-min-column-width: 300px;
-}
-```
-
-For a more compact spacing, try using the following custom CSS:
-
-```css
-:root {
-  --base-spacing: 30px;
-  --font-size-post: 14px;
+  --reading-width: 45;
 }
 ```
 
 ## Development
 
-In order to generate the CSS files, you will need to have Node.js and NPM installed.
-
 1. Run `npm install` to install dependencies
-2. Run `npm start` to watch `src` and compile on changes
-3. Run `npm run dist` to build, compress and copy all needed files to `dist`  
-   If you have a _dist_ branch on your fork, the new content of the `dist` directory will also be pushed to it
+2. Run `npm start` to watch and compile on changes
+3. Run `npm run build` to build all theme CSS files
+
+## Release Process
+
+Releases are created via PR workflow:
+1. Go to Actions, Run Release workflow
+2. Enter version (e.g., `1.2.3`)
+3. PR is created automatically
+4. Review and merge PR to publish
 
 ## FAQ
 
-### Where are the CSS files? They used to be at the root level
-CSS is now pushed to the [_dist_ branch](https://github.com/ashcoft/tt-rss-feedly-theme/tree/dist). So now you can clone/download only the files that you need and don't need to check which files have to be copied for installation. Also, the _main_ branch commit history stays clean so it's easier to track changes.
+### Where are the CSS files?
+CSS files are included in the release archives. Download from the [releases page](https://github.com/ashcoft/tt-rss-feedly-theme/releases).
 
-### I don't want to copy the files every time – how do I stay up-to-date easily?
-You can clone this repo and `git checkout dist` in it. Then change to your TT-RSS installation's `themes.local` directory and `ln -s [path/to]/tt-rss-feedly-theme/* .`. To update, just `git pull` in the theme's directory.
+### How do I stay up-to-date?
+Clone this repo and symlink to your `themes.local` directory. Run `git pull` to update.
 
 ### I followed the installation steps but I don't get all the new features
 Please make sure that you don't have an old copy of this theme in the `themes` directory of your TT-RSS installation. Third-party themes should go into the `themes.local` directory, but files in the `themes` directory will override any file with the same name in the `themes.local` directory.
@@ -103,48 +90,5 @@ It's not possible via CSS variables because colors are processed at build time. 
 ### Why did you change the license?
 I want this theme to have a proper, well-recognized license to make it clear and easy for others to use this code as source or part of their work. In contrast to the previously used WTFPL, the MIT license is very popular, permissive, short and clear. Please include the license with the copyright notice in any copy or fork.
 
-## Screenshots
 
-This is a selection to give you an impression of what to expect.
-
-![color variants](screenshots/color-variants.png)
-_Available color variants. Top: default night, default light, sepia night, sepia light  
-Bottom: high contrast, high contrast night, sepia contrast, sepia contrast night_
-
----
-
-![login](screenshots/login.png)
-_Login in light mode, password recovery in dark mode on mobile_
-
----
-
-![cdm expanded sepia](screenshots/cdm-expanded-sepia.png)
-_Combined view expanded with sepia color variant, mobile in night mode_
-
----
-
-![cdm grouped](screenshots/cdm-grouped.png)
-_Combined view, expand selected atricle only, grouped by feed, mobile in night mode_
-
----
-
-![split sepia](screenshots/split-sepia.png)
-_Split view, desktop in widescreen mode, mobile non-widescreen in night mode_
-
----
-
-![cards high contrast](screenshots/cards-high-contrast.png)
-_Cards overview (enable grid, combined view, and expand selected article only) with high contrast variant_
-
----
-
-![cards detail sepia contrast](screenshots/cards-detail-sepia-contrast.png)
-_Cards detail (opens as a layer similar to Feedly) with sepia contrast color variant_
-
----
-
-![preferences mobile](screenshots/prefs-mobile.png)
-_Preferences on mobile: main, plugins, feeds, edit feed_
-# test
-
-
+See the [screenshots](screenshots/) directory for examples of all color variants.
