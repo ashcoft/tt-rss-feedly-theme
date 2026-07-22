@@ -5,46 +5,6 @@ It's not possible via CSS variables because colors are processed at build time. 
 ### Why did you change the license?
 I want this theme to have a proper, well-recognized license to make it clear and easy for others to use this code as source or part of their work. In contrast to the previously used WTFPL, the MIT license is very popular, permissive, short and clear. Please include the license with the copyright notice in any copy or fork.
 
-## Screenshots
-
-This is a selection to give you an impression of what to expect.
-
-![color variants](screenshots/color-variants.png)
-_Available color variants. Top: default night, default light, sepia night, sepia light  
-Bottom: high contrast, high contrast night, sepia contrast, sepia contrast night_
-
----
-
-![login](screenshots/login.png)
-_Login in light mode, password recovery in dark mode on mobile_
-
----
-
-![cdm expanded sepia](screenshots/cdm-expanded-sepia.png)
-_Combined view expanded with sepia color variant, mobile in night mode_
-
----
-
-![cdm grouped](screenshots/cdm-grouped.png)
-_Combined view, expand selected atricle only, grouped by feed, mobile in night mode_
-
----
-
-![split sepia](screenshots/split-sepia.png)
-_Split view, desktop in widescreen mode, mobile non-widescreen in night mode_
-
----
-
-![cards high contrast](screenshots/cards-high-contrast.png)
-_Cards overview (enable grid, combined view, and expand selected article only) with high contrast variant_
-
----
-
-![cards detail sepia contrast](screenshots/cards-detail-sepia-contrast.png)
-_Cards detail (opens as a layer similar to Feedly) with sepia contrast color variant_
-
----
-
 ![preferences mobile](screenshots/prefs-mobile.png)
 _Preferences on mobile: main, plugins, feeds, edit feed_
 # test
