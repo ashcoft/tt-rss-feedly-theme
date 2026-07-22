@@ -94,13 +94,15 @@ jobs:
             A clean, minimalist Feedly-inspired theme for Tiny Tiny RSS.
 
             ### Installation
-            1. Download and extract the zip
+            1. Download and extract the zip or tar.gz
             2. Copy the contents to your tt-rss `themes/` directory
             3. Activate in tt-RSS preferences
 
             ### Changes
             See [CHANGELOG.md](https://github.com/ashcoft/tt-rss-feedly-theme/blob/main/CHANGELOG.md) for details.
-          files: release.zip
+          files: |
+            tt-rss-feedly-theme-${{ steps.semantic.outputs.version }}.zip
+            tt-rss-feedly-theme-${{ steps.semantic.outputs.version }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
