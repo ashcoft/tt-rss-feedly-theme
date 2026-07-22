@@ -55,7 +55,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Run semantic-release directly from local node_modules
-          result=$(./node_modules/.bin/semantic-release 2>&1)
+          result=$(./node_modules/.bin/semantic-release 2>&1) || true
           echo "$result"
           
           # Extract tag from output
