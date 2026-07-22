@@ -1,10 +1,3 @@
-
-### Can I change the colors via custom CSS?
-It's not possible via CSS variables because colors are processed at build time. You can checkout the _main_ branch, edit `_variables.less` and build your own version of the theme.
-
-### Why did you change the license?
-I want this theme to have a proper, well-recognized license to make it clear and easy for others to use this code as source or part of their work. In contrast to the previously used WTFPL, the MIT license is very popular, permissive, short and clear. Please include the license with the copyright notice in any copy or fork.
-
 ![preferences mobile](screenshots/prefs-mobile.png)
 _Preferences on mobile: main, plugins, feeds, edit feed_
 # test
