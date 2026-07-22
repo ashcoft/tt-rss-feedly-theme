@@ -146,3 +146,4 @@ _Cards detail (opens as a layer similar to Feedly) with sepia contrast color var
 ![preferences mobile](screenshots/prefs-mobile.png)
 _Preferences on mobile: main, plugins, feeds, edit feed_
 # test
+
