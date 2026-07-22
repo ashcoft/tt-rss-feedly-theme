@@ -11,19 +11,18 @@ on:
         required: false
         default: ''
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   create-release-pr:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     outputs:
       version: ${{ steps.version.outputs.version }}
       tag: ${{ steps.version.outputs.tag }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,7 +43,7 @@ jobs:
           echo "branch=$BRANCH_NAME" >> $GITHUB_OUTPUT
 
       - name: Push Release Branch
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: release/v${{ steps.version.outputs.version }}
@@ -74,10 +73,12 @@ jobs:
 
   build-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
@@ -87,13 +88,19 @@ jobs:
       - name: Extract Version from PR Title
         id: version
         run: |
+          # Sanitize PR title to prevent script injection
           PR_TITLE="${{ github.event.pull_request.title }}"
-          VERSION=$(echo "$PR_TITLE" | sed -n 's/.*Release v\(.*\)/\1/p')
+          # Only allow alphanumeric, dots, hyphens in version
+          VERSION=$(echo "$PR_TITLE" | sed -n 's/.*Release v\([0-9.]*\).*/\1/p')
+          if [ -z "$VERSION" ]; then
+            echo "Error: Could not extract version from PR title"
+            exit 1
+          fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "tag=v$VERSION" >> $GITHUB_OUTPUT
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: "24"
           cache: npm
