@@ -7,10 +7,12 @@ engines:
       - tests/
   stylelint:
     enabled: true
- typescript:
+  typescript:
     enabled: true
 exclude_paths:
   - 'dist/**'
   - 'node_modules/**'
   - '*.css'
   - '.github/**'
+  - 'tt-rss/**'
+  - 'feedly/**'
