@@ -43,7 +43,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "mkdir -p dist && echo '# Ignore everything in this directory except this file' > dist/.gitignore && echo '*' >> dist/.gitignore && echo '!.gitignore' >> dist/.gitignore && mkdir -p release-assets && cp *.css release-assets/ 2>/dev/null || true && cp -r feedly release-assets/ 2>/dev/null || true && cp local-overrides.js release-assets/ 2>/dev/null || true && cp README.md CHANGELOG.md LICENSE.txt release-assets/ 2>/dev/null || true && cd release-assets && zip -r ../tt-rss-feedly-theme-${nextRelease.version}.zip . && tar -czf ../tt-rss-feedly-theme-${nextRelease.version}.tar.gz ."
+        "prepareCmd": "mkdir -p dist && echo -e '# Ignore everything in this directory except this file\\n*\\n!.gitignore' > dist/.gitignore && mkdir -p release-assets && cp -a feedly release-assets/ && cp *.css release-assets/ && cp local-overrides.js release-assets/ && cp README.md LICENSE.txt release-assets/ && cd release-assets && zip -r ../tt-rss-feedly-theme-${nextRelease.version}.zip . && tar -czf ../tt-rss-feedly-theme-${nextRelease.version}.tar.gz ."
       }
     ],
     [
