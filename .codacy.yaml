@@ -1,0 +1,18 @@
+---
+engines:
+  eslint:
+    enabled: true
+    directories:
+      - src/
+      - tests/
+  stylelint:
+    enabled: true
+  typescript:
+    enabled: true
+exclude_paths:
+  - 'dist/**'
+  - 'node_modules/**'
+  - '*.css'
+  - '.github/**'
+  - 'tt-rss/**'
+  - 'feedly/**'

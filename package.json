@@ -1,15 +1,16 @@
 {
-  "name": "tt-rss-feedly-theme",
+  "name": "feedly-theme",
   "version": "4.4.0",
   "description": "Feedly theme for Tiny Tiny RSS",
   "main": "feedly.css",
+  "packageManager": "pnpm@10.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/levito/tt-rss-feedly-theme.git"
+    "url": "https://github.com/ashcoft/tt-rss-feedly-theme.git"
   },
   "author": "Veit Lehmann",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "foreach -g 'src/!(_)*.less' -x 'lessc --source-map-inline #{path} > #{name}.css'",
     "clean": "git clean -ffdx *.css dist",
@@ -49,7 +50,9 @@
     "@goenning/foreach-cli": "^1.9.0",
     "@playwright/test": "^1.61.0",
     "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/exec": "^7.0.0",
     "@semantic-release/git": "^11.0.0",
+    "@semantic-release/npm": "^12.0.0",
     "chokidar-cli": "^3.0.0",
     "conventional-changelog-conventionalcommits": "^10.2.1",
     "husky": "^8.0.3",

@@ -1,48 +1,24 @@
-# Examples
-Input:
-### Added files:
-['pycache/main.cpython-310.pyc', 'dist/app.js', '.env.local', '.vscode/settings.json']
-
-### Deleted files:
-[]
-
-### Modified files:
-[]
-
-### current .gitignore Content
-*.log
-
-Expected Output:
-```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-
 # Dependencies
-.venv/
-venv/
 node_modules/
 
-# Logs and temp files
+# Build outputs - all generated CSS
+*.css
+
+# Lightningcss output
+dist/*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
 *.log
-*.tmp
-*.swp
 
-# Environment
-.env
-.env.local
-.env.*
-
-# Editors
+# Editor
 .vscode/
 .idea/
-```
 
-# Actual Input Processing
-Since the actual input shows only a modified JavaScript test file (`tests/theme.spec.js`) with no build artifacts, dependencies, or temporary files, the optimized .gitignore should remain empty.
-
-(empty)
+# Release assets (generated during release)
+feedly-theme-*.zip
+feedly-theme-*.tar.gz
+release-assets/
