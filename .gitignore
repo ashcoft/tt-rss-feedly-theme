@@ -1,20 +1,24 @@
-# build artifacts
-dist
-feedly*.css
-local-overrides.css
-!*_auto.css
-!dist/.gitignore
+# Dependencies
+node_modules/
 
-# junk
-*~
+# Build outputs - all generated CSS
+*.css
+
+# Lightningcss output
+dist/*
+
+# OS files
 .DS_Store
-._*
-[Dd]esktop.ini
 Thumbs.db
 
-# logs and dependencies
+# Logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules
+
+# Editor
+.vscode/
+.idea/
+
+# Release assets (generated during release)
+feedly-theme-*.zip
+feedly-theme-*.tar.gz
+release-assets/
