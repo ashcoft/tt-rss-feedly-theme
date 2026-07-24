@@ -42,7 +42,7 @@ jobs:
           printf '# Ignore everything in this directory except this file\n*\n!.gitignore\n' > dist/.gitignore
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@61680d0e9b02
+        uses: cycjimmy/semantic-release-action@61680d0e9b02ff86f5648ade99e01be17f0260a4
         with:
           branches: |
             main
