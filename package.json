@@ -75,5 +75,10 @@
     "trim-newlines": "^3.0.1",
     "yargs-parser": "^21.1.1",
     "fast-uri": ">=3.1.4 <4"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici": ">=7.29.0"
+    }
   }
 }
