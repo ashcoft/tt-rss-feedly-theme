@@ -74,12 +74,13 @@
     "cross-spawn": "^7.0.6",
     "trim-newlines": "^3.0.1",
     "yargs-parser": "^21.1.1",
-    "fast-uri": ">=3.1.4 <4"
+    "fast-uri": ">=3.1.6 <4"
   },
   "pnpm": {
     "overrides": {
       "undici": "^7.29.0",
-      "@actions/http-client>undici": "^6.28.0"
+      "@actions/http-client>undici": "^6.28.0",
+      "fast-uri": ">=3.1.6 <4"
     }
   }
 }
