@@ -47,12 +47,6 @@
       }
     ],
     [
-      "@semantic-release/npm",
-      {
-        "pkgRoot": "release-assets"
-      }
-    ],
-    [
       "@semantic-release/github",
       {
         "labels": ["released"],
