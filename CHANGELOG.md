@@ -1,3 +1,11 @@
+## <small>4.6.2 (2026-09-13)</small>
+
+* Merge pull request #67 from ashcoft/fix/submodule-track-main-and-update ([89c5425](https://github.com/ashcoft/tt-rss-feedly-theme/commit/89c5425)), closes [#67](https://github.com/ashcoft/tt-rss-feedly-theme/issues/67)
+* Merge pull request #68 from ashcoft/dependabot/npm_and_yarn/npm_and_yarn-56e86fd9c9 ([a78d2d9](https://github.com/ashcoft/tt-rss-feedly-theme/commit/a78d2d9)), closes [#68](https://github.com/ashcoft/tt-rss-feedly-theme/issues/68)
+* fix: restore codeload tarball resolution for less-plugin-reflections ([ced3923](https://github.com/ashcoft/tt-rss-feedly-theme/commit/ced3923))
+* build(deps-dev): bump js-yaml ([f0456c6](https://github.com/ashcoft/tt-rss-feedly-theme/commit/f0456c6))
+* chore: update tt-rss submodule to latest main ([2b20536](https://github.com/ashcoft/tt-rss-feedly-theme/commit/2b20536))
+
 ## <small>4.6.1 (2026-09-07)</small>
 
 * Add `pullfrog.yml` workflow ([a698027](https://github.com/ashcoft/tt-rss-feedly-theme/commit/a698027))
