@@ -54,7 +54,7 @@ importers:
         version: 4.8.1
       less-plugin-reflections:
         specifier: github:seven-phases-max/less-plugin-reflections
-        version: git+https://git@github.com:seven-phases-max/less-plugin-reflections.git#94c57297136055554a447b96845bcf655f05ccf8
+        version: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8
       lightningcss-cli:
         specifier: ^1.19.0
         version: 1.33.0
@@ -1604,8 +1604,8 @@ packages:
     resolution: {integrity: sha512-YiGkH6EnGrDGqLMITnGjXtGmNtjoXw9SVUzcaos8RBi7Ps0VBylkq+vOcY9QE5poLasPCR849ucFUkl0UzUyOw==}
     engines: {node: '>=0.10.0'}
 
-  less-plugin-reflections@git+https://git@github.com:seven-phases-max/less-plugin-reflections.git#94c57297136055554a447b96845bcf655f05ccf8:
-    resolution: {commit: 94c57297136055554a447b96845bcf655f05ccf8, repo: git@github.com:seven-phases-max/less-plugin-reflections.git, type: git}
+  less-plugin-reflections@https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8:
+    resolution: {tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
     version: 0.0.1
     engines: {node: '>=0.10.0'}
 
@@ -4854,7 +4854,7 @@ snapshots:
     dependencies:
       invert-kv: 1.0.0
 
-  less-plugin-reflections@git+https://git@github.com:seven-phases-max/less-plugin-reflections.git#94c57297136055554a447b96845bcf655f05ccf8: {}
+  less-plugin-reflections@https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8: {}
 
   less@4.8.1:
     dependencies:
