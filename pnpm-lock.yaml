@@ -1605,7 +1605,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   less-plugin-reflections@https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8:
-    resolution: {tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
     version: 0.0.1
     engines: {node: '>=0.10.0'}
 
