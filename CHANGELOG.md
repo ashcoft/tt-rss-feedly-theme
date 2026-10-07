@@ -1,3 +1,21 @@
+## <small>4.6.3 (2026-10-07)</small>
+
+* Merge pull request #69 from ashcoft/renovate/npm-actions-http-client-undici-vulnerability ([b63c8c5](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b63c8c5)), closes [#69](https://github.com/ashcoft/tt-rss-feedly-theme/issues/69)
+* Merge pull request #70 from ashcoft/renovate/playwright-test-1.x-lockfile ([27f82ca](https://github.com/ashcoft/tt-rss-feedly-theme/commit/27f82ca)), closes [#70](https://github.com/ashcoft/tt-rss-feedly-theme/issues/70)
+* Merge pull request #71 from ashcoft/renovate/less-4.x-lockfile ([35ab7c1](https://github.com/ashcoft/tt-rss-feedly-theme/commit/35ab7c1)), closes [#71](https://github.com/ashcoft/tt-rss-feedly-theme/issues/71)
+* Merge pull request #72 from ashcoft/renovate/pnpm-10.x ([61eef40](https://github.com/ashcoft/tt-rss-feedly-theme/commit/61eef40)), closes [#72](https://github.com/ashcoft/tt-rss-feedly-theme/issues/72)
+* Merge pull request #73 from ashcoft/renovate/actions-checkout-7.x ([f833d0b](https://github.com/ashcoft/tt-rss-feedly-theme/commit/f833d0b)), closes [#73](https://github.com/ashcoft/tt-rss-feedly-theme/issues/73)
+* Merge pull request #76 from ashcoft/renovate/semantic-release-npm-13.x ([7b85a7b](https://github.com/ashcoft/tt-rss-feedly-theme/commit/7b85a7b)), closes [#76](https://github.com/ashcoft/tt-rss-feedly-theme/issues/76)
+* Merge pull request #81 from ashcoft/fix/update-submodule-yaml-and-drop-changesets ([8911f78](https://github.com/ashcoft/tt-rss-feedly-theme/commit/8911f78)), closes [#81](https://github.com/ashcoft/tt-rss-feedly-theme/issues/81)
+* chore: remove leftover changesets config replaced by semantic-release ([3c1d860](https://github.com/ashcoft/tt-rss-feedly-theme/commit/3c1d860))
+* chore(deps): update actions/checkout action to v7 ([5bc3080](https://github.com/ashcoft/tt-rss-feedly-theme/commit/5bc3080))
+* chore(deps): update dependency @actions/http-client>undici to v8 [security] ([0d1da77](https://github.com/ashcoft/tt-rss-feedly-theme/commit/0d1da77))
+* chore(deps): update dependency @playwright/test to v1.63.0 ([ed9fc02](https://github.com/ashcoft/tt-rss-feedly-theme/commit/ed9fc02))
+* chore(deps): update dependency @semantic-release/npm to v13 ([0fc150f](https://github.com/ashcoft/tt-rss-feedly-theme/commit/0fc150f))
+* chore(deps): update dependency less to v4.9.1 ([b71ed5b](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b71ed5b))
+* chore(deps): update pnpm to v10.34.6 ([27fe56e](https://github.com/ashcoft/tt-rss-feedly-theme/commit/27fe56e))
+* fix(ci): repair invalid YAML in update-submodule workflow ([8263f6c](https://github.com/ashcoft/tt-rss-feedly-theme/commit/8263f6c))
+
 ## <small>4.6.2 (2026-09-13)</small>
 
 * Merge pull request #67 from ashcoft/fix/submodule-track-main-and-update ([89c5425](https://github.com/ashcoft/tt-rss-feedly-theme/commit/89c5425)), closes [#67](https://github.com/ashcoft/tt-rss-feedly-theme/issues/67)
