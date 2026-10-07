@@ -81,17 +81,7 @@ jobs:
           # Create PR - let failures propagate
           gh pr create \
             --title "Update tt-rss submodule" \
-            --body "## Submodule Update
-
-**Upstream:** ${{ env.UPSTREAM_REPO }}
-
-**Changes:**
-- Previous commit: \`${{ steps.current.outputs.short }}\`
-- New commit: \`${{ steps.new.outputs.short }}\`
-
-**Latest upstream commit:** $UPSTREAM_MSG
-
-This PR updates the tt-rss submodule to the latest upstream commit. Please review before merging." \
+            --body "$(printf '## Submodule Update\n\n**Upstream:** %s\n\n**Changes:**\n- Previous commit: %s\n- New commit: %s\n\n**Latest upstream commit:** %s\n\nThis PR updates the tt-rss submodule to the latest upstream commit. Please review before merging.' "${{ env.UPSTREAM_REPO }}" "${{ steps.current.outputs.short }}" "${{ steps.new.outputs.short }}" "$UPSTREAM_MSG")" \
             --base main \
             --label "automated"
           
