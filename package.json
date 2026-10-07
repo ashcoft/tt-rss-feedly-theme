@@ -22,8 +22,7 @@
     "postinstall": "git submodule update --init",
     "prepare": "husky install",
     "start": "chokidar 'src/**/*.less' --initial -c 'run-s lint build'",
-    "test": "playwright test",
-    "version-packages": "changeset version && node scripts/update-version-refs.js && npm install --package-lock-only --ignore-scripts"
+    "test": "playwright test"
   },
   "browserslist": "> 1%, Firefox ESR, not dead",
   "lint-staged": {
@@ -45,8 +44,6 @@
     ]
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.7.0",
-    "@changesets/cli": "^2.31.0",
     "@goenning/foreach-cli": "^1.9.0",
     "@playwright/test": "^1.61.0",
     "@semantic-release/changelog": "^7.0.0",
