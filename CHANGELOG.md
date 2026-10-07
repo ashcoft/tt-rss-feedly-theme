@@ -1,3 +1,8 @@
+## <small>4.6.4 (2026-10-07)</small>
+
+* Merge pull request #83 from ashcoft/fix/undici-cache-vulnerability ([07b67b7](https://github.com/ashcoft/tt-rss-feedly-theme/commit/07b67b7)), closes [#83](https://github.com/ashcoft/tt-rss-feedly-theme/issues/83)
+* fix(security): upgrade undici override to patched 7.29.1+ ([dc1dc9d](https://github.com/ashcoft/tt-rss-feedly-theme/commit/dc1dc9d))
+
 ## <small>4.6.3 (2026-10-07)</small>
 
 * Merge pull request #69 from ashcoft/renovate/npm-actions-http-client-undici-vulnerability ([b63c8c5](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b63c8c5)), closes [#69](https://github.com/ashcoft/tt-rss-feedly-theme/issues/69)
