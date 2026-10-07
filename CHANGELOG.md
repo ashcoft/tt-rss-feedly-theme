@@ -1,3 +1,12 @@
+## <small>4.6.5 (2026-10-07)</small>
+
+* Merge pull request #84 from ashcoft/renovate/semantic-release-npm-13.x-lockfile ([cc9c724](https://github.com/ashcoft/tt-rss-feedly-theme/commit/cc9c724)), closes [#84](https://github.com/ashcoft/tt-rss-feedly-theme/issues/84)
+* Merge pull request #85 from ashcoft/renovate/brace-expansion-5.x ([fcc584f](https://github.com/ashcoft/tt-rss-feedly-theme/commit/fcc584f)), closes [#85](https://github.com/ashcoft/tt-rss-feedly-theme/issues/85)
+* Merge pull request #89 from ashcoft/fix/shell-quote-command-injection ([dc1457e](https://github.com/ashcoft/tt-rss-feedly-theme/commit/dc1457e)), closes [#89](https://github.com/ashcoft/tt-rss-feedly-theme/issues/89)
+* fix(security): add shell-quote override to patched 1.11.0+ ([f94446f](https://github.com/ashcoft/tt-rss-feedly-theme/commit/f94446f)), closes [#100](https://github.com/ashcoft/tt-rss-feedly-theme/issues/100)
+* chore(deps): update dependency @semantic-release/npm to v13.2.0 ([b978b31](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b978b31))
+* chore(deps): update dependency brace-expansion to v5 ([bb7227a](https://github.com/ashcoft/tt-rss-feedly-theme/commit/bb7227a))
+
 ## <small>4.6.4 (2026-10-07)</small>
 
 * Merge pull request #83 from ashcoft/fix/undici-cache-vulnerability ([07b67b7](https://github.com/ashcoft/tt-rss-feedly-theme/commit/07b67b7)), closes [#83](https://github.com/ashcoft/tt-rss-feedly-theme/issues/83)
