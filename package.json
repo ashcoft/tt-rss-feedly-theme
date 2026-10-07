@@ -78,7 +78,7 @@
   },
   "pnpm": {
     "overrides": {
-      "undici": "^7.29.0",
+      "undici": ">=7.29.1 <8",
       "@actions/http-client>undici": "^8.0.0",
       "fast-uri": ">=3.1.6 <4"
     }
