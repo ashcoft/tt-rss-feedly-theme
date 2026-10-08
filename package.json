@@ -62,7 +62,7 @@
     "postcss-less": "^6.0.0",
     "prettier": "^2.8.7",
     "semantic-release": "^25.0.8",
-    "stylelint": "^15.3.0",
+    "stylelint": "^17.0.0",
     "stylelint-config-property-sort-order-smacss": "^9.1.0"
   },
   "overrides": {
