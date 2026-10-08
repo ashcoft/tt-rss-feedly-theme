@@ -70,7 +70,7 @@
     "js-yaml": ">=4.3.0 <6",
     "cross-spawn": "^7.0.6",
     "trim-newlines": "^5.0.0",
-    "yargs-parser": "^21.1.1",
+    "yargs-parser": "^22.0.0",
     "fast-uri": ">=3.1.6 <5"
   },
   "pnpm": {
