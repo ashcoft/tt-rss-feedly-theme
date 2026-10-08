@@ -73,8 +73,8 @@ importers:
         specifier: ^17.0.0
         version: 17.16.0
       stylelint-config-property-sort-order-smacss:
-        specifier: ^9.1.0
-        version: 9.1.0(stylelint@17.16.0)
+        specifier: ^11.0.0
+        version: 11.2.0(stylelint@17.16.0)
 
 packages:
 
@@ -646,8 +646,8 @@ packages:
     resolution: {integrity: sha512-8HFEBPKhOpJPEPu70wJJetjKta86Gw9+CCyCnB3sui2qQfOvRyqBy4IKLKKAwdMpWb2lHXWk9Wb4Z6AmaUT1Pg==}
     engines: {node: '>=12'}
 
-  css-property-sort-order-smacss@2.2.0:
-    resolution: {integrity: sha512-nXutswsivIEBOrPo/OZw2KQjFPLvtg68aovJf6Kqrm3L6FmTvvFPaeDrk83hh0+pRJGuP3PeKJwMS0E6DFipdQ==}
+  css-property-sort-order-smacss@3.0.0:
+    resolution: {integrity: sha512-qtZBUTnWR3S5We/hKedz4dmGWv30ML9Qirj34oCzl7q7YtwvHsew62jYGbgNNj12zEpL4fxTqJeDEslK83Pokw==}
 
   css-tree@3.2.1:
     resolution: {integrity: sha512-X7sjQzceUhu1u7Y/ylrRZFU2FS6LRiFVp6rKLPg23y3x3c3DOKAwuXGDp+PAGjh6CSnCjYeAul8pcT8bAl+lSA==}
@@ -1938,8 +1938,8 @@ packages:
     resolution: {integrity: sha512-7qASPzhKF2l2KLboRZux8CCTRMdGiV08vWmyKzPz22qZ7ZjQBOeY7rNzNoCLSUiftJ7HUq0GERHmxw/t0dCdMw==}
     engines: {node: '>=4'}
 
-  postcss-sorting@8.0.2:
-    resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
+  postcss-sorting@10.0.0:
+    resolution: {integrity: sha512-TXbU+h6vVRW+86c/+ewhWq9k7pr7ijASTnepVhCQiC87zAOTkvB1v2dHyWP+ggstSTX/PNvjzS+IOqzejndz9w==}
     peerDependencies:
       postcss: ^8.4.20
 
@@ -2307,16 +2307,17 @@ packages:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
 
-  stylelint-config-property-sort-order-smacss@9.1.0:
-    resolution: {integrity: sha512-TijYeDoDgHAFjpn9NnziQrmUCGrm2AM4e1HzsdI2mCWBRkQRuewc343YqDwdFgQ5eHoMZ3JRL02i72W3vktuDA==}
-    deprecated: Package version no longer supported. Please consider upgrading to latest
+  stylelint-config-property-sort-order-smacss@11.2.0:
+    resolution: {integrity: sha512-6HLAU9B2zvmTNj3/i0NMLh6xPRKoqZW6Oxm9BFAXdgZe/PiVD4BUWPGubKpeoxUPc1NQRGCPExP6hwvYwRkPJA==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0
+      stylelint: ^16.18.0 || ^17.0.0
 
-  stylelint-order@6.0.4:
-    resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
+  stylelint-order@8.1.1:
+    resolution: {integrity: sha512-LqsEB6VggJuu5v10RtkrQsBObcdwBE7GuAOlwfc/LR3VL/w8UqKX2BOLIjhyGt0Gne/njo7gRNGiJAKhfmPMNw==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
-      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
+      stylelint: ^16.18.0 || ^17.0.0
 
   stylelint@17.16.0:
     resolution: {integrity: sha512-ejlWnbJ13x1GU32+zZXa6sYQJsKKkwSdv2B4rAdO3OWdEmvhSJKcXi5pOphQYSzyaj1kXpuGJr7pcMBNfDIuPw==}
@@ -3261,7 +3262,7 @@ snapshots:
 
   css-functions-list@3.3.3: {}
 
-  css-property-sort-order-smacss@2.2.0: {}
+  css-property-sort-order-smacss@3.0.0: {}
 
   css-tree@3.2.1:
     dependencies:
@@ -4480,7 +4481,7 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@8.0.2(postcss@8.5.26):
+  postcss-sorting@10.0.0(postcss@8.5.26):
     dependencies:
       postcss: 8.5.26
 
@@ -4928,16 +4929,16 @@ snapshots:
 
   strip-json-comments@2.0.1: {}
 
-  stylelint-config-property-sort-order-smacss@9.1.0(stylelint@17.16.0):
+  stylelint-config-property-sort-order-smacss@11.2.0(stylelint@17.16.0):
     dependencies:
-      css-property-sort-order-smacss: 2.2.0
+      css-property-sort-order-smacss: 3.0.0
       stylelint: 17.16.0
-      stylelint-order: 6.0.4(stylelint@17.16.0)
+      stylelint-order: 8.1.1(stylelint@17.16.0)
 
-  stylelint-order@6.0.4(stylelint@17.16.0):
+  stylelint-order@8.1.1(stylelint@17.16.0):
     dependencies:
       postcss: 8.5.26
-      postcss-sorting: 8.0.2(postcss@8.5.26)
+      postcss-sorting: 10.0.0(postcss@8.5.26)
       stylelint: 17.16.0
 
   stylelint@17.16.0:
