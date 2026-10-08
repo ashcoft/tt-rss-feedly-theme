@@ -10,7 +10,7 @@ overrides:
   fast-uri: '>=3.1.6 <5'
   shell-quote: '>=1.11.0 <2'
   source-map-js: '>=1.2.2 <2'
-  brace-expansion: '>=1.1.21 <2'
+  brace-expansion: '>=1.1.21 <6'
 
 importers:
 
@@ -1362,7 +1362,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   less-plugin-reflections@https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
+    resolution: {gitHosted: true, integrity: sha512-AQm3U15A+1UUF6a9GvDppaH/PBrvPPqP66DohSB8/F/MTXI8nSSQusRs7+EP8AIZ4sMEU5wiTqgbSj9hDBZL6Q==, tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
     version: 0.0.1
     engines: {node: '>=0.10.0'}
 
