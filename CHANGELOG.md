@@ -1,3 +1,8 @@
+## <small>4.6.6 (2026-10-08)</small>
+
+* Merge pull request #91 from ashcoft/fix/source-map-js-dos ([6cf8c18](https://github.com/ashcoft/tt-rss-feedly-theme/commit/6cf8c18)), closes [#91](https://github.com/ashcoft/tt-rss-feedly-theme/issues/91)
+* fix(security): add source-map-js override to patched 1.2.2+ ([1280570](https://github.com/ashcoft/tt-rss-feedly-theme/commit/1280570)), closes [#98](https://github.com/ashcoft/tt-rss-feedly-theme/issues/98)
+
 ## <small>4.6.5 (2026-10-07)</small>
 
 * Merge pull request #84 from ashcoft/renovate/semantic-release-npm-13.x-lockfile ([cc9c724](https://github.com/ashcoft/tt-rss-feedly-theme/commit/cc9c724)), closes [#84](https://github.com/ashcoft/tt-rss-feedly-theme/issues/84)
