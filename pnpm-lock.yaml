@@ -9,6 +9,7 @@ overrides:
   '@actions/http-client>undici': ^8.0.0
   fast-uri: '>=3.1.6 <4'
   shell-quote: '>=1.11.0 <2'
+  source-map-js: '>=1.2.2 <2'
 
 importers:
 
@@ -1442,7 +1443,7 @@ packages:
     engines: {node: '>=0.10.0'}
 
   less-plugin-reflections@https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8:
-    resolution: {gitHosted: true, integrity: sha512-AQm3U15A+1UUF6a9GvDppaH/PBrvPPqP66DohSB8/F/MTXI8nSSQusRs7+EP8AIZ4sMEU5wiTqgbSj9hDBZL6Q==, tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/seven-phases-max/less-plugin-reflections/tar.gz/94c57297136055554a447b96845bcf655f05ccf8}
     version: 0.0.1
     engines: {node: '>=0.10.0'}
 
@@ -2376,8 +2377,8 @@ packages:
     resolution: {integrity: sha512-FC+lgizVPfie0kkhqUScwRu1O/lF6NOgJmlCgK+/LYxDCTk8sGelYaHDhFcDN+Sn3Cv+3VSa4Byeo+IMCzpMgQ==}
     engines: {node: '>=12'}
 
-  source-map-js@1.2.1:
-    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+  source-map-js@1.2.2:
+    resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
     engines: {node: '>=0.10.0'}
 
   source-map@0.5.7:
@@ -3470,7 +3471,7 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   cssesc@3.0.0: {}
 
@@ -4848,7 +4849,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.18
       picocolors: 1.1.1
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   prettier@2.8.8: {}
 
@@ -5185,7 +5186,7 @@ snapshots:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 4.0.0
 
-  source-map-js@1.2.1: {}
+  source-map-js@1.2.2: {}
 
   source-map@0.5.7: {}
 
