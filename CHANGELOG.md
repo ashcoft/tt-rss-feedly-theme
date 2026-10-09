@@ -1,3 +1,12 @@
+## [4.6.7](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.6...v4.6.7) (2026-10-09)
+
+### Bug Fixes
+
+* **ci:** regenerate pnpm lockfile for pnpm 12 and migrate overrides ([52fb7f1](https://github.com/ashcoft/tt-rss-feedly-theme/commit/52fb7f113368f3fce97c319368f55fcb31cd51fe))
+* **deps:** restore pnpm overrides dropped by pnpm 12 migration ([9c78958](https://github.com/ashcoft/tt-rss-feedly-theme/commit/9c78958ddd6e90c9b0b4451cb7fcdfb55cb956b5)), closes [#116](https://github.com/ashcoft/tt-rss-feedly-theme/issues/116)
+* **release:** pin conventionalcommits preset to v9 to match writer@8 ([e649d3e](https://github.com/ashcoft/tt-rss-feedly-theme/commit/e649d3e776640a2692bf36c0dfd0c889e1be8710))
+* **security:** pin brace-expansion to patched 1.1.21 via pnpm overrides ([3bde8ba](https://github.com/ashcoft/tt-rss-feedly-theme/commit/3bde8bae4d2e9f038620a4ae7035c245d0a8b583)), closes [#93](https://github.com/ashcoft/tt-rss-feedly-theme/issues/93)
+
 ## <small>4.6.6 (2026-10-08)</small>
 
 * Merge pull request #91 from ashcoft/fix/source-map-js-dos ([6cf8c18](https://github.com/ashcoft/tt-rss-feedly-theme/commit/6cf8c18)), closes [#91](https://github.com/ashcoft/tt-rss-feedly-theme/issues/91)
