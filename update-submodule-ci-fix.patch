@@ -1,4 +1,4 @@
-From ebcda277477403936553ac088ef095087886a155 Mon Sep 17 00:00:00 2001
+From 3abe063c4387ac286fc3a21a4c039653ccc7dc96 Mon Sep 17 00:00:00 2001
 From: Cline <cline@users.noreply.github.com>
 Date: Fri, 23 Oct 2026 01:24:41 +0000
 Subject: [PATCH] fix(ci): provide GH_TOKEN to gh CLI in submodule update
@@ -6,11 +6,11 @@ Subject: [PATCH] fix(ci): provide GH_TOKEN to gh CLI in submodule update
 
 The 'Create update branch and PR' step called gh without GH_TOKEN, so gh exited with code 4 and the weekly submodule update job failed (runs 39091907362, 38109815937). Also create the 'automated' label before using it on the PR (it did not exist in the repo) and update an existing PR instead of failing when the job is re-run for the same branch.
 ---
- .github/workflows/update-submodule.yml | 29 +++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ .github/workflows/update-submodule.yml | 46 ++++++++++++++++++++------
+ 1 file changed, 35 insertions(+), 11 deletions(-)
 
 diff --git a/.github/workflows/update-submodule.yml b/.github/workflows/update-submodule.yml
-index 3d46310..04ac1e8 100644
+index 3d46310..cf00f82 100644
 --- a/.github/workflows/update-submodule.yml
 +++ b/.github/workflows/update-submodule.yml
 @@ -9,6 +9,7 @@ on:
@@ -21,20 +21,40 @@ index 3d46310..04ac1e8 100644
  
  env:
    UPSTREAM_REPO: "https://github.com/tt-rss/tt-rss.git"
-@@ -57,8 +58,11 @@ jobs:
+@@ -57,8 +58,14 @@ jobs:
        - name: Create update branch and PR
          if: steps.diff.outputs.updated == 'true'
          env:
+-          # Sanitize branch name - only allow safe characters
+-          BRANCH_NAME: ${{ github.run_id }}-submodule-update
 +          # Required by the GitHub CLI, otherwise `gh pr create` exits with code 4
 +          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-           # Sanitize branch name - only allow safe characters
-           BRANCH_NAME: ${{ github.run_id }}-submodule-update
++          # Single rolling branch owned by this workflow: the branch name is not
++          # derived from the run ID, so re-running the job (or the next weekly
++          # run) updates this branch and its pull request instead of failing
++          # with a non-fast-forward push.
++          BRANCH_NAME: automated/tt-rss-submodule-update
 +          PR_LABEL: automated
          run: |
            set -euo pipefail
            
-@@ -79,11 +83,26 @@ jobs:
-           git push -u origin "$UNIQUE_BRANCH"
+@@ -70,20 +77,37 @@ jobs:
+           UPSTREAM_MSG=$(git log -1 --format='%s' HEAD 2>/dev/null || echo "Latest upstream update")
+           cd ..
+           
+-          # Use unique branch name based on run ID to avoid conflicts
+           UNIQUE_BRANCH="${{ env.BRANCH_NAME }}"
+-          
++
+           git add ${{ env.SUBMODULE_PATH }}/
+-          git checkout -b "$UNIQUE_BRANCH"
++          git checkout -B "$UNIQUE_BRANCH"
+           git commit -m "chore: update tt-rss submodule to latest"
+-          git push -u origin "$UNIQUE_BRANCH"
++          # The rolling branch is owned by this workflow, so overwrite it on every
++          # run; without --force a re-run is rejected as non-fast-forward once the
++          # upstream submodule has moved past the commit pushed by the first run.
++          git push --force -u origin "$UNIQUE_BRANCH"
            
            # Create PR - let failures propagate
 -          gh pr create \
