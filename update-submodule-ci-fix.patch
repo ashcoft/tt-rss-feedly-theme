@@ -1,0 +1,70 @@
+From ebcda277477403936553ac088ef095087886a155 Mon Sep 17 00:00:00 2001
+From: Cline <cline@users.noreply.github.com>
+Date: Fri, 23 Oct 2026 01:24:41 +0000
+Subject: [PATCH] fix(ci): provide GH_TOKEN to gh CLI in submodule update
+ workflow
+
+The 'Create update branch and PR' step called gh without GH_TOKEN, so gh exited with code 4 and the weekly submodule update job failed (runs 39091907362, 38109815937). Also create the 'automated' label before using it on the PR (it did not exist in the repo) and update an existing PR instead of failing when the job is re-run for the same branch.
+---
+ .github/workflows/update-submodule.yml | 29 +++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
+
+diff --git a/.github/workflows/update-submodule.yml b/.github/workflows/update-submodule.yml
+index 3d46310..04ac1e8 100644
+--- a/.github/workflows/update-submodule.yml
++++ b/.github/workflows/update-submodule.yml
+@@ -9,6 +9,7 @@ on:
+ permissions:
+   contents: write
+   pull-requests: write
++  issues: write # required to create the "automated" label if it is missing
+ 
+ env:
+   UPSTREAM_REPO: "https://github.com/tt-rss/tt-rss.git"
+@@ -57,8 +58,11 @@ jobs:
+       - name: Create update branch and PR
+         if: steps.diff.outputs.updated == 'true'
+         env:
++          # Required by the GitHub CLI, otherwise `gh pr create` exits with code 4
++          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           # Sanitize branch name - only allow safe characters
+           BRANCH_NAME: ${{ github.run_id }}-submodule-update
++          PR_LABEL: automated
+         run: |
+           set -euo pipefail
+           
+@@ -79,11 +83,26 @@ jobs:
+           git push -u origin "$UNIQUE_BRANCH"
+           
+           # Create PR - let failures propagate
+-          gh pr create \
+-            --title "Update tt-rss submodule" \
+-            --body "$(printf '## Submodule Update\n\n**Upstream:** %s\n\n**Changes:**\n- Previous commit: %s\n- New commit: %s\n\n**Latest upstream commit:** %s\n\nThis PR updates the tt-rss submodule to the latest upstream commit. Please review before merging.' "${{ env.UPSTREAM_REPO }}" "${{ steps.current.outputs.short }}" "${{ steps.new.outputs.short }}" "$UPSTREAM_MSG")" \
+-            --base main \
+-            --label "automated"
++          # Ensure the label exists first, otherwise `gh pr create --label` fails
++          gh label create "$PR_LABEL" \
++            --description "Automated changes" \
++            --color "ededed" \
++            --force >/dev/null
++
++          PR_BODY=$(printf '## Submodule Update\n\n**Upstream:** %s\n\n**Changes:**\n- Previous commit: %s\n- New commit: %s\n\n**Latest upstream commit:** %s\n\nThis PR updates the tt-rss submodule to the latest upstream commit. Please review before merging.' "${{ env.UPSTREAM_REPO }}" "${{ steps.current.outputs.short }}" "${{ steps.new.outputs.short }}" "$UPSTREAM_MSG")
++
++          # Re-running the same job reuses the branch, so update an existing PR instead of failing
++          EXISTING_PR=$(gh pr list --head "$UNIQUE_BRANCH" --base main --state open --json number --jq '.[0].number // empty')
++          if [ -n "$EXISTING_PR" ]; then
++            gh pr edit "$EXISTING_PR" --body "$PR_BODY"
++            echo "Updated existing pull request #$EXISTING_PR"
++          else
++            gh pr create \
++              --title "Update tt-rss submodule" \
++              --body "$PR_BODY" \
++              --base main \
++              --label "$PR_LABEL"
++          fi
+           
+           echo "branch=$UNIQUE_BRANCH" >> $GITHUB_OUTPUT
+ 
+-- 
+2.39.5
+
