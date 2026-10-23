@@ -1,3 +1,10 @@
+## [4.6.8](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.7...v4.6.8) (2026-10-23)
+
+### Bug Fixes
+
+* **ci:** refresh submodule update patch (GH_TOKEN + rolling branch) ([c7484a2](https://github.com/ashcoft/tt-rss-feedly-theme/commit/c7484a266959352eb7e3c30d514a1357147ede88))
+* **release:** keep conventionalcommits preset on v9 for writer@8 ([f9877c1](https://github.com/ashcoft/tt-rss-feedly-theme/commit/f9877c1d232a05a4a0ad6f5c9344e5eac82d3e33))
+
 ## [4.6.7](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.6...v4.6.7) (2026-10-09)
 
 ### Bug Fixes
