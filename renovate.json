@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "description": "conventional-changelog-conventionalcommits v10 needs conventional-changelog-writer>=9 (conventional-changelog@8), but semantic-release 25 and the Release workflow's semantic-release-action bundle writer 8, so a major bump breaks generateNotes. Keep it below v10 until the release tooling is upgraded.",
+      "matchPackageNames": ["conventional-changelog-conventionalcommits"],
+      "allowedVersions": "<10"
+    }
+  ]
+}
