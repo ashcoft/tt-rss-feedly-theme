@@ -1,3 +1,10 @@
+## [4.6.9](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.8...v4.6.9) (2026-10-27)
+
+### Bug Fixes
+
+* **ci:** address submodule workflow review feedback ([6c375f5](https://github.com/ashcoft/tt-rss-feedly-theme/commit/6c375f5d6b5ee38ff3f3366dabfe759f263ac062))
+* **ci:** provide GH_TOKEN to gh CLI in submodule update workflow ([5c7d438](https://github.com/ashcoft/tt-rss-feedly-theme/commit/5c7d438e69ee2fabbed70996f930cfba8b57abbe))
+
 ## [4.6.8](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.7...v4.6.8) (2026-10-23)
 
 ### Bug Fixes
