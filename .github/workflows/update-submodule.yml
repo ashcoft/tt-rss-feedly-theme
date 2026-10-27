@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write # required to create the "automated" label if it is missing
 
 env:
   UPSTREAM_REPO: "https://github.com/tt-rss/tt-rss.git"
@@ -17,10 +18,18 @@ env:
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
+    # Serialize runs so two overlapping updates cannot force-push the shared
+    # branch out of order; an in-progress run is allowed to finish.
+    concurrency:
+      group: update-tt-rss-submodule
+      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          # Always base the update on main, even when the workflow is dispatched
+          # from another branch, so the PR cannot pick up unrelated commits.
+          ref: main
           submodules: true
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -55,10 +64,16 @@ jobs:
           fi
 
       - name: Create update branch and PR
+        id: pr
         if: steps.diff.outputs.updated == 'true'
         env:
-          # Sanitize branch name - only allow safe characters
-          BRANCH_NAME: ${{ github.run_id }}-submodule-update
+          # Required by the GitHub CLI, otherwise `gh pr create` exits with code 4
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Single rolling branch owned by this workflow, so re-running the job
+          # (or the next weekly run) updates this branch and its pull request
+          # instead of failing with a non-fast-forward push.
+          BRANCH_NAME: automated/tt-rss-submodule-update
+          PR_LABEL: automated
         run: |
           set -euo pipefail
           
@@ -68,22 +83,52 @@ jobs:
           # Get latest upstream commit message for context
           cd ${{ env.SUBMODULE_PATH }}
           UPSTREAM_MSG=$(git log -1 --format='%s' HEAD 2>/dev/null || echo "Latest upstream update")
+          NEW_SUBMODULE=$(git rev-parse HEAD)
           cd ..
+
+          # main can move while this run is in flight (or a push can land);
+          # skip if the submodule is already at this commit there, so the rolling
+          # branch is never rewound to a stale state.
+          git fetch --depth=1 origin main
+          if [ "$(git rev-parse "origin/main:${{ env.SUBMODULE_PATH }}")" = "$NEW_SUBMODULE" ]; then
+            echo "action=up-to-date" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           
-          # Use unique branch name based on run ID to avoid conflicts
           UNIQUE_BRANCH="${{ env.BRANCH_NAME }}"
           
           git add ${{ env.SUBMODULE_PATH }}/
-          git checkout -b "$UNIQUE_BRANCH"
+          git checkout -B "$UNIQUE_BRANCH"
           git commit -m "chore: update tt-rss submodule to latest"
-          git push -u origin "$UNIQUE_BRANCH"
+          # The rolling branch is owned by this workflow, so overwrite it on every
+          # run; without --force a re-run is rejected as non-fast-forward once the
+          # upstream submodule has moved past the commit pushed by the first run.
+          git push --force -u origin "$UNIQUE_BRANCH"
           
-          # Create PR - let failures propagate
-          gh pr create \
-            --title "Update tt-rss submodule" \
-            --body "$(printf '## Submodule Update\n\n**Upstream:** %s\n\n**Changes:**\n- Previous commit: %s\n- New commit: %s\n\n**Latest upstream commit:** %s\n\nThis PR updates the tt-rss submodule to the latest upstream commit. Please review before merging.' "${{ env.UPSTREAM_REPO }}" "${{ steps.current.outputs.short }}" "${{ steps.new.outputs.short }}" "$UPSTREAM_MSG")" \
-            --base main \
-            --label "automated"
+          # Create the label only when it is missing; --force would reset the
+          # color and description of a label used elsewhere in the repository.
+          if ! gh label list --search "$PR_LABEL" --json name --jq '.[].name' | grep -qx "$PR_LABEL"; then
+            gh label create "$PR_LABEL" \
+              --description "Automated changes" \
+              --color "ededed" >/dev/null
+          fi
+
+          PR_BODY=$(printf '## Submodule Update\n\n**Upstream:** %s\n\n**Changes:**\n- Previous commit: %s\n- New commit: %s\n\n**Latest upstream commit:** %s\n\nThis PR updates the tt-rss submodule to the latest upstream commit. Please review before merging.' "${{ env.UPSTREAM_REPO }}" "${{ steps.current.outputs.short }}" "${{ steps.new.outputs.short }}" "$UPSTREAM_MSG")
+
+          # Re-running the same job reuses the branch, so update an existing PR instead of failing
+          EXISTING_PR=$(gh pr list --head "$UNIQUE_BRANCH" --base main --state open --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr edit "$EXISTING_PR" --body "$PR_BODY" --add-label "$PR_LABEL"
+            echo "action=updated" >> "$GITHUB_OUTPUT"
+            echo "Updated existing pull request #$EXISTING_PR"
+          else
+            gh pr create \
+              --title "Update tt-rss submodule" \
+              --body "$PR_BODY" \
+              --base main \
+              --label "$PR_LABEL"
+            echo "action=created" >> "$GITHUB_OUTPUT"
+          fi
           
           echo "branch=$UNIQUE_BRANCH" >> $GITHUB_OUTPUT
 
@@ -100,8 +145,10 @@ jobs:
             echo "| New | \`${{ steps.new.outputs.short }}\` |" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.diff.outputs.updated }}" == "true" ]; then
-            echo "✅ New update available. PR created for review." >> $GITHUB_STEP_SUMMARY
-          else
+          if [ "${{ steps.diff.outputs.updated }}" != "true" ]; then
             echo "✅ Already up to date. No action needed." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.pr.outputs.action }}" == "up-to-date" ]; then
+            echo "✅ Submodule already at this commit on \`main\`. No pull request needed." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ New update available. Pull request ${{ steps.pr.outputs.action }} for review." >> $GITHUB_STEP_SUMMARY
           fi
