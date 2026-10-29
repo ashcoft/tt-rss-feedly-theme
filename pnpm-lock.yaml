@@ -220,8 +220,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.4
       postcss-less:
-        specifier: ^6.0.0
-        version: 6.0.0(postcss@8.5.26)
+        specifier: ^7.0.0
+        version: 7.0.0(postcss@8.5.32)
       prettier:
         specifier: ^3.0.0
         version: 3.9.10
@@ -1515,6 +1515,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanoid@3.3.20:
+    resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+
   needle@2.9.1:
     resolution: {integrity: sha512-6R9fqJ5Zcmf+uYaFgdIHmLwNldn5HbK8L5ybn7Uz+ylX/rnOsSp1AHcvQSrCaFN+qNM1wpymHqD7mVasEOlHGQ==}
     engines: {node: '>= 4.4.x'}
@@ -1805,11 +1810,11 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  postcss-less@6.0.0:
-    resolution: {integrity: sha512-FPX16mQLyEjLzEuuJtxA8X3ejDLNGGEG503d2YGZR5Ask1SpDN8KmZUMpzCvyalWRywAn1n1VOA5dcqfCLo5rg==}
-    engines: {node: '>=12'}
+  postcss-less@7.0.0:
+    resolution: {integrity: sha512-1OXufSAe+Um1gW3ydpFlpVqUEPRdiGg2zt+Man5Qa48mAXdgxBYhbE6FP4xbrgUgfhFTAFRjhCL/JvljMHZO6w==}
+    engines: {node: '>=22'}
     peerDependencies:
-      postcss: ^8.3.5
+      postcss: ^8.5.32
 
   postcss-safe-parser@7.1.0:
     resolution: {integrity: sha512-1WzZxRLaAFwEh6Do+zyGpjWV3nGJNxxhuh7Ubu/q1ICImMgZJnLwhoaEpRbG4pJppp2Y1ncL9ffA2f+LhrefQg==}
@@ -1831,6 +1836,10 @@ packages:
 
   postcss@8.5.26:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.32:
+    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
     engines: {node: ^10 || ^12 || >=14}
 
   prettier@3.9.10:
@@ -3647,6 +3656,8 @@ snapshots:
 
   nanoid@3.3.18: {}
 
+  nanoid@3.3.20: {}
+
   needle@2.9.1(supports-color@10.2.2):
     dependencies:
       debug: 3.2.7(supports-color@10.2.2)
@@ -3844,9 +3855,9 @@ snapshots:
     dependencies:
       playwright-core: 1.64.1
 
-  postcss-less@6.0.0(postcss@8.5.26):
+  postcss-less@7.0.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.26
+      postcss: 8.5.32
 
   postcss-safe-parser@7.1.0(postcss@8.5.26):
     dependencies:
@@ -3866,6 +3877,12 @@ snapshots:
   postcss@8.5.26:
     dependencies:
       nanoid: 3.3.18
+      picocolors: 1.1.1
+      source-map-js: 1.2.2
+
+  postcss@8.5.32:
+    dependencies:
+      nanoid: 3.3.20
       picocolors: 1.1.1
       source-map-js: 1.2.2
 

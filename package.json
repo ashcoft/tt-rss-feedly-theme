@@ -59,7 +59,7 @@
     "lightningcss-cli": "^1.19.0",
     "lint-staged": "^17.0.0",
     "npm-run-all2": "^9.0.0",
-    "postcss-less": "^6.0.0",
+    "postcss-less": "^7.0.0",
     "prettier": "^3.0.0",
     "semantic-release": "^25.0.8",
     "stylelint": "^17.0.0",
