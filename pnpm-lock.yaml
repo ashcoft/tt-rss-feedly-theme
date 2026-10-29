@@ -221,7 +221,7 @@ importers:
         version: 9.0.4
       postcss-less:
         specifier: ^7.0.0
-        version: 7.0.0(postcss@8.5.32)
+        version: 7.0.1(postcss@8.5.32)
       prettier:
         specifier: ^3.0.0
         version: 3.9.10
@@ -1810,8 +1810,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  postcss-less@7.0.0:
-    resolution: {integrity: sha512-1OXufSAe+Um1gW3ydpFlpVqUEPRdiGg2zt+Man5Qa48mAXdgxBYhbE6FP4xbrgUgfhFTAFRjhCL/JvljMHZO6w==}
+  postcss-less@7.0.1:
+    resolution: {integrity: sha512-ZLZPw5JIJUDoY9IVp/rBb5daDI1wChnw5+G9RMyA3MVydkLwR+yfYJD3et1fbxPJMthZsBKA5qWKtwrGZuJVQQ==}
     engines: {node: '>=22'}
     peerDependencies:
       postcss: ^8.5.32
@@ -3855,7 +3855,7 @@ snapshots:
     dependencies:
       playwright-core: 1.64.1
 
-  postcss-less@7.0.0(postcss@8.5.32):
+  postcss-less@7.0.1(postcss@8.5.32):
     dependencies:
       postcss: 8.5.32
 
