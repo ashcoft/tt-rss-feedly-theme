@@ -22,3 +22,7 @@ Thumbs.db
 feedly-theme-*.zip
 feedly-theme-*.tar.gz
 release-assets/
+# Playwright failure artifacts (test-results/.last-run.json is tracked on purpose)
+/test-results/*/
+/playwright-report/
+/blob-report/

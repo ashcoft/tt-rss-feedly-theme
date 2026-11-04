@@ -22,6 +22,7 @@
     "postinstall": "git submodule update --init",
     "prepare": "husky install",
     "start": "chokidar 'src/**/*.less' --initial -c 'run-s lint build'",
+    "pretest": "run-s build",
     "test": "playwright test"
   },
   "browserslist": "> 1%, Firefox ESR, not dead",

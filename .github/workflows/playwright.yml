@@ -38,3 +38,14 @@ jobs:
 
       - name: Run tests
         run: pnpm exec playwright test
+
+      - name: Upload report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+          # A workflow re-run uploads the same artifact name; without this the
+          # second attempt fails with a duplicate-name error.
+          overwrite: true
