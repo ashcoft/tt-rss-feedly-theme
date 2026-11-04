@@ -47,6 +47,27 @@ const parseArgs = (argv) => {
   return options;
 };
 
+// Reads the required glob and command, writing usage and exiting when either is
+// missing or an argument is unknown.
+const readOptions = (argv) => {
+  let options;
+  try {
+    options = parseArgs(argv);
+  } catch (error) {
+    process.stderr.write(`${error.message}\n${USAGE}`);
+    process.exit(2);
+  }
+
+  const glob = options.get('glob');
+  const command = options.get('command');
+  if (!glob || !command) {
+    process.stderr.write(USAGE);
+    process.exit(2);
+  }
+
+  return { glob, command, ignore: options.get('ignore') };
+};
+
 // Substitutes the placeholders for one file. path.resolve keeps dir/root
 // absolute, matching the previous CLI's output.
 const buildCommand = (template, file) => {
@@ -80,23 +101,9 @@ const runCommand = (template, file) => {
   }
 };
 
+// Entry point: run the command once for every matching file.
 const main = () => {
-  let options;
-  try {
-    options = parseArgs(process.argv.slice(2));
-  } catch (error) {
-    process.stderr.write(`${error.message}\n${USAGE}`);
-    process.exit(2);
-  }
-
-  const glob = options.get('glob');
-  const command = options.get('command');
-  if (!glob || !command) {
-    process.stderr.write(USAGE);
-    process.exit(2);
-  }
-
-  const ignore = options.get('ignore');
+  const { glob, command, ignore } = readOptions(process.argv.slice(2));
   for (const file of globSync(glob, ignore ? { ignore } : {}).sort()) {
     runCommand(command, file);
   }
