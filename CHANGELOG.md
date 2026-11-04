@@ -1,3 +1,9 @@
+## [4.6.10](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.9...v4.6.10) (2026-11-04)
+
+### Bug Fixes
+
+* **mobile:** scope swipe carousel above the drawer breakpoint ([66616d6](https://github.com/ashcoft/tt-rss-feedly-theme/commit/66616d6f39ddbc9cc27fd97cf9d3fca53cb189b8)), closes [#main](https://github.com/ashcoft/tt-rss-feedly-theme/issues/main) [#content-wrap](https://github.com/ashcoft/tt-rss-feedly-theme/issues/content-wrap) [#main](https://github.com/ashcoft/tt-rss-feedly-theme/issues/main) [#headlines-frame](https://github.com/ashcoft/tt-rss-feedly-theme/issues/headlines-frame)
+
 ## [4.6.9](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.8...v4.6.9) (2026-10-27)
 
 ### Bug Fixes
