@@ -54,10 +54,44 @@
 // mobile layout
 // -----------------------------------------------------------------------------
 .media(0, lg, {
+  #feeds-holder_splitter,
+  #feed_current_unread,
+  #toolbar > .material-icons {
+    display: none;
+  }
+  #toolbar-frame,
+  #headlines-wrap-inner,
+  #headlines-frame,
+  #content-insert {
+    inset-inline: 0 !important;
+    width: auto !important;
+  }
+});
+// Tablet / landscape layout: the feed list is a fixed-width column and #main is a
+// scroll-snap carousel, so the two panes can be swiped between.
+//
+// This starts at core's drawer breakpoint (md) on purpose. Below it core collapses
+// the feed list into a slide-in drawer toggled by .sidebar-toggle, and this
+// positioning would override that layout: #content-wrap would be pushed off to the
+// right of the viewport, making #main horizontally scrollable, so any reflow
+// (toggling the sidebar, opening the drawer) re-snaps the view to the feed list.
+.media(md, lg, {
   // currently widest popular phone: 428px
   @feeds-width: calc(min(100vw, 428px) - @feeds-toggle-width);
 
-  // allow swiping between sidebar and main content
+  #feeds-holder {
+    width: @feeds-width !important;
+  }
+  #content-wrap {
+    left: calc(@feeds-toggle-width + @feeds-width) !important;
+    width: calc(100vw - @feeds-toggle-width) !important;
+    margin-left: 0 !important;
+    scroll-snap-align: start;
+  }
+  #feeds-holder[style*="none"] ~ #content-wrap {
+    left: @feeds-toggle-width !important;
+    scroll-snap-align: none;
+  }
   body.ttrss_index #main {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -70,31 +104,17 @@
       scroll-snap-align: start;
     }
   }
-  #feeds-holder {
-    width: @feeds-width !important;
-
-    &[style*="none"] ~ #content-wrap {
-      left: @feeds-toggle-width !important;
-      scroll-snap-align: none;
-    }
+});
+// Phone layout is owned by core's drawer: the feed list overlays the articles, so
+// there is no sidebar gutter to reserve, and the article list must fit the viewport
+// exactly. #headlines-frame carries horizontal content padding, so without
+// border-box its box would be wider than the viewport and #main would scroll.
+.media(0, md, {
+  body.ttrss_index #main {
+    padding-left: 0 !important;
   }
-  #content-wrap {
-    left: calc(@feeds-toggle-width + @feeds-width) !important;
-    width: calc(100vw - @feeds-toggle-width) !important;
-    margin-left: 0 !important;
-    scroll-snap-align: start;
-  }
-  #feeds-holder_splitter,
-  #feed_current_unread,
-  #toolbar > .material-icons {
-    display: none;
-  }
-  #toolbar-frame,
-  #headlines-wrap-inner,
-  #headlines-frame,
-  #content-insert {
-    inset-inline: 0 !important;
-    width: auto !important;
+  #headlines-frame {
+    box-sizing: border-box;
   }
 });
 .media(0, md, {
