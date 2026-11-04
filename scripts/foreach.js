@@ -22,32 +22,33 @@ const FLAGS = new Map([
   ['--ignore', 'ignore'],
 ]);
 
-// Later flags overwrite earlier ones, matching the previous CLI's yargs parser.
-// Unknown arguments throw so a typo cannot silently drop the ignore pattern and
-// compile partials such as `_variables.less`.
+// Splits an optional inline value off a flag, e.g. `--glob=src/*.less`.
+const splitFlag = (arg) => {
+  const eq = arg.indexOf('=');
+  return eq === -1 ? [arg, null] : [arg.slice(0, eq), arg.slice(eq + 1)];
+};
+
+// Parses `-g value` and `--glob=value` forms. Later flags overwrite earlier
+// ones, matching the previous CLI's yargs parser. Unknown arguments throw so a
+// typo cannot silently drop the ignore pattern and compile LESS partials.
 const parseArgs = (argv) => {
   const options = new Map();
-  const args = argv.slice();
+  const args = [...argv];
 
   while (args.length > 0) {
-    let flag = args.shift();
-    let value;
-    const eq = flag.indexOf('=');
-    if (flag.startsWith('--') && eq !== -1) {
-      value = flag.slice(eq + 1);
-      flag = flag.slice(0, eq);
-    }
-
+    const [flag, inlineValue] = splitFlag(args.shift());
     const key = FLAGS.get(flag);
     if (key === undefined) {
       throw new Error(`unknown argument: ${flag}`);
     }
-    options.set(key, value === undefined ? args.shift() : value);
+    options.set(key, inlineValue === null ? args.shift() : inlineValue);
   }
 
   return options;
 };
 
+// Substitutes the placeholders for one file. path.resolve keeps dir/root
+// absolute, matching the previous CLI's output.
 const buildCommand = (template, file) => {
   const parsed = path.parse(path.resolve(file));
   const values = new Map([
@@ -61,6 +62,22 @@ const buildCommand = (template, file) => {
   return template.replace(PLACEHOLDER, (match, placeholder) =>
     values.has(placeholder) ? values.get(placeholder) : match
   );
+};
+
+// Runs one command. The template comes from package.json and runs through a
+// shell on purpose: it uses redirection (>) and other shell syntax.
+const runCommand = (template, file) => {
+  const { status, error } = spawnSync(buildCommand(template, file), {
+    shell: true,
+    stdio: 'inherit',
+  });
+  if (error) {
+    process.stderr.write(`${error.message}\n`);
+    process.exit(1);
+  }
+  if (status !== 0) {
+    process.exit(status === null ? 1 : status);
+  }
 };
 
 const main = () => {
@@ -80,22 +97,8 @@ const main = () => {
   }
 
   const ignore = options.get('ignore');
-  const files = globSync(glob, ignore ? { ignore } : {}).sort();
-
-  for (const file of files) {
-    // The command template comes from package.json and runs through a shell on
-    // purpose: it uses redirection (>) and other shell syntax.
-    const { status, error } = spawnSync(buildCommand(command, file), {
-      shell: true,
-      stdio: 'inherit',
-    });
-    if (error) {
-      process.stderr.write(`${error.message}\n`);
-      process.exit(1);
-    }
-    if (status !== 0) {
-      process.exit(status === null ? 1 : status);
-    }
+  for (const file of globSync(glob, ignore ? { ignore } : {}).sort()) {
+    runCommand(command, file);
   }
 };
 
