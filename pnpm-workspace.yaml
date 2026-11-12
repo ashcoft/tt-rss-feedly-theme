@@ -7,7 +7,7 @@ overrides:
   brace-expansion: '>=1.1.21 <6'
 
 minimumReleaseAgeExclude:
-  - prettier@3.10.0
+  - prettier@3.10.1
   - postcss-less@7.0.1
   - '@playwright/test@1.65.0'
   - playwright@1.65.0
