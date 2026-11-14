@@ -26,3 +26,5 @@ release-assets/
 /test-results/*/
 /playwright-report/
 /blob-report/
+.agent/dist/
+.agent/node_modules/
