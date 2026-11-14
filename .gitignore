@@ -26,3 +26,9 @@ release-assets/
 /test-results/*/
 /playwright-report/
 /blob-report/
+
+
+
+.nx/cache
+.nx/workspace-data
+.nx/migrate-runs
