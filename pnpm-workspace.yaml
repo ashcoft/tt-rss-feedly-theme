@@ -13,3 +13,5 @@ minimumReleaseAgeExclude:
   - playwright@1.65.0
   - playwright-core@1.65.0
   - stylelint@18.0.0
+allowBuilds:
+  nx: true
