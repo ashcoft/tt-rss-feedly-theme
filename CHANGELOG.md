@@ -1,3 +1,10 @@
+## [4.7.2](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.1...v4.7.2) (2026-11-15)
+
+### Bug Fixes
+
+* handle prerelease versions in README updater ([a566fb3](https://github.com/ashcoft/tt-rss-feedly-theme/commit/a566fb33aa75cd251983044f863d4e062df36aa2))
+* use literal paths so static analysis passes ([e3b2a67](https://github.com/ashcoft/tt-rss-feedly-theme/commit/e3b2a675fc2c1de7e3aa108ad0478cddd944eb3b))
+
 ## [4.7.1](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.0...v4.7.1) (2026-11-15)
 
 ### Bug Fixes
