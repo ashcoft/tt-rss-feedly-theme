@@ -1,6 +1,8 @@
 const { test, expect } = require('@playwright/test');
-const { execFileSync } = require('child_process');
-const fs = require('fs');
+const { execFileSync } = require('node:child_process');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 const { isValidSemver, rewriteReadme } = require('../scripts/update-version-refs');
 
@@ -74,5 +76,23 @@ test.describe('README version updater', () => {
 
     expect(status).not.toBe(0);
     expect(fs.readFileSync('README.md', 'utf8')).toBe(before);
+  });
+
+  test('CLI targets the repository README from any working directory', () => {
+    const before = fs.readFileSync('README.md', 'utf8');
+    // Only the CLI argument is absolute; the assertions read README.md by literal
+    // path, so no file path is assembled from a variable.
+    const script = path.resolve('scripts/update-version-refs.js');
+    const current = /Release v([0-9A-Za-z.+-]+)/.exec(before)[1];
+    const next = current === '9.9.9' ? '9.9.8' : '9.9.9';
+
+    try {
+      // Run from an unrelated directory with a different version: the repository
+      // README must actually change, not merely stay unchanged.
+      execFileSync(process.execPath, [script, next], { cwd: os.tmpdir(), stdio: 'pipe' });
+      expect(fs.readFileSync('README.md', 'utf8')).toBe(rewriteReadme(before, next));
+    } finally {
+      fs.writeFileSync('README.md', before, 'utf8');
+    }
   });
 });

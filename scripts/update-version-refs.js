@@ -1,4 +1,5 @@
-const fs = require('fs');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // Validate the version by splitting it into identifiers instead of matching the
 // whole thing in one pattern: a single "X.Y.Z-prerelease+build" pattern needs a
@@ -47,9 +48,12 @@ function rewriteReadme(content, version) {
     .replace(/feedly-theme-[0-9A-Za-z.+-]+\.(zip|tar\.gz)/g, `feedly-theme-${version}.$1`);
 }
 
-// README.md is read and written by literal path, relative to the repository
-// root, which is the working directory for both the release command and tests.
+// README.md is read and written by literal path, so the working directory is
+// first set to the repository root. That keeps a manual run from any directory
+// pointed at the same file.
 function main() {
+  process.chdir(path.join(__dirname, '..'));
+
   // Prefer the version passed by the release tooling (e.g. semantic-release's
   // ${nextRelease.version}) and fall back to package.json when run by hand.
   const version = process.argv[2] ?? require('../package.json').version;
