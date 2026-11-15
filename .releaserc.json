@@ -43,7 +43,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "mkdir -p dist && printf '# Ignore everything in this directory except this file\\n*\\n!.gitignore\\n' > dist/.gitignore && mkdir -p release-assets && cp -a feedly release-assets/ && cp *.css release-assets/ && cp local-overrides.js release-assets/ 2>/dev/null || true && cp README.md CHANGELOG.md LICENSE.txt release-assets/ && printf '{\"name\":\"feedly-theme\",\"version\":\"${nextRelease.version}\",\"description\":\"Feedly theme for Tiny Tiny RSS\",\"main\":\"feedly.css\",\"license\":\"MIT\"}\\n' > release-assets/package.json && cd release-assets && zip -r ../feedly-theme.zip . && tar -czf ../feedly-theme.tar.gz . && mv ../feedly-theme.zip ../feedly-theme-${nextRelease.version}.zip && mv ../feedly-theme.tar.gz ../feedly-theme-${nextRelease.version}.tar.gz"
+        "prepareCmd": "node scripts/update-version-refs.js ${nextRelease.version} && mkdir -p dist && printf '# Ignore everything in this directory except this file\\n*\\n!.gitignore\\n' > dist/.gitignore && mkdir -p release-assets && cp -a feedly release-assets/ && cp *.css release-assets/ && { cp local-overrides.js release-assets/ 2>/dev/null || true; } && cp README.md CHANGELOG.md LICENSE.txt release-assets/ && printf '{\"name\":\"feedly-theme\",\"version\":\"${nextRelease.version}\",\"description\":\"Feedly theme for Tiny Tiny RSS\",\"main\":\"feedly.css\",\"license\":\"MIT\"}\\n' > release-assets/package.json && cd release-assets && zip -r ../feedly-theme.zip . && tar -czf ../feedly-theme.tar.gz . && mv ../feedly-theme.zip ../feedly-theme-${nextRelease.version}.zip && mv ../feedly-theme.tar.gz ../feedly-theme-${nextRelease.version}.tar.gz"
       }
     ],
     [
@@ -59,7 +59,7 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md"],
+        "assets": ["CHANGELOG.md", "README.md"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]

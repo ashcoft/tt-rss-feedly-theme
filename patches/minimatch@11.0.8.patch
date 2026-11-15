@@ -1,0 +1,43 @@
+diff --git a/dist/commonjs/index.js b/dist/commonjs/index.js
+index 26fb55444006d665e6f26c96d7604635405107ce..3b32a70be48bbbe8085fd5123542644ad6390f6f 100644
+--- a/dist/commonjs/index.js
++++ b/dist/commonjs/index.js
+@@ -1850,4 +1850,17 @@ Object.defineProperty(exports, "unescape", { enumerable: true, get: function ()
+ exports.minimatch.Minimatch = Minimatch;
+ exports.minimatch.escape = escape_js_1.escape;
+ exports.minimatch.unescape = unescape_js_1.unescape;
++// Restore the makeRe() helper removed in minimatch 11. Consumers such as nx
++// 24.x still call it and expect a RegExp-like object with a .test() method.
++// Built on the stable public Minimatch API so it survives 11.x internals.
++exports.minimatch.makeRe = function (pattern, options) {
++    try {
++        const mm = new exports.Minimatch(pattern, options);
++        return { test: (s) => mm.match(s) };
++    }
++    catch (_e) {
++        return false;
++    }
++};
++
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index 805b688d43f0cae527cb1101b77bcb5c37378db0..97da423876bbd3a694d889e6575b42855c6a3b1a 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -1839,4 +1839,15 @@ export { unescape } from './unescape.js';
+ minimatch.Minimatch = Minimatch;
+ minimatch.escape = escape;
+ minimatch.unescape = unescape;
++// Restore the makeRe() helper removed in minimatch 11 (see commonjs build).
++minimatch.makeRe = function (pattern, options) {
++    try {
++        const mm = new Minimatch(pattern, options);
++        return { test: (s) => mm.match(s) };
++    }
++    catch (_e) {
++        return false;
++    }
++};
++
+ //# sourceMappingURL=index.js.map
