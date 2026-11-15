@@ -1,8 +1,8 @@
 # Feedly theme for Tiny Tiny RSS
 
-[![Release v4.6.0](https://img.shields.io/badge/Release-v4.6.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.6.0/tt-rss-feedly-theme-4.6.0.zip)
-[![Download TAR.GZ](https://img.shields.io/badge/Download-TAR.GZ-green)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.6.0/tt-rss-feedly-theme-4.6.0.tar.gz)
+[![Release v4.7.0](https://img.shields.io/badge/Release-v4.7.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.0/feedly-theme-4.7.0.zip)
+[![Download TAR.GZ](https://img.shields.io/badge/Download-TAR.GZ-green)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.0/feedly-theme-4.7.0.tar.gz)
 
 This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://tt-rss.org) that provides a Feedly-inspired interface. Enjoy a clean, minimalist design that makes it easy to quickly scan and read your feeds.
 
@@ -11,8 +11,8 @@ For the best experience, please use a current browser.
 ## Quick Start
 
 1. Download the latest release:
-   - [ZIP format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `tt-rss-feedly-theme-{version}.zip`
-   - [TAR.GZ format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `tt-rss-feedly-theme-{version}.tar.gz`
+   - [ZIP format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `feedly-theme-{version}.zip`
+   - [TAR.GZ format](https://github.com/ashcoft/tt-rss-feedly-theme/releases/latest) - `feedly-theme-{version}.tar.gz`
 2. Unzip and copy the extracted files to `[tt-rss-root]/themes.local`
    - `feedly*.css` and the `feedly` directory are needed to get all theme variants
    - `local-overrides.js` is optional, it provides polyfills for Safari and prepares utility views for mobile-friendly styling
@@ -73,7 +73,7 @@ Clone this repo and symlink to your `themes.local` directory. Run `git pull` to 
 Please make sure that you don't have an old copy of this theme in the `themes` directory of your TT-RSS installation. Third-party themes should go into the `themes.local` directory, but files in the `themes` directory will override any file with the same name in the `themes.local` directory.
 
 ### The theme looks broken
-Please make sure to have the most recent version of TT-RSS installed (I test on [TT-RSS git master](https://github.com/tt-rss/tt-rss)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
+Please make sure to have the most recent version of TT-RSS installed (I test on [TT-RSS git master](https://github.com/ashcoft/tt-rss-non-dockerize)). Also, make sure to use a supported browser in the most recent version. If it's still broken, you might have found a bug. Feel free to open an issue or create a PR.
 
 ### Which browsers are supported?
 This theme works best with Chromium-based browsers like Chrome, Brave, Edge, Vivaldi or Opera. Firefox and Safari are also supported but they're missing some minor features. On mobile devices, again, Chromium-based browsers on Android work best but Safari and other browsers on iOS should also work fine.

@@ -178,7 +178,10 @@ overrides:
   shell-quote: '>=1.11.0 <2'
   source-map-js: '>=1.2.2 <2'
   brace-expansion: '>=1.1.21 <6'
-  minimatch@10>brace-expansion: ^5.0.5
+  nx>minimatch: ^11.0.1
+
+patchedDependencies:
+  minimatch@11.0.8: 0f0c69dc96b56fc464d5011263c97070c8493a9e35026916c058bf78bb991441
 
 importers:
 
@@ -345,6 +348,9 @@ packages:
   '@goenning/foreach-cli@1.9.0':
     resolution: {integrity: sha512-amH3sRQD+faN3prHUynZ6jlnX3wStUyPr8pU2piXWxAurXRZVSEWuG+xvPPZ2CCng30vv5zJz7GCKKSCIYdWSQ==}
     hasBin: true
+
+  '@isaacs/nonrecursive-glob-match@1.1.0':
+    resolution: {integrity: sha512-GPm/Dbvk5RLmhRnxXIa7nTpK0xtl4E0wj0MslsuNiJ1FIROU+2+9lgUC/dgF7Ey4QCWhfEsgxilMRMCdHPfDfw==}
 
   '@jest/diff-sequences@30.0.1':
     resolution: {integrity: sha512-n5H8QLDJ47QqbCNn5SuFjCRDrOLEZ0h8vAHCK5RL9Ls7Xa8AQLa/YxAc9UjFqoEDM48muwtBGjtMY5cr0PLDCw==}
@@ -1582,9 +1588,9 @@ packages:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}
     engines: {node: '>=12'}
 
-  minimatch@10.2.5:
-    resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
-    engines: {node: 18 || 20 || >=22}
+  minimatch@11.0.8:
+    resolution: {integrity: sha512-nFQuYSTVrGvysVBps5Ih+0BdnYFN/Cj3C816r6+p7yK+FHrVLGE4O4N9AFwykrlNlvM2HYt+Rad1Uiro6h88Ig==}
+    engines: {node: 20 || >=22}
 
   minimatch@3.1.5:
     resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
@@ -2624,6 +2630,8 @@ snapshots:
       glob: 6.0.4
       node-status: 0.1.7
       yargs: 3.32.0
+
+  '@isaacs/nonrecursive-glob-match@1.1.0': {}
 
   '@jest/diff-sequences@30.0.1': {}
 
@@ -3804,8 +3812,9 @@ snapshots:
 
   mimic-fn@4.0.0: {}
 
-  minimatch@10.2.5:
+  minimatch@11.0.8(patch_hash=0f0c69dc96b56fc464d5011263c97070c8493a9e35026916c058bf78bb991441):
     dependencies:
+      '@isaacs/nonrecursive-glob-match': 1.1.0
       brace-expansion: 5.0.12
 
   minimatch@3.1.5:
@@ -3960,7 +3969,7 @@ snapshots:
       lines-and-columns: 2.0.3
       log-symbols: 4.1.0
       mimic-fn: 2.1.0
-      minimatch: 10.2.5
+      minimatch: 11.0.8(patch_hash=0f0c69dc96b56fc464d5011263c97070c8493a9e35026916c058bf78bb991441)
       minimist: 1.2.8
       npm-run-path: 4.0.1
       once: 1.4.0
