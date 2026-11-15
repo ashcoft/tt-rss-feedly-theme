@@ -2,7 +2,11 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "build": {
-      "cache": true
+      "cache": true,
+      "outputs": ["{projectRoot}/*.css"]
+    },
+    "test": {
+      "dependsOn": ["build"]
     }
   }
 }
