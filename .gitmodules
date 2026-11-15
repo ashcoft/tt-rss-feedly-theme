@@ -1,4 +1,4 @@
 [submodule "tt-rss"]
 	path = tt-rss
-	url = https://github.com/tt-rss/tt-rss.git
+	url = https://github.com/ashcoft/tt-rss-non-dockerize.git
 	branch = main

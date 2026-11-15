@@ -12,7 +12,7 @@ permissions:
   issues: write # required to create the "automated" label if it is missing
 
 env:
-  UPSTREAM_REPO: "https://github.com/tt-rss/tt-rss.git"
+  UPSTREAM_REPO: "https://github.com/ashcoft/tt-rss-non-dockerize.git"
   SUBMODULE_PATH: "tt-rss"
 
 jobs:
