@@ -1,3 +1,9 @@
+## [4.7.0](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.10...v4.7.0) (2026-11-15)
+
+### Features
+
+* add CircleCI configuration pipeline ([b84c059](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b84c05982eb13bd1fe1a925174283d0866640380))
+
 ## [4.6.10](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.9...v4.6.10) (2026-11-04)
 
 ### Bug Fixes
