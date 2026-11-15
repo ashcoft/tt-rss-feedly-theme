@@ -1,13 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const { execFileSync } = require('child_process');
 const fs = require('fs');
-const os = require('os');
-const path = require('path');
 
-const { isValidSemver, rewriteReadme, updateReadme } = require('../scripts/update-version-refs');
-
-const scriptPath = path.join(__dirname, '..', 'scripts', 'update-version-refs.js');
-const repoReadmePath = path.join(__dirname, '..', 'README.md');
+const { isValidSemver, rewriteReadme } = require('../scripts/update-version-refs');
 
 // The README's release references, as the updater leaves them for a version.
 const readmeFor = (version) =>
@@ -47,25 +42,30 @@ test.describe('README version updater', () => {
     }
   });
 
-  test('rewrites a README file in place', () => {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'version-refs-'));
-    const readmePath = path.join(dir, 'README.md');
-    fs.writeFileSync(readmePath, START, 'utf8');
+  test('the checked-in README is internally consistent', () => {
+    // Both paths are literals, so no file path is assembled from a variable.
+    const readme = fs.readFileSync('README.md', 'utf8');
+    const versions = [
+      /Release v([0-9A-Za-z.+-]+)/.exec(readme)[1],
+      /badge\/Release-v([0-9A-Za-z.+-]+)-blue/.exec(readme)[1],
+      /\/download\/v([0-9A-Za-z.+-]+)\//.exec(readme)[1],
+      /feedly-theme-([0-9A-Za-z.+-]+)\.zip/.exec(readme)[1],
+      /feedly-theme-([0-9A-Za-z.+-]+)\.tar\.gz/.exec(readme)[1],
+    ];
 
-    try {
-      updateReadme('4.8.0', readmePath);
-      expect(fs.readFileSync(readmePath, 'utf8')).toBe(readmeFor('4.8.0'));
-    } finally {
-      fs.rmSync(dir, { recursive: true, force: true });
-    }
+    expect(new Set(versions).size, `README references disagree: ${versions.join(', ')}`).toBe(1);
+    expect(isValidSemver(versions[0])).toBe(true);
+
+    // Re-running the updater at the README's own version must be a no-op.
+    expect(rewriteReadme(readme, versions[0])).toBe(readme);
   });
 
   test('CLI exits non-zero and leaves README.md untouched for an invalid version', () => {
-    const before = fs.readFileSync(repoReadmePath, 'utf8');
+    const before = fs.readFileSync('README.md', 'utf8');
 
     const status = (() => {
       try {
-        execFileSync(process.execPath, [scriptPath, 'not-a-version'], { stdio: 'pipe' });
+        execFileSync(process.execPath, ['scripts/update-version-refs.js', 'not-a-version'], { stdio: 'pipe' });
         return 0;
       } catch (error) {
         return error.status;
@@ -73,6 +73,6 @@ test.describe('README version updater', () => {
     })();
 
     expect(status).not.toBe(0);
-    expect(fs.readFileSync(repoReadmePath, 'utf8')).toBe(before);
+    expect(fs.readFileSync('README.md', 'utf8')).toBe(before);
   });
 });

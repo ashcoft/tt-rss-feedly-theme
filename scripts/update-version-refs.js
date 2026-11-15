@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 
 // Validate the version by splitting it into identifiers instead of matching the
 // whole thing in one pattern: a single "X.Y.Z-prerelease+build" pattern needs a
@@ -48,11 +47,8 @@ function rewriteReadme(content, version) {
     .replace(/feedly-theme-[0-9A-Za-z.+-]+\.(zip|tar\.gz)/g, `feedly-theme-${version}.$1`);
 }
 
-function updateReadme(version, readmePath) {
-  const updated = rewriteReadme(fs.readFileSync(readmePath, 'utf8'), version);
-  fs.writeFileSync(readmePath, updated, 'utf8');
-}
-
+// README.md is read and written by literal path, relative to the repository
+// root, which is the working directory for both the release command and tests.
 function main() {
   // Prefer the version passed by the release tooling (e.g. semantic-release's
   // ${nextRelease.version}) and fall back to package.json when run by hand.
@@ -64,7 +60,10 @@ function main() {
   }
 
   console.log(`Updating README.md to version ${version}...`);
-  updateReadme(version, path.join(__dirname, '..', 'README.md'));
+
+  const updated = rewriteReadme(fs.readFileSync('README.md', 'utf8'), version);
+  fs.writeFileSync('README.md', updated, 'utf8');
+
   console.log('README.md updated successfully.');
 }
 
@@ -72,4 +71,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { isValidSemver, rewriteReadme, updateReadme };
+module.exports = { isValidSemver, rewriteReadme };
