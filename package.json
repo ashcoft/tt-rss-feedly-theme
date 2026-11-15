@@ -64,7 +64,8 @@
     "prettier": "^3.0.0",
     "semantic-release": "^25.0.8",
     "stylelint": "^18.0.0",
-    "stylelint-config-property-sort-order-smacss": "^11.0.0"
+    "stylelint-config-property-sort-order-smacss": "^11.0.0",
+    "nx": "24.0.6"
   },
   "overrides": {
     "brace-expansion": ">=1.1.16 <6",
@@ -73,5 +74,6 @@
     "trim-newlines": "^5.0.0",
     "yargs-parser": "^22.0.0",
     "fast-uri": ">=3.1.6 <5"
-  }
+  },
+  "nx": {}
 }
