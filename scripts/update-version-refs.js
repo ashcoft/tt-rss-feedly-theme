@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // Validate the version by splitting it into identifiers instead of matching the
 // whole thing in one pattern: a single "X.Y.Z-prerelease+build" pattern needs a
