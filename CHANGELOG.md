@@ -1,3 +1,11 @@
+## [4.7.1](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.0...v4.7.1) (2026-11-15)
+
+### Bug Fixes
+
+* address review feedback on release command and minimatch pin ([0fb2b37](https://github.com/ashcoft/tt-rss-feedly-theme/commit/0fb2b375caccf4e5bd85a2a0ee64a1c62b2ad925))
+* avoid nested-quantifier regexes in README version updater ([538e3ee](https://github.com/ashcoft/tt-rss-feedly-theme/commit/538e3eeb7f57f6b2697c38d8fbcdcc097b9e00c1))
+* sync README release refs, point submodule at fork, patch minimatch DoS ([2a42de5](https://github.com/ashcoft/tt-rss-feedly-theme/commit/2a42de5d4f7c5c2443e13776ce0b80b917523166))
+
 ## [4.7.0](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.6.10...v4.7.0) (2026-11-15)
 
 ### Features

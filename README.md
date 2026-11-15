@@ -1,8 +1,8 @@
 # Feedly theme for Tiny Tiny RSS
 
-[![Release v4.7.0](https://img.shields.io/badge/Release-v4.7.0-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
-[![Download ZIP](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.0/feedly-theme-4.7.0.zip)
-[![Download TAR.GZ](https://img.shields.io/badge/Download-TAR.GZ-green)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.0/feedly-theme-4.7.0.tar.gz)
+[![Release v4.7.1](https://img.shields.io/badge/Release-v4.7.1-blue)](https://github.com/ashcoft/tt-rss-feedly-theme/releases)
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-orange)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.1/feedly-theme-4.7.1.zip)
+[![Download TAR.GZ](https://img.shields.io/badge/Download-TAR.GZ-green)](https://github.com/ashcoft/tt-rss-feedly-theme/releases/download/v4.7.1/feedly-theme-4.7.1.tar.gz)
 
 This is a theme for the popular self-hosted RSS reader [Tiny Tiny RSS](https://tt-rss.org) that provides a Feedly-inspired interface. Enjoy a clean, minimalist design that makes it easy to quickly scan and read your feeds.
 
