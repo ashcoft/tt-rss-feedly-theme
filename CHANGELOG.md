@@ -1,3 +1,10 @@
+## [4.7.3](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.2...v4.7.3) (2026-11-15)
+
+### Bug Fixes
+
+* change to the repository root instead of using a variable path ([cccab14](https://github.com/ashcoft/tt-rss-feedly-theme/commit/cccab14f321397fe9b6b58aa347d26d790462fbf))
+* resolve README path from __dirname ([c869045](https://github.com/ashcoft/tt-rss-feedly-theme/commit/c86904519b1635a621c799a2d1b98ba120b11a58))
+
 ## [4.7.2](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.1...v4.7.2) (2026-11-15)
 
 ### Bug Fixes
