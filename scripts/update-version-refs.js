@@ -1,12 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const readmePath = path.join(__dirname, '..', 'README.md');
-
-// Prefer the version passed by the release tooling (e.g. semantic-release's
-// ${nextRelease.version}) and fall back to package.json when run by hand.
-const version = process.argv[2] ?? require('../package.json').version;
-
 // Validate the version by splitting it into identifiers instead of matching the
 // whole thing in one pattern: a single "X.Y.Z-prerelease+build" pattern needs a
 // nested quantifier, which static analysis flags as a potential ReDoS, and a
@@ -38,31 +32,44 @@ function isValidSemver(value) {
   return build === null || (build.length > 0 && build.split('.').every(isIdentifier));
 }
 
-if (!isValidSemver(version)) {
-  console.error(`Refusing to update README with a non-semver version: ${version}`);
-  process.exit(1);
-}
-
-console.log(`Updating README.md to version ${version}...`);
-
-let readmeContent = fs.readFileSync(readmePath, 'utf8');
-
 // Each pattern matches the complete previous version, prerelease suffix
 // included, so a run after a prerelease release moves every reference forward.
 // The character class is greedy and stops at the literal delimiter that follows
 // it, so no backtracking-prone nested quantifier is needed.
+function rewriteReadme(content, version) {
+  return content
+    // Release badge text: "Release vX.Y.Z"
+    .replace(/Release v[0-9A-Za-z.+-]+/g, `Release v${version}`)
+    // shields.io badge URL: "Release-vX.Y.Z-blue"
+    .replace(/Release-v[0-9A-Za-z.+-]+-blue/g, `Release-v${version}-blue`)
+    // Download link directories: "/download/vX.Y.Z/"
+    .replace(/\/download\/v[0-9A-Za-z.+-]+\//g, `/download/v${version}/`)
+    // Release archive names: "feedly-theme-X.Y.Z.zip" / ".tar.gz"
+    .replace(/feedly-theme-[0-9A-Za-z.+-]+\.(zip|tar\.gz)/g, `feedly-theme-${version}.$1`);
+}
 
-// Release badge text: "Release vX.Y.Z"
-readmeContent = readmeContent.replace(/Release v[0-9A-Za-z.+-]+/g, `Release v${version}`);
+function updateReadme(version, readmePath) {
+  const updated = rewriteReadme(fs.readFileSync(readmePath, 'utf8'), version);
+  fs.writeFileSync(readmePath, updated, 'utf8');
+}
 
-// shields.io badge URL: "Release-vX.Y.Z-blue"
-readmeContent = readmeContent.replace(/Release-v[0-9A-Za-z.+-]+-blue/g, `Release-v${version}-blue`);
+function main() {
+  // Prefer the version passed by the release tooling (e.g. semantic-release's
+  // ${nextRelease.version}) and fall back to package.json when run by hand.
+  const version = process.argv[2] ?? require('../package.json').version;
 
-// Download link directories: "/download/vX.Y.Z/"
-readmeContent = readmeContent.replace(/\/download\/v[0-9A-Za-z.+-]+\//g, `/download/v${version}/`);
+  if (!isValidSemver(version)) {
+    console.error(`Refusing to update README with a non-semver version: ${version}`);
+    process.exit(1);
+  }
 
-// Release archive names: "feedly-theme-X.Y.Z.zip" / ".tar.gz"
-readmeContent = readmeContent.replace(/feedly-theme-[0-9A-Za-z.+-]+\.(zip|tar\.gz)/g, `feedly-theme-${version}.$1`);
+  console.log(`Updating README.md to version ${version}...`);
+  updateReadme(version, path.join(__dirname, '..', 'README.md'));
+  console.log('README.md updated successfully.');
+}
 
-fs.writeFileSync(readmePath, readmeContent, 'utf8');
-console.log('README.md updated successfully.');
+if (require.main === module) {
+  main();
+}
+
+module.exports = { isValidSemver, rewriteReadme, updateReadme };
