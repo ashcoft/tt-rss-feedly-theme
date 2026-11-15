@@ -69,6 +69,11 @@ CSS files are included in the release archives. Download from the [releases page
 ### How do I stay up-to-date?
 Clone this repo and symlink to your `themes.local` directory. Run `git pull` to update.
 
+If you have an existing checkout that predates the switch to the
+[`tt-rss-non-dockerize`](https://github.com/ashcoft/tt-rss-non-dockerize) submodule
+remote, run `git submodule sync -- tt-rss` once before `git submodule update --init`.
+Without it, your clone keeps the old remote URL and fetches from the previous repository.
+
 ### I followed the installation steps but I don't get all the new features
 Please make sure that you don't have an old copy of this theme in the `themes` directory of your TT-RSS installation. Third-party themes should go into the `themes.local` directory, but files in the `themes` directory will override any file with the same name in the `themes.local` directory.
 
