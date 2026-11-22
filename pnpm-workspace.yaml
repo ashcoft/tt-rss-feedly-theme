@@ -19,4 +19,4 @@ minimumReleaseAgeExclude:
 allowBuilds:
   nx: true
 patchedDependencies:
-  minimatch@11.0.8: patches/minimatch@11.0.8.patch
+  minimatch@11.0.9: patches/minimatch@11.0.9.patch
