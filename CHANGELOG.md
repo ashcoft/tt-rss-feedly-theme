@@ -1,3 +1,9 @@
+## [4.7.4](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.3...v4.7.4) (2026-11-22)
+
+### Bug Fixes
+
+* update minimatch patch for 11.0.9 ([b6308a6](https://github.com/ashcoft/tt-rss-feedly-theme/commit/b6308a626b7081d4f1118cceaada892158e4af86))
+
 ## [4.7.3](https://github.com/ashcoft/tt-rss-feedly-theme/compare/v4.7.2...v4.7.3) (2026-11-15)
 
 ### Bug Fixes
